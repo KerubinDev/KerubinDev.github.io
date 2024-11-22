@@ -1,1 +1,186 @@
-teste
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Kelvin Moraes</title>
+    <style>
+        /* Variáveis de cores */
+        :root {
+            --cor-primaria: #2c3e50;
+            --cor-secundaria: #3498db;
+            --cor-texto: #333;
+            --cor-fundo: #f5f6fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: var(--cor-primaria);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .perfil-info {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Seções principais */
+        section {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .habilidades {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .habilidade-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Experiência e Formação */
+        .timeline {
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: var(--cor-secundaria);
+            margin-bottom: 1rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            section {
+                padding: 1rem;
+            }
+        }
+
+        .projeto-link {
+            color: var(--cor-secundaria);
+            text-decoration: none;
+        }
+
+        .projeto-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="perfil-info">
+            <h1>Kelvin Moraes</h1>
+            <p>Desenvolvedor Full Stack</p>
+            <div class="contato">
+                <p>📧 kelvin.moraes117@gmail.com</p>
+                <p>📱 (51) 99998-0670</p>
+                <p>🔗 <a href="https://linkedin.com/in/kelvin-moraes" 
+                    style="color: white;">LinkedIn</a></p>
+                <p>💻 <a href="https://github.com/KerubinDev" 
+                    style="color: white;">GitHub</a></p>
+            </div>
+        </div>
+    </header>
+
+    <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <p>Desenvolvedor Full Stack apaixonado por tecnologia, com foco em criar 
+           soluções inovadoras e eficientes. Experiência com diversas linguagens 
+           de programação e frameworks modernos.</p>
+    </section>
+
+    <section id="habilidades">
+        <h2>Habilidades Técnicas</h2>
+        <div class="habilidades">
+            <div class="habilidade-item">HTML/CSS</div>
+            <div class="habilidade-item">JavaScript</div>
+            <div class="habilidade-item">Python</div>
+            <div class="habilidade-item">C#</div>
+            <div class="habilidade-item">MySQL</div>
+            <div class="habilidade-item">Git/GitHub</div>
+            <div class="habilidade-item">React</div>
+            <div class="habilidade-item">Node.js</div>
+        </div>
+    </section>
+
+    <section id="projetos">
+        <h2>Projetos</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Projeto 1</h3>
+                <p>Descrição do projeto e tecnologias utilizadas</p>
+                <a href="#" class="projeto-link">Ver no GitHub</a>
+            </div>
+            <div class="timeline-item">
+                <h3>Projeto 2</h3>
+                <p>Descrição do projeto e tecnologias utilizadas</p>
+                <a href="#" class="projeto-link">Ver no GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="formacao">
+        <h2>Formação</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>SENAC NH</h3>
+                <p>Técnico em Desenvolvimento de Sistemas (Em andamento)</p>
+                <ul>
+                    <li>Desenvolvimento Web Full Stack</li>
+                    <li>Banco de Dados</li>
+                    <li>Programação Orientada a Objetos</li>
+                    <li>Desenvolvimento Ágil</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificados">
+        <h2>Certificados e Conquistas</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Aluno do Ano - Escola E-pro</h3>
+                <p>98% de acerto em provas e trabalhos</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Funcionário mirim do ano</h3>
+                <p>Destaque entre os funcionários na escola e-pro</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Teatro</h3>
+                <p>2 anos de experiência como ator, interpretando papéis como Romeu, 
+                   Rei Arthur e outros</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
