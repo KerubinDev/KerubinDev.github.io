@@ -239,6 +239,78 @@
             position: relative;
             z-index: 2;
         }
+
+        /* Estilos para a seção de contato */
+        .contato {
+            padding: 100px 2rem;
+            background: linear-gradient(
+                to bottom,
+                var(--cor-primaria),
+                rgba(10, 25, 47, 0.95)
+            );
+        }
+
+        .contato-titulo {
+            font-size: 2.5rem;
+            color: var(--cor-texto);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .contato-titulo::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--cor-secundaria);
+            border-radius: 2px;
+        }
+
+        .contato-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contato-descricao {
+            font-size: 1.2rem;
+            color: var(--cor-texto-secundario);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .contato-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border: 1px solid var(--cor-secundaria);
+            border-radius: 8px;
+            color: var(--cor-secundaria);
+            text-decoration: none;
+            font-family: var(--fonte-codigo);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(100, 255, 218, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .social-link i {
+            font-size: 1.2rem;
+        }
     </style>
 </head>
 <body>
@@ -261,13 +333,13 @@
         <section class="projetos" id="projetos">
             <h2 class="projetos-titulo">Projetos em Destaque</h2>
             <div class="projetos-grid">
+                <!-- Kerubin AI -->
                 <article class="projeto-card">
-                    <img src="caminho/para/imagem-projeto.jpg" alt="Kerubin AI" 
-                         class="projeto-imagem">
+                    <img src="assets/kerubin-ai.jpg" alt="Kerubin AI" class="projeto-imagem">
                     <h3 class="projeto-titulo">Kerubin AI</h3>
                     <p class="projeto-descricao">
-                        Sistema inteligente de gestão escolar com IA integrada para 
-                        otimização de processos educacionais.
+                        Assistente virtual inteligente com integração de IA para 
+                        automação de tarefas e análise de dados educacionais.
                     </p>
                     <div class="projeto-tech">
                         <span class="tech-tag">Python</span>
@@ -276,15 +348,95 @@
                         <span class="tech-tag">Node.js</span>
                     </div>
                     <div class="projeto-links">
-                        <a href="#" class="projeto-link">
+                        <a href="https://github.com/KerubinDev/Kerubin_AI" 
+                           class="projeto-link" target="_blank">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="#" class="projeto-link">
+                        <a href="#" class="projeto-link" target="_blank">
                             <i class="fas fa-external-link-alt"></i>
                         </a>
                     </div>
                 </article>
-                <!-- Adicione mais cards de projeto seguindo o mesmo padrão -->
+
+                <!-- Sistema de Gerenciamento Escolar -->
+                <article class="projeto-card">
+                    <img src="assets/school-management.jpg" alt="Gerenciamento Escolar" 
+                         class="projeto-imagem">
+                    <h3 class="projeto-titulo">Sistema de Gestão Escolar</h3>
+                    <p class="projeto-descricao">
+                        Plataforma completa para gestão escolar com recursos de 
+                        administração, notas e comunicação.
+                    </p>
+                    <div class="projeto-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                    </div>
+                    <div class="projeto-links">
+                        <a href="https://github.com/gdbarros94/gerenciamento-Escolar" 
+                           class="projeto-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="projeto-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Python Kanban -->
+                <article class="projeto-card">
+                    <img src="assets/kanban.jpg" alt="Python Kanban" class="projeto-imagem">
+                    <h3 class="projeto-titulo">Python Kanban</h3>
+                    <p class="projeto-descricao">
+                        Sistema Kanban desenvolvido em Python para gestão ágil de projetos 
+                        e tarefas.
+                    </p>
+                    <div class="projeto-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">SQLite</span>
+                        <span class="tech-tag">PyQt</span>
+                    </div>
+                    <div class="projeto-links">
+                        <a href="https://github.com/FloatingOctothorpe/python-kanban" 
+                           class="projeto-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="projeto-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Nova Seção de Contato -->
+        <section class="contato" id="contato">
+            <h2 class="contato-titulo">Vamos Conversar?</h2>
+            <div class="contato-container">
+                <div class="contato-info">
+                    <p class="contato-descricao">
+                        Estou sempre interessado em novos projetos e oportunidades de 
+                        colaboração. Sinta-se à vontade para entrar em contato!
+                    </p>
+                    <div class="contato-links">
+                        <a href="https://www.linkedin.com/in/kelvin-moraes-a8a8452ba" 
+                           class="social-link linkedin" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://x.com/KERUBIN_m?s=09" 
+                           class="social-link twitter" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="mailto:kelvin.moraes117@gmail.com" 
+                           class="social-link email">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
