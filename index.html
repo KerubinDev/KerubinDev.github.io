@@ -180,6 +180,109 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Adicionando novos estilos para a seção de projetos */
+        .projetos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+
+        .projeto-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+
+        .projeto-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .projeto-imagem {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .projeto-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .projeto-card:hover .projeto-imagem img {
+            transform: scale(1.1);
+        }
+
+        .projeto-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(
+                to top,
+                rgba(10, 25, 47, 0.95),
+                transparent
+            );
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+        }
+
+        .projeto-card:hover .projeto-overlay {
+            transform: translateY(0);
+        }
+
+        .projeto-tecnologias {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tech-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            background: var(--cor-secundaria);
+            color: var(--cor-primaria);
+            font-size: 0.8rem;
+            font-family: var(--fonte-codigo);
+        }
+
+        /* Animação de entrada para os projetos */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .projeto-card {
+            animation: slideUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .projeto-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .projeto-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .projeto-card:nth-child(4) {
+            animation-delay: 0.6s;
+        }
     </style>
 </head>
 <body>
@@ -245,30 +348,26 @@
             </div>
         </section>
 
-        <section id="projetos">
-            <h2>Projetos em Destaque</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3 class="project-title">Kerubin AI</h3>
-                        <p>Sistema de Gerenciamento Escolar com IA</p>
-                        <div class="tech-list">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">AI</span>
+        <section id="projetos" class="section-projetos">
+            <h2 class="titulo-secao" data-aos="fade-up">Projetos em Destaque</h2>
+            <div class="projetos-grid">
+                <article class="projeto-card">
+                    <div class="projeto-imagem">
+                        <img src="path/to/project1.jpg" alt="Projeto 1">
+                        <div class="projeto-overlay">
+                            <h3>Sistema de Gerenciamento</h3>
+                            <p>Aplicação web completa para gerenciamento de tarefas 
+                               e projetos com interface moderna e intuitiva.</p>
+                            <div class="projeto-tecnologias">
+                                <span class="tech-badge">C#</span>
+                                <span class="tech-badge">MySQL</span>
+                                <span class="tech-badge">React</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3 class="project-title">Kanban</h3>
-                        <p>Sistema de Gerenciamento de Projetos</p>
-                        <div class="tech-list">
-                            <span class="tech-badge">JavaScript</span>
-                            <span class="tech-badge">Node.js</span>
-                        </div>
-                    </div>
-                </div>
+                </article>
+                
+                // ... mais projetos seguindo o mesmo padrão ...
             </div>
         </section>
 
