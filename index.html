@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelvin Moraes | Desenvolvedor Full Stack</title>
+    <title>Kerubin | Desenvolvedor Full Stack</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --cor-primaria: #0a192f;
             --cor-secundaria: #64ffda;
+            --cor-destaque: #F7DF1E;
             --cor-texto: #ccd6f6;
             --cor-texto-secundario: #8892b0;
             --fonte-principal: 'Calibre', sans-serif;
@@ -139,6 +140,93 @@
             position: relative;
             z-index: 2;
         }
+
+        /* Novo estilo para cards de tecnologia */
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .tech-category {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .tech-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .tech-category h3 {
+            color: var(--cor-secundaria);
+            margin-bottom: 1rem;
+            font-family: var(--fonte-codigo);
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-family: var(--fonte-codigo);
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--cor-secundaria);
+        }
+
+        /* Estilo para projetos */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .project-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            color: var(--cor-secundaria);
+            margin-bottom: 1rem;
+        }
+
+        /* Animação de typing */
+        .typing-effect {
+            border-right: 3px solid var(--cor-secundaria);
+            animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: var(--cor-secundaria) }
+        }
     </style>
 </head>
 <body>
@@ -147,21 +235,89 @@
     <main class="content">
         <section class="hero">
             <div class="hero-content">
-                <p class="hero-subtitle">Olá, meu nome é</p>
+                <p class="hero-subtitle typing-effect">Olá, meu nome é</p>
                 <h1>Kelvin Moraes.</h1>
-                <h2>Eu construo experiências digitais.</h2>
-                <p>Sou um desenvolvedor full stack especializado em criar 
-                   soluções digitais excepcionais. Atualmente, estou focado 
-                   em construir aplicações web escaláveis e acessíveis.</p>
-                <a href="#projetos" class="btn">Ver Projetos</a>
-                <a href="#contato" class="btn">Entrar em Contato</a>
+                <h2>Desenvolvedor Full Stack & Game Dev</h2>
+                <p>Desenvolvedor apaixonado, constantemente evoluindo e 
+                   ultrapassando limites em código, design e criatividade. 
+                   Atualmente estudante de Desenvolvimento de Sistemas no Senac.</p>
+                <div class="cta-buttons">
+                    <a href="#projetos" class="btn">Ver Projetos</a>
+                    <a href="https://github.com/KerubinDev" class="btn">GitHub</a>
+                </div>
             </div>
         </section>
 
-        <!-- Adicione as outras seções aqui -->
+        <section id="tech-stack">
+            <h2>Tecnologias</h2>
+            <div class="tech-stack">
+                <div class="tech-category">
+                    <h3>Front-end</h3>
+                    <div class="tech-list">
+                        <span class="tech-badge">HTML5</span>
+                        <span class="tech-badge">CSS3</span>
+                        <span class="tech-badge">JavaScript</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>Back-end</h3>
+                    <div class="tech-list">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Node.js</span>
+                        <span class="tech-badge">SQL</span>
+                    </div>
+                </div>
+
+                <div class="tech-category">
+                    <h3>Game Dev</h3>
+                    <div class="tech-list">
+                        <span class="tech-badge">C++</span>
+                        <span class="tech-badge">GML</span>
+                        <span class="tech-badge">GameMaker</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projetos">
+            <h2>Projetos em Destaque</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Kerubin AI</h3>
+                        <p>Sistema de Gerenciamento Escolar com IA</p>
+                        <div class="tech-list">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">AI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Kanban</h3>
+                        <p>Sistema de Gerenciamento de Projetos</p>
+                        <div class="tech-list">
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="github-stats">
+            <h2>GitHub Analytics</h2>
+            <div class="stats-grid">
+                <img src="https://github-readme-stats.vercel.app/api?username=KerubinDev&show_icons=true&theme=radical&hide_border=true" 
+                     alt="GitHub Stats">
+                <img src="https://github-readme-streak-stats.herokuapp.com/?user=KerubinDev&theme=radical&hide_border=true" 
+                     alt="GitHub Streak">
+            </div>
+        </section>
     </main>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         particlesJS('particles-js',
