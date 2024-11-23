@@ -3,263 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kerubin | Desenvolvedor Full Stack</title>
+    <title>Kelvin Moraes | Desenvolvedor Full Stack</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
         :root {
             --cor-primaria: #0a192f;
             --cor-secundaria: #64ffda;
-            --cor-destaque: #F7DF1E;
             --cor-texto: #ccd6f6;
             --cor-texto-secundario: #8892b0;
             --fonte-principal: 'Calibre', sans-serif;
             --fonte-codigo: 'SF Mono', monospace;
-            --gradiente-neon: linear-gradient(45deg, #64ffda, #00ff88, #64ffda);
         }
 
-        /* Scrollbar personalizada */
-        ::-webkit-scrollbar {
-            width: 8px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
-        ::-webkit-scrollbar-track {
-            background: var(--cor-primaria);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--cor-secundaria);
-            border-radius: 4px;
-        }
-
-        /* Efeito de glassmorphism */
-        .glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Navbar flutuante */
-        .navbar {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            z-index: 1000;
-            display: flex;
-            gap: 2rem;
-            animation: floatIn 1s ease;
-        }
-
-        .navbar a {
+        body {
+            background-color: var(--cor-primaria);
             color: var(--cor-texto);
-            text-decoration: none;
-            font-family: var(--fonte-codigo);
-            font-size: 0.9rem;
-            position: relative;
+            font-family: var(--fonte-principal);
+            line-height: 1.6;
         }
 
-        .navbar a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: var(--gradiente-neon);
-            transition: width 0.3s ease;
-        }
-
-        .navbar a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section com efeito parallax */
-        .hero {
-            height: 100vh;
-            perspective: 1000px;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            transform-style: preserve-3d;
-            transform: translateZ(-50px);
-        }
-
-        .hero h1 {
-            font-size: 8rem;
-            background: var(--gradiente-neon);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientFlow 8s linear infinite;
-        }
-
-        /* Cards de projeto com efeito 3D */
-        .project-card {
-            transform-style: preserve-3d;
-            transition: transform 0.5s ease;
-        }
-
-        .project-card:hover {
-            transform: rotateY(10deg) rotateX(5deg);
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            background: var(--gradiente-neon);
-            border-radius: 12px;
-            filter: blur(5px);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
-        }
-
-        /* Animações avançadas */
-        @keyframes gradientFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        @keyframes floatIn {
+        /* Animação de entrada */
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translate(-50%, -20px);
-            }
-            to {
-                opacity: 1;
-                transform: translate(-50%, 0);
-            }
-        }
-
-        /* Efeito de cursor personalizado */
-        .custom-cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--cor-secundaria);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s ease;
-        }
-
-        /* Tech stack com efeito de hover 3D */
-        .tech-stack {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            perspective: 1000px;
-        }
-
-        .tech-category {
-            transform-style: preserve-3d;
-            transition: transform 0.5s ease;
-        }
-
-        .tech-category:hover {
-            transform: rotateY(10deg) translateZ(20px);
-        }
-
-        /* Efeito de scroll reveal */
-        [data-aos] {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        [data-aos].aos-animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Adicionando novos estilos para a seção de projetos */
-        .projetos-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            padding: 4rem 0;
-        }
-
-        .projeto-card {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            transition: all 0.5s ease;
-            cursor: pointer;
-        }
-
-        .projeto-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .projeto-imagem {
-            position: relative;
-            overflow: hidden;
-            height: 300px;
-        }
-
-        .projeto-imagem img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .projeto-card:hover .projeto-imagem img {
-            transform: scale(1.1);
-        }
-
-        .projeto-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(
-                to top,
-                rgba(10, 25, 47, 0.95),
-                transparent
-            );
-            padding: 2rem;
-            transform: translateY(100%);
-            transition: transform 0.5s ease;
-        }
-
-        .projeto-card:hover .projeto-overlay {
-            transform: translateY(0);
-        }
-
-        .projeto-tecnologias {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .tech-badge {
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            background: var(--cor-secundaria);
-            color: var(--cor-primaria);
-            font-size: 0.8rem;
-            font-family: var(--fonte-codigo);
-        }
-
-        /* Animação de entrada para os projetos */
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -267,152 +41,262 @@
             }
         }
 
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: left;
+            max-width: 1000px;
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            color: var(--cor-secundaria);
+            font-family: var(--fonte-codigo);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            color: var(--cor-texto-secundario);
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--cor-texto-secundario);
+            max-width: 540px;
+            margin-bottom: 2rem;
+        }
+
+        /* Projetos */
+        .projetos {
+            padding: 100px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .projetos-titulo {
+            font-size: 2.5rem;
+            color: var(--cor-texto);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .projetos-titulo::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--cor-secundaria);
+            border-radius: 2px;
+        }
+
+        .projetos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            perspective: 1000px;
+        }
+
         .projeto-card {
-            animation: slideUp 0.8s ease forwards;
-            opacity: 0;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
         }
 
-        .projeto-card:nth-child(2) {
-            animation-delay: 0.2s;
+        .projeto-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(100, 255, 218, 0.1),
+                transparent
+            );
+            transition: 0.5s;
         }
 
-        .projeto-card:nth-child(3) {
-            animation-delay: 0.4s;
+        .projeto-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+            border-color: var(--cor-secundaria);
         }
 
-        .projeto-card:nth-child(4) {
-            animation-delay: 0.6s;
+        .projeto-card:hover::before {
+            left: 100%;
+        }
+
+        .projeto-imagem {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        .projeto-titulo {
+            font-size: 1.5rem;
+            color: var(--cor-texto);
+            margin-bottom: 1rem;
+        }
+
+        .projeto-descricao {
+            color: var(--cor-texto-secundario);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .projeto-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            font-family: var(--fonte-codigo);
+            font-size: 0.8rem;
+            color: var(--cor-secundaria);
+            padding: 0.3rem 0.8rem;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .projeto-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .projeto-link {
+            color: var(--cor-secundaria);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .projeto-link:hover {
+            transform: translateY(-3px);
+            color: var(--cor-texto);
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: 1px solid var(--cor-secundaria);
+            color: var(--cor-secundaria);
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: var(--fonte-codigo);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+        }
+
+        .btn:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        /* Partículas de fundo */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
         }
     </style>
 </head>
 <body>
-    <!-- Cursor personalizado -->
-    <div class="custom-cursor"></div>
-
-    <!-- Navbar flutuante -->
-    <nav class="navbar glass">
-        <a href="#home">Home</a>
-        <a href="#about">Sobre</a>
-        <a href="#projects">Projetos</a>
-        <a href="#contact">Contato</a>
-    </nav>
-
-    <!-- Resto do conteúdo com data-aos -->
     <div id="particles-js"></div>
     
     <main class="content">
         <section class="hero">
             <div class="hero-content">
-                <p class="hero-subtitle typing-effect">Olá, meu nome é</p>
+                <p class="hero-subtitle">Olá, meu nome é</p>
                 <h1>Kelvin Moraes.</h1>
-                <h2>Desenvolvedor Full Stack & Game Dev</h2>
-                <p>Desenvolvedor apaixonado, constantemente evoluindo e 
-                   ultrapassando limites em código, design e criatividade. 
-                   Atualmente estudante de Desenvolvimento de Sistemas no Senac.</p>
-                <div class="cta-buttons">
-                    <a href="#projetos" class="btn">Ver Projetos</a>
-                    <a href="https://github.com/KerubinDev" class="btn">GitHub</a>
-                </div>
+                <h2>Eu construo experiências digitais.</h2>
+                <p>Sou um desenvolvedor full stack especializado em criar 
+                   soluções digitais excepcionais. Atualmente, estou focado 
+                   em construir aplicações web escaláveis e acessíveis.</p>
+                <a href="#projetos" class="btn">Ver Projetos</a>
+                <a href="#contato" class="btn">Entrar em Contato</a>
             </div>
         </section>
 
-        <section id="tech-stack">
-            <h2>Tecnologias</h2>
-            <div class="tech-stack">
-                <div class="tech-category">
-                    <h3>Front-end</h3>
-                    <div class="tech-list">
-                        <span class="tech-badge">HTML5</span>
-                        <span class="tech-badge">CSS3</span>
-                        <span class="tech-badge">JavaScript</span>
-                    </div>
-                </div>
-                
-                <div class="tech-category">
-                    <h3>Back-end</h3>
-                    <div class="tech-list">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">Node.js</span>
-                        <span class="tech-badge">SQL</span>
-                    </div>
-                </div>
-
-                <div class="tech-category">
-                    <h3>Game Dev</h3>
-                    <div class="tech-list">
-                        <span class="tech-badge">C++</span>
-                        <span class="tech-badge">GML</span>
-                        <span class="tech-badge">GameMaker</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projetos" class="section-projetos">
-            <h2 class="titulo-secao" data-aos="fade-up">Projetos em Destaque</h2>
+        <section class="projetos" id="projetos">
+            <h2 class="projetos-titulo">Projetos em Destaque</h2>
             <div class="projetos-grid">
                 <article class="projeto-card">
-                    <div class="projeto-imagem">
-                        <img src="path/to/project1.jpg" alt="Projeto 1">
-                        <div class="projeto-overlay">
-                            <h3>Sistema de Gerenciamento</h3>
-                            <p>Aplicação web completa para gerenciamento de tarefas 
-                               e projetos com interface moderna e intuitiva.</p>
-                            <div class="projeto-tecnologias">
-                                <span class="tech-badge">C#</span>
-                                <span class="tech-badge">MySQL</span>
-                                <span class="tech-badge">React</span>
-                            </div>
-                        </div>
+                    <img src="caminho/para/imagem-projeto.jpg" alt="Kerubin AI" 
+                         class="projeto-imagem">
+                    <h3 class="projeto-titulo">Kerubin AI</h3>
+                    <p class="projeto-descricao">
+                        Sistema inteligente de gestão escolar com IA integrada para 
+                        otimização de processos educacionais.
+                    </p>
+                    <div class="projeto-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                    </div>
+                    <div class="projeto-links">
+                        <a href="#" class="projeto-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="projeto-link">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
                     </div>
                 </article>
-                
-                // ... mais projetos seguindo o mesmo padrão ...
-            </div>
-        </section>
-
-        <section id="github-stats">
-            <h2>GitHub Analytics</h2>
-            <div class="stats-grid">
-                <img src="https://github-readme-stats.vercel.app/api?username=KerubinDev&show_icons=true&theme=radical&hide_border=true" 
-                     alt="GitHub Stats">
-                <img src="https://github-readme-streak-stats.herokuapp.com/?user=KerubinDev&theme=radical&hide_border=true" 
-                     alt="GitHub Streak">
+                <!-- Adicione mais cards de projeto seguindo o mesmo padrão -->
             </div>
         </section>
     </main>
 
     <!-- Scripts -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Inicialização do AOS
-        AOS.init({
-            duration: 800,
-            once: true
-        });
-
-        // Cursor personalizado
-        document.addEventListener('mousemove', (e) => {
-            const cursor = document.querySelector('.custom-cursor');
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        // Efeito parallax no hero
-        document.addEventListener('mousemove', (e) => {
-            const hero = document.querySelector('.hero-content');
-            const x = (window.innerWidth - e.pageX) / 100;
-            const y = (window.innerHeight - e.pageY) / 100;
-            hero.style.transform = `translateZ(-50px) rotateY(${x}deg) rotateX(${y}deg)`;
-        });
-
-        // Configuração do particles.js
         particlesJS('particles-js',
         {
             "particles": {
                 "number": {
-                    "value": 100,
+                    "value": 80,
                     "density": {
                         "enable": true,
                         "value_area": 800
@@ -426,7 +310,7 @@
                 },
                 "opacity": {
                     "value": 0.5,
-                    "random": true
+                    "random": false
                 },
                 "size": {
                     "value": 3,
@@ -441,9 +325,9 @@
                 },
                 "move": {
                     "enable": true,
-                    "speed": 3,
+                    "speed": 6,
                     "direction": "none",
-                    "random": true,
+                    "random": false,
                     "straight": false,
                     "out_mode": "out",
                     "bounce": false
