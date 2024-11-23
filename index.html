@@ -3,182 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelvin Moraes - Desenvolvedor</title>
+    <title>Kelvin Moraes | Desenvolvedor Full Stack</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Variáveis de cores */
         :root {
-            --cor-primaria: #2c3e50;
-            --cor-secundaria: #3498db;
-            --cor-texto: #333;
-            --cor-fundo: #f5f6fa;
+            --cor-primaria: #0a192f;
+            --cor-secundaria: #64ffda;
+            --cor-texto: #ccd6f6;
+            --cor-texto-secundario: #8892b0;
+            --fonte-principal: 'Calibre', sans-serif;
+            --fonte-codigo: 'SF Mono', monospace;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--cor-fundo);
+            background-color: var(--cor-primaria);
             color: var(--cor-texto);
+            font-family: var(--fonte-principal);
             line-height: 1.6;
         }
 
-        /* Cabeçalho */
-        header {
-            background-color: var(--cor-primaria);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .perfil-info {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Seções principais */
-        section {
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .habilidades {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .habilidade-item {
-            background: white;
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        /* Experiência e Formação */
-        .timeline {
-            margin: 2rem 0;
-        }
-
-        .timeline-item {
-            background: white;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        h2 {
-            color: var(--cor-secundaria);
-            margin-bottom: 1rem;
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            section {
-                padding: 1rem;
+        /* Animação de entrada */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        .projeto-link {
-            color: var(--cor-secundaria);
-            text-decoration: none;
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .projeto-link:hover {
-            text-decoration: underline;
+        .hero-content {
+            text-align: left;
+            max-width: 1000px;
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            color: var(--cor-secundaria);
+            font-family: var(--fonte-codigo);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            color: var(--cor-texto-secundario);
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--cor-texto-secundario);
+            max-width: 540px;
+            margin-bottom: 2rem;
+        }
+
+        /* Projetos */
+        .projetos {
+            padding: 100px 0;
+        }
+
+        .projeto-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projeto-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .projeto-tech {
+            font-family: var(--fonte-codigo);
+            font-size: 0.9rem;
+            color: var(--cor-secundaria);
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: 1px solid var(--cor-secundaria);
+            color: var(--cor-secundaria);
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: var(--fonte-codigo);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+        }
+
+        .btn:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        /* Partículas de fundo */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="perfil-info">
-            <h1>Kelvin Moraes</h1>
-            <p>Desenvolvedor Full Stack</p>
-            <div class="contato">
-                <p>📧 kelvin.moraes117@gmail.com</p>
-                <p>📱 (51) 99998-0670</p>
-                <p>🔗 <a href="https://linkedin.com/in/kelvin-moraes" 
-                    style="color: white;">LinkedIn</a></p>
-                <p>💻 <a href="https://github.com/KerubinDev" 
-                    style="color: white;">GitHub</a></p>
+    <div id="particles-js"></div>
+    
+    <main class="content">
+        <section class="hero">
+            <div class="hero-content">
+                <p class="hero-subtitle">Olá, meu nome é</p>
+                <h1>Kelvin Moraes.</h1>
+                <h2>Eu construo experiências digitais.</h2>
+                <p>Sou um desenvolvedor full stack especializado em criar 
+                   soluções digitais excepcionais. Atualmente, estou focado 
+                   em construir aplicações web escaláveis e acessíveis.</p>
+                <a href="#projetos" class="btn">Ver Projetos</a>
+                <a href="#contato" class="btn">Entrar em Contato</a>
             </div>
-        </div>
-    </header>
+        </section>
 
-    <section id="sobre">
-        <h2>Sobre Mim</h2>
-        <p>Desenvolvedor Full Stack em formação, focado em criar soluções 
-           eficientes e inovadoras. Atualmente cursando Desenvolvimento de 
-           Sistemas no SENAC NH, com experiência em várias linguagens de 
-           programação e tecnologias web.</p>
-    </section>
+        <!-- Adicione as outras seções aqui -->
+    </main>
 
-    <section id="habilidades">
-        <h2>Habilidades Técnicas</h2>
-        <div class="habilidades">
-            <div class="habilidade-item">
-                <h3>Linguagens</h3>
-                <ul>
-                    <li>JavaScript</li>
-                    <li>Python</li>
-                    <li>C#</li>
-                    <li>HTML/CSS</li>
-                </ul>
-            </div>
-            <div class="habilidade-item">
-                <h3>Banco de Dados</h3>
-                <ul>
-                    <li>MySQL</li>
-                </ul>
-            </div>
-            <div class="habilidade-item">
-                <h3>Ferramentas</h3>
-                <ul>
-                    <li>Git/GitHub</li>
-                    <li>VS Code</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="formacao">
-        <h2>Formação</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <h3>SENAC NH</h3>
-                <p>Técnico em Desenvolvimento de Sistemas (Em andamento)</p>
-                <ul>
-                    <li>Desenvolvimento Web Full Stack</li>
-                    <li>Banco de Dados</li>
-                    <li>Programação Orientada a Objetos</li>
-                    <li>Desenvolvimento Ágil</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="projetos">
-        <h2>Projetos</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <h3>Sistema de Gerenciamento</h3>
-                <p>Aplicação web para gerenciamento de tarefas e projetos</p>
-                <p><strong>Tecnologias:</strong> C#, MySQL, HTML/CSS</p>
-                <a href="#" class="projeto-link">Ver no GitHub</a>
-            </div>
-            <div class="timeline-item">
-                <h3>API RESTful</h3>
-                <p>API para sistema de cadastro de usuários</p>
-                <p><strong>Tecnologias:</strong> Node.js, Express, MySQL</p>
-                <a href="#" class="projeto-link">Ver no GitHub</a>
-            </div>
-        </div>
-    </section>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js',
+        {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#64ffda"
+                },
+                "shape": {
+                    "type": "circle"
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false
+                },
+                "size": {
+                    "value": 3,
+                    "random": true
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#64ffda",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
 </body>
 </html>
