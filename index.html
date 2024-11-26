@@ -7,7 +7,6 @@
     <!-- Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="preload" as="font" href="fonts/SpaceGrotesk-Bold.woff2" type="font/woff2" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <style>
         /* Variáveis e Reset */
@@ -1483,7 +1482,7 @@
             <div class="sobre-grid">
                 <div class="foto-container fade-in">
                     <div class="foto-wrapper">
-                        <img src="../img/foto.png" alt="Foto de perfil" class="foto-perfil">
+                        <img src="./img/foto.png" alt="Foto de perfil" class="foto-perfil">
                         <div class="foto-overlay"></div>
                         <div class="foto-border"></div>
                     </div>
@@ -1797,6 +1796,18 @@
             });
             
             habilidadeCards.forEach(card => observer.observe(card));
+        });
+    </script>
+    <script>
+        window.addEventListener('load', () => {
+            const imagens = document.querySelectorAll('img');
+            
+            imagens.forEach(img => {
+                img.onerror = function() {
+                    console.warn(`Erro ao carregar imagem: ${img.src}`);
+                    img.style.display = 'none';
+                };
+            });
         });
     </script>
 </body>
