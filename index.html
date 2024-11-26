@@ -3,42 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelvin Moraes | Desenvolvedor Full Stack</title>
+    <title>Kelvin Moraes | Dev Full Stack & Professor</title>
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* Variáveis e Reset */
         :root {
-            --cor-primaria: #0a192f;
-            --cor-secundaria: #64ffda;
-            --cor-texto: #ccd6f6;
-            --cor-texto-secundario: #8892b0;
-            --fonte-principal: 'Calibre', sans-serif;
-            --fonte-codigo: 'SF Mono', monospace;
+            --cor-primaria: #0a0a0a;
+            --cor-secundaria: #8A2BE2; /* Roxo vibrante */
+            --cor-accent: #64ffda;
+            --cor-texto: #ffffff;
+            --cor-texto-secundario: #a0a0a0;
+            --cor-background: #0a0a0a;
+            --cor-card: rgba(138, 43, 226, 0.1);
+            --fonte-principal: 'Space Grotesk', sans-serif;
+            --fonte-codigo: 'Space Mono', monospace;
+            --transicao: all 0.3s ease;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--cor-primaria);
+            background: var(--cor-primaria);
             color: var(--cor-texto);
             font-family: var(--fonte-principal);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Animação de entrada */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         /* Hero Section */
@@ -46,403 +52,1055 @@
             height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
             position: relative;
-            overflow: hidden;
+            padding: 0 5%;
+            background: linear-gradient(
+                45deg,
+                rgba(138, 43, 226, 0.1),
+                rgba(0, 0, 0, 0.9)
+            );
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                circle at 50% 50%,
+                rgba(138, 43, 226, 0.1) 0%,
+                transparent 50%
+            );
+            pointer-events: none;
         }
 
         .hero-content {
-            text-align: left;
-            max-width: 1000px;
-            padding: 0 2rem;
-            animation: fadeInUp 1s ease-out;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         .hero-subtitle {
             color: var(--cor-secundaria);
-            font-family: var(--fonte-codigo);
-            font-size: 1.1rem;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
         }
 
-        .hero h1 {
+        .hero-titulo {
             font-size: 5rem;
-            margin-bottom: 1rem;
+            font-weight: 700;
             line-height: 1.1;
-        }
-
-        .hero h2 {
-            font-size: 3rem;
-            color: var(--cor-texto-secundario);
             margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards 0.2s;
         }
 
-        .hero p {
-            font-size: 1.2rem;
+        .hero-descricao {
+            font-size: 1.8rem;
             color: var(--cor-texto-secundario);
-            max-width: 540px;
-            margin-bottom: 2rem;
-        }
-
-        /* Projetos */
-        .projetos {
-            padding: 100px 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .projetos-titulo {
-            font-size: 2.5rem;
-            color: var(--cor-texto);
+            max-width: 600px;
             margin-bottom: 3rem;
-            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards 0.4s;
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transicao);
+            margin-right: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards 0.6s;
+            cursor: pointer;
+        }
+
+        .btn-primario {
+            background: var(--cor-secundaria);
+            color: var(--cor-texto);
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
+        }
+
+        .btn-primario:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
+        }
+
+        .btn-secundario {
+            background: transparent;
+            color: var(--cor-secundaria);
+            border: 2px solid var(--cor-secundaria);
+        }
+
+        .btn-secundario:hover {
+            background: var(--cor-secundaria);
+            color: var(--cor-texto);
+            transform: translateY(-3px);
+        }
+
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Cursor Personalizado */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--cor-secundaria);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--cor-secundaria);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.15s ease-out;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero-titulo {
+                font-size: 3rem;
+            }
+
+            .hero-descricao {
+                font-size: 1.2rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-titulo {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .btn {
+                display: block;
+                margin-bottom: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Efeito de Partículas */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* Seção Sobre */
+        .sobre {
+            padding: 100px 0;
+            background: linear-gradient(
+                135deg,
+                rgba(138, 43, 226, 0.1) 0%,
+                rgba(0, 0, 0, 0.95) 100%
+            );
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sobre::before {
+            content: '<sobre>';
+            font-family: var(--fonte-codigo);
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: rgba(138, 43, 226, 0.2);
+            font-size: 1rem;
+        }
+
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .sobre-texto {
             position: relative;
         }
 
-        .projetos-titulo::after {
-            content: '';
+        .sobre-descricao {
+            font-size: 1.2rem;
+            color: var(--cor-texto-secundario);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .sobre-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(138, 43, 226, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            transition: var(--transicao);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(138, 43, 226, 0.2);
+        }
+
+        .stat-numero {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--cor-secundaria);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-texto {
+            color: var(--cor-texto-secundario);
+            font-size: 1rem;
+        }
+
+        /* Cards de Tecnologia */
+        .tech-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            perspective: 1000px;
+        }
+
+        .tech-card {
+            background: rgba(138, 43, 226, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            padding: 2rem;
+            border-radius: 20px;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-10px) rotateY(10deg);
+            box-shadow: 0 20px 40px rgba(138, 43, 226, 0.2);
+        }
+
+        .tech-card i {
+            font-size: 2.5rem;
+            color: var(--cor-secundaria);
+            margin-bottom: 1rem;
+        }
+
+        .tech-card h3 {
+            color: var(--cor-texto);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .tech-card ul {
+            list-style: none;
+        }
+
+        .tech-card ul li {
+            color: var(--cor-texto-secundario);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .tech-card ul li::before {
+            content: '▹';
+            color: var(--cor-secundaria);
+            margin-right: 0.5rem;
+        }
+
+        /* Responsividade da Seção Sobre */
+        @media (max-width: 968px) {
+            .sobre-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .tech-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sobre {
+                padding: 60px 0;
+            }
+
+            .sobre-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tech-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-card {
+                transform: none !important;
+            }
+        }
+
+        .glitch-text {
+            position: relative;
+            font-size: 5rem;
+            font-weight: 700;
+            color: var(--cor-texto);
+        }
+
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--cor-secundaria);
-            border-radius: 2px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch-text::before {
+            animation: glitch-effect 3s infinite linear alternate-reverse;
+            color: var(--cor-secundaria);
+            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+            transform: translate(-2px);
+        }
+
+        .glitch-text::after {
+            animation: glitch-effect 2s infinite linear alternate-reverse;
+            color: var(--cor-accent);
+            clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
+            transform: translate(2px);
+        }
+
+        @keyframes glitch-effect {
+            0% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(-1px, 1px);
+            }
+            40% {
+                transform: translate(-1px, -1px);
+            }
+            60% {
+                transform: translate(1px, 1px);
+            }
+            80% {
+                transform: translate(1px, -1px);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        /* Seção de Projetos */
+        .projetos {
+            padding: 100px 0;
+            background: var(--cor-primaria);
+            position: relative;
+        }
+
+        .projetos::before {
+            content: '<projetos>';
+            font-family: var(--fonte-codigo);
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: rgba(138, 43, 226, 0.2);
+            font-size: 1rem;
         }
 
         .projetos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            perspective: 1000px;
+            margin-top: 3rem;
         }
 
         .projeto-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            border-radius: 15px;
-            padding: 2rem;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            backdrop-filter: blur(5px);
-            position: relative;
+            background: rgba(138, 43, 226, 0.1);
+            border-radius: 20px;
             overflow: hidden;
-        }
-
-        .projeto-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(100, 255, 218, 0.1),
-                transparent
-            );
-            transition: 0.5s;
+            transition: var(--transicao);
+            position: relative;
         }
 
         .projeto-card:hover {
-            transform: translateY(-10px) rotateX(5deg);
-            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
-            border-color: var(--cor-secundaria);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(138, 43, 226, 0.2);
         }
 
-        .projeto-card:hover::before {
-            left: 100%;
+        .projeto-content {
+            padding: 2rem;
         }
 
-        .projeto-imagem {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
+        .projeto-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--cor-secundaria);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 1.5rem;
-            border: 1px solid rgba(100, 255, 218, 0.2);
         }
 
-        .projeto-titulo {
+        .projeto-icon i {
             font-size: 1.5rem;
             color: var(--cor-texto);
+        }
+
+        .projeto-card h3 {
+            font-size: 1.5rem;
             margin-bottom: 1rem;
-        }
-
-        .projeto-descricao {
-            color: var(--cor-texto-secundario);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .projeto-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-tag {
-            font-family: var(--fonte-codigo);
-            font-size: 0.8rem;
-            color: var(--cor-secundaria);
-            padding: 0.3rem 0.8rem;
-            background: rgba(100, 255, 218, 0.1);
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .projeto-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .projeto-link {
-            color: var(--cor-secundaria);
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .projeto-link:hover {
-            transform: translateY(-3px);
             color: var(--cor-texto);
         }
 
-        /* Botões */
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
+        .projeto-card p {
+            color: var(--cor-texto-secundario);
+            margin-bottom: 1.5rem;
+        }
+
+        .projeto-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .projeto-tech-stack span {
+            padding: 0.5rem 1rem;
+            background: rgba(138, 43, 226, 0.2);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--cor-secundaria);
+        }
+
+        .btn-projeto {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+            background: transparent;
             border: 1px solid var(--cor-secundaria);
             color: var(--cor-secundaria);
+            border-radius: 25px;
             text-decoration: none;
-            border-radius: 4px;
-            font-family: var(--fonte-codigo);
             font-size: 0.9rem;
-            transition: all 0.3s ease;
-            margin-right: 1rem;
+            transition: var(--transicao);
         }
 
-        .btn:hover {
-            background: rgba(100, 255, 218, 0.1);
+        .btn-projeto:hover {
+            background: var(--cor-secundaria);
+            color: var(--cor-texto);
         }
 
-        /* Partículas de fundo */
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
+        /* Responsividade dos Projetos */
+        @media (max-width: 768px) {
+            .projetos {
+                padding: 60px 0;
+            }
+
+            .projeto-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
         }
 
-        .content {
+        /* Seção de Experiência */
+        .experiencia {
+            padding: 100px 0;
+            background: linear-gradient(
+                45deg,
+                rgba(138, 43, 226, 0.05) 0%,
+                rgba(0, 0, 0, 0.95) 100%
+            );
             position: relative;
-            z-index: 2;
         }
 
-        /* Estilos para a seção de contato */
-        .contato {
-            padding: 100px 2rem;
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
             background: linear-gradient(
                 to bottom,
-                var(--cor-primaria),
-                rgba(10, 25, 47, 0.95)
+                transparent,
+                var(--cor-secundaria),
+                transparent
             );
         }
 
-        .contato-titulo {
-            font-size: 2.5rem;
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            width: 50%;
+            padding-right: 40px;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: auto;
+            padding-right: 0;
+            padding-left: 40px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            right: -6px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--cor-secundaria);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--cor-secundaria);
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            right: auto;
+            left: -6px;
+        }
+
+        .timeline-content {
+            background: rgba(138, 43, 226, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            backdrop-filter: blur(10px);
+            transition: var(--transicao);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
+        }
+
+        .timeline-data {
+            color: var(--cor-secundaria);
+            font-family: var(--fonte-codigo);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content h3 {
             color: var(--cor-texto);
-            margin-bottom: 3rem;
-            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: var(--cor-texto-secundario);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-detalhes {
+            list-style: none;
+            margin-left: 1rem;
+        }
+
+        .timeline-detalhes li {
+            color: var(--cor-texto-secundario);
+            margin-bottom: 0.5rem;
             position: relative;
         }
 
-        .contato-titulo::after {
-            content: '';
+        .timeline-detalhes li::before {
+            content: '▹';
+            color: var(--cor-secundaria);
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--cor-secundaria);
-            border-radius: 2px;
+            left: -1rem;
         }
 
-        .contato-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+        /* Seção de Habilidades */
+        .habilidades {
+            padding: 100px 0;
+            background: var(--cor-primaria);
+            position: relative;
         }
 
-        .contato-descricao {
-            font-size: 1.2rem;
-            color: var(--cor-texto-secundario);
-            margin-bottom: 3rem;
-            line-height: 1.8;
-        }
-
-        .contato-links {
-            display: flex;
-            justify-content: center;
+        .habilidades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            flex-wrap: wrap;
+            margin-top: 3rem;
         }
 
-        .social-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            border: 1px solid var(--cor-secundaria);
-            border-radius: 8px;
+        .habilidade-card {
+            background: rgba(138, 43, 226, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transicao);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+        }
+
+        .habilidade-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(138, 43, 226, 0.2);
+        }
+
+        .habilidade-nivel {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 2rem;
+        }
+
+        .progresso-circular {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .progresso-circular circle {
+            fill: none;
+            stroke-width: 8;
+            stroke-linecap: round;
+            stroke: var(--cor-secundaria);
+            transform-origin: 50% 50%;
+            transition: stroke-dashoffset 0.5s ease;
+        }
+
+        .porcentagem {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+            color: var(--cor-texto);
+        }
+
+        /* Blog Section */
+        .blog {
+            padding: 100px 0;
+            background: linear-gradient(
+                135deg,
+                rgba(138, 43, 226, 0.1) 0%,
+                rgba(0, 0, 0, 0.95) 100%
+            );
+        }
+
+        .artigos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .artigo-card {
+            background: rgba(138, 43, 226, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transicao);
+        }
+
+        .artigo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(138, 43, 226, 0.2);
+        }
+
+        .artigo-imagem {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .artigo-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transicao);
+        }
+
+        .artigo-card:hover .artigo-imagem img {
+            transform: scale(1.1);
+        }
+
+        .artigo-content {
+            padding: 2rem;
+        }
+
+        .artigo-content h3 {
+            color: var(--cor-texto);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .artigo-content p {
+            color: var(--cor-texto-secundario);
+            margin-bottom: 1.5rem;
+        }
+
+        .ler-mais {
             color: var(--cor-secundaria);
             text-decoration: none;
-            font-family: var(--fonte-codigo);
-            transition: all 0.3s ease;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
         }
 
-        .social-link:hover {
-            background: rgba(100, 255, 218, 0.1);
-            transform: translateY(-3px);
+        .ler-mais:hover {
+            text-decoration: underline;
         }
 
-        .social-link i {
-            font-size: 1.2rem;
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 40px;
+                padding-right: 0;
+            }
+
+            .timeline-item:nth-child(even) {
+                padding-left: 40px;
+            }
+
+            .timeline-dot {
+                left: -6px;
+                right: auto;
+            }
+
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: -6px;
+            }
+        }
+
+        /* Efeitos de Scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Efeito de Hover nos Links */
+        .hover-effect {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hover-effect::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--cor-secundaria);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .hover-effect:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--cor-primaria);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--cor-secundaria);
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Botão Voltar ao Topo */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--cor-secundaria);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--cor-texto);
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transicao);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
         }
     </style>
 </head>
 <body>
-    <div id="particles-js"></div>
-    
-    <main class="content">
-        <section class="hero">
-            <div class="hero-content">
-                <p class="hero-subtitle">Olá, meu nome é</p>
-                <h1>Kelvin Moraes.</h1>
-                <h2>Eu construo experiências digitais.</h2>
-                <p>Sou um desenvolvedor full stack especializado em criar 
-                   soluções digitais excepcionais. Atualmente, estou focado 
-                   em construir aplicações web escaláveis e acessíveis.</p>
-                <a href="#projetos" class="btn">Ver Projetos</a>
-                <a href="#contato" class="btn">Entrar em Contato</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div id="particles-js"></div>
+        <div class="hero-content">
+            <span class="hero-subtitle">Olá, eu sou</span>
+            <h1 class="hero-titulo">Kelvin Moraes</h1>
+            <p class="hero-descricao">
+                Desenvolvedor Full Stack & Professor apaixonado por criar 
+                experiências digitais extraordinárias
+            </p>
+            <div class="hero-cta">
+                <a href="#projetos" class="btn btn-primario">
+                    <i class="fas fa-code"></i>&nbsp; Ver Projetos
+                </a>
+                <a href="#contato" class="btn btn-secundario">
+                    <i class="fas fa-paper-plane"></i>&nbsp; Contato
+                </a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="projetos" id="projetos">
-            <h2 class="projetos-titulo">Projetos em Destaque</h2>
-            <div class="projetos-grid">
-                <!-- Kerubin AI -->
-                <article class="projeto-card">
-                    <img src="assets/kerubin-ai.jpg" alt="Kerubin AI" class="projeto-imagem">
-                    <h3 class="projeto-titulo">Kerubin AI</h3>
-                    <p class="projeto-descricao">
-                        Assistente virtual inteligente com integração de IA para 
-                        automação de tarefas e análise de dados educacionais.
+    <!-- Seção Sobre com Cards Flutuantes -->
+    <section class="sobre" id="sobre">
+        <div class="container">
+            <div class="sobre-grid">
+                <div class="sobre-texto">
+                    <h2 class="glitch-text">Sobre Mim</h2>
+                    <p class="sobre-descricao">
+                        Desenvolvedor Full Stack bilíngue, apaixonado por psicologia 
+                        e música clássica. Atualmente estudante de Desenvolvimento 
+                        de Sistemas no Senac e com experiência em ensino na E-pro.
                     </p>
-                    <div class="projeto-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">TensorFlow</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
+                    <div class="sobre-stats">
+                        <div class="stat-item">
+                            <span class="stat-numero">7+</span>
+                            <span class="stat-texto">Seguidores GitHub</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-numero">45+</span>
+                            <span class="stat-texto">Repositórios</span>
+                        </div>
                     </div>
-                    <div class="projeto-links">
-                        <a href="https://github.com/KerubinDev/Kerubin_AI" 
-                           class="projeto-link" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="projeto-link" target="_blank">
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
+                </div>
+                <div class="tech-cards">
+                    <div class="tech-card front">
+                        <i class="fas fa-code"></i>
+                        <h3>Front-end</h3>
+                        <ul>
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>JavaScript</li>
+                            <li>React</li>
+                        </ul>
                     </div>
-                </article>
-
-                <!-- Sistema de Gerenciamento Escolar -->
-                <article class="projeto-card">
-                    <img src="assets/school-management.jpg" alt="Gerenciamento Escolar" 
-                         class="projeto-imagem">
-                    <h3 class="projeto-titulo">Sistema de Gestão Escolar</h3>
-                    <p class="projeto-descricao">
-                        Plataforma completa para gestão escolar com recursos de 
-                        administração, notas e comunicação.
-                    </p>
-                    <div class="projeto-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">SQL</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">HTML/CSS</span>
+                    <div class="tech-card back">
+                        <i class="fas fa-server"></i>
+                        <h3>Back-end</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>SQL</li>
+                            <li>Node.js</li>
+                        </ul>
                     </div>
-                    <div class="projeto-links">
-                        <a href="https://github.com/gdbarros94/gerenciamento-Escolar" 
-                           class="projeto-link" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="projeto-link" target="_blank">
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Python Kanban -->
-                <article class="projeto-card">
-                    <img src="assets/kanban.jpg" alt="Python Kanban" class="projeto-imagem">
-                    <h3 class="projeto-titulo">Python Kanban</h3>
-                    <p class="projeto-descricao">
-                        Sistema Kanban desenvolvido em Python para gestão ágil de projetos 
-                        e tarefas.
-                    </p>
-                    <div class="projeto-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">SQLite</span>
-                        <span class="tech-tag">PyQt</span>
-                    </div>
-                    <div class="projeto-links">
-                        <a href="https://github.com/FloatingOctothorpe/python-kanban" 
-                           class="projeto-link" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="projeto-link" target="_blank">
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Nova Seção de Contato -->
-        <section class="contato" id="contato">
-            <h2 class="contato-titulo">Vamos Conversar?</h2>
-            <div class="contato-container">
-                <div class="contato-info">
-                    <p class="contato-descricao">
-                        Estou sempre interessado em novos projetos e oportunidades de 
-                        colaboração. Sinta-se à vontade para entrar em contato!
-                    </p>
-                    <div class="contato-links">
-                        <a href="https://www.linkedin.com/in/kelvin-moraes-a8a8452ba" 
-                           class="social-link linkedin" target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                            <span>LinkedIn</span>
-                        </a>
-                        <a href="https://x.com/KERUBIN_m?s=09" 
-                           class="social-link twitter" target="_blank">
-                            <i class="fab fa-twitter"></i>
-                            <span>Twitter</span>
-                        </a>
-                        <a href="mailto:kelvin.moraes117@gmail.com" 
-                           class="social-link email">
-                            <i class="fas fa-envelope"></i>
-                            <span>Email</span>
-                        </a>
+                    <div class="tech-card game">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>Game Dev</h3>
+                        <ul>
+                            <li>C++</li>
+                            <li>GML</li>
+                            <li>GameMaker</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- Seção de Projetos com Cards 3D -->
+    <section class="projetos" id="projetos">
+        <div class="container">
+            <h2 class="secao-titulo">Projetos em Destaque</h2>
+            <div class="projetos-grid">
+                <!-- Kerubin AI -->
+                <article class="projeto-card">
+                    <div class="projeto-content">
+                        <div class="projeto-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Kerubin AI</h3>
+                        <p>Sistema de gestão escolar com IA</p>
+                        <div class="projeto-tech-stack">
+                            <span>Python</span>
+                            <span>AI</span>
+                            <span>SQL</span>
+                        </div>
+                        <a href="https://github.com/KerubinDev/Kerubin_AI" 
+                           class="btn-projeto" target="_blank">
+                            Ver Projeto
+                        </a>
+                    </div>
+                </article>
+                <!-- Adicionar mais projetos -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Timeline de Experiência -->
+    <section class="experiencia" id="experiencia">
+        <div class="container">
+            <h2 class="secao-titulo">Jornada Profissional</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-data">2023 - 2024</div>
+                        <h3>Professor de Programação</h3>
+                        <p>E-pro</p>
+                        <ul class="timeline-detalhes">
+                            <li>Ensino de desenvolvimento web</li>
+                            <li>Mentoria em projetos práticos</li>
+                            <li>Desenvolvimento de material didático</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Habilidades Interativa -->
+    <section class="habilidades" id="habilidades">
+        <div class="container">
+            <h2 class="secao-titulo">Habilidades</h2>
+            <div class="habilidades-grid">
+                <div class="habilidade-card">
+                    <div class="habilidade-nivel" data-nivel="90">
+                        <svg class="progresso-circular">
+                            <!-- Círculo de progresso SVG -->
+                        </svg>
+                        <span class="porcentagem">90%</span>
+                    </div>
+                    <h3>Front-end</h3>
+                </div>
+                <!-- Adicionar mais cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Blog/Artigos -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <h2 class="secao-titulo">Últimos Artigos</h2>
+            <div class="artigos-grid">
+                <article class="artigo-card">
+                    <div class="artigo-imagem">
+                        <img src="path/to/image" alt="Artigo sobre IA">
+                    </div>
+                    <div class="artigo-content">
+                        <h3>Inteligência Artificial na Educação</h3>
+                        <p>Como a IA está transformando o ensino...</p>
+                        <a href="#" class="ler-mais">Ler mais</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js">
+    </script>
     <script>
         particlesJS('particles-js',
         {
@@ -455,14 +1113,14 @@
                     }
                 },
                 "color": {
-                    "value": "#64ffda"
+                    "value": "#8A2BE2"
                 },
                 "shape": {
                     "type": "circle"
                 },
                 "opacity": {
                     "value": 0.5,
-                    "random": false
+                    "random": true
                 },
                 "size": {
                     "value": 3,
@@ -471,13 +1129,13 @@
                 "line_linked": {
                     "enable": true,
                     "distance": 150,
-                    "color": "#64ffda",
-                    "opacity": 0.4,
+                    "color": "#8A2BE2",
+                    "opacity": 0.2,
                     "width": 1
                 },
                 "move": {
                     "enable": true,
-                    "speed": 6,
+                    "speed": 3,
                     "direction": "none",
                     "random": false,
                     "straight": false,
@@ -502,5 +1160,6 @@
             "retina_detect": true
         });
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
