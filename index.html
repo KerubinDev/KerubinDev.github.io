@@ -12,7 +12,7 @@
     <style>
         /* Variáveis e Reset */
         :root {
-            --cor-primaria: #0a0a0a;
+            --cor-primaria: #000000;
             --cor-secundaria: #8A2BE2; /* Roxo vibrante */
             --cor-accent: #64ffda;
             --cor-texto: #ffffff;
@@ -84,12 +84,10 @@
         }
 
         .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
             position: relative;
             z-index: 2;
-            transform-style: preserve-3d;
-            transform: translateZ(0);
+            text-align: center;
+            padding: 2rem;
         }
 
         .hero-subtitle {
@@ -101,12 +99,17 @@
         }
 
         .hero-titulo {
-            font-size: 5rem;
+            color: var(--cor-texto);
+            font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 700;
+            margin: 1rem 0;
+            position: relative;
+            z-index: 2;
+            text-transform: none;
+            opacity: 1;
+            visibility: visible;
             line-height: 1.1;
             margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 0.5s ease forwards 0.2s;
             overflow: hidden;
             border-right: 3px solid var(--cor-secundaria);
             white-space: nowrap;
