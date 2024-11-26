@@ -786,7 +786,7 @@
         }
 
         .timeline-detalhes li::before {
-            content: '▹';
+            content: '';
             color: var(--cor-secundaria);
             position: absolute;
             left: -1rem;
@@ -1396,6 +1396,63 @@
             50% { stroke-dashoffset: 0; }
             100% { stroke-dashoffset: -283; }
         }
+
+        .habilidade-card {
+            background: rgba(138, 43, 226, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transicao);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+        }
+
+        .habilidade-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(138, 43, 226, 0.2);
+        }
+
+        .progresso-circular {
+            width: 150px;
+            height: 150px;
+            transform: rotate(-90deg);
+        }
+
+        .progresso-circular circle {
+            fill: none;
+            stroke-width: 8;
+            stroke-linecap: round;
+        }
+
+        .progresso-circular circle:first-child {
+            stroke: rgba(138, 43, 226, 0.1);
+        }
+
+        .progresso-circular circle.progresso {
+            stroke: var(--cor-secundaria);
+            stroke-dasharray: 283;
+            stroke-dashoffset: calc(283 - (283 * var(--progresso)) / 100);
+            transition: stroke-dashoffset 1s ease;
+        }
+
+        .btn-social {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(138, 43, 226, 0.1);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            color: var(--cor-secundaria);
+            border-radius: 25px;
+            text-decoration: none;
+            transition: var(--transicao);
+        }
+
+        .btn-social:hover {
+            background: var(--cor-secundaria);
+            color: var(--cor-texto);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(138, 43, 226, 0.2);
+        }
     </style>
 </head>
 <body>
@@ -1548,14 +1605,39 @@
             <div class="habilidades-grid">
                 <div class="habilidade-card">
                     <div class="habilidade-nivel" data-nivel="90">
-                        <svg class="progresso-circular">
-                            <!-- Círculo de progresso SVG -->
+                        <svg class="progresso-circular" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="45" />
+                            <circle class="progresso" cx="50" cy="50" r="45" />
                         </svg>
                         <span class="porcentagem">90%</span>
                     </div>
                     <h3>Front-end</h3>
+                    <p>HTML, CSS, JavaScript, React</p>
                 </div>
-                <!-- Adicionar mais cards -->
+                
+                <div class="habilidade-card">
+                    <div class="habilidade-nivel" data-nivel="85">
+                        <svg class="progresso-circular" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="45" />
+                            <circle class="progresso" cx="50" cy="50" r="45" />
+                        </svg>
+                        <span class="porcentagem">85%</span>
+                    </div>
+                    <h3>Back-end</h3>
+                    <p>Python, Node.js, SQL</p>
+                </div>
+                
+                <div class="habilidade-card">
+                    <div class="habilidade-nivel" data-nivel="80">
+                        <svg class="progresso-circular" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="45" />
+                            <circle class="progresso" cx="50" cy="50" r="45" />
+                        </svg>
+                        <span class="porcentagem">80%</span>
+                    </div>
+                    <h3>Design</h3>
+                    <p>UI/UX, Figma, Adobe Suite</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1695,6 +1777,26 @@
                     }, 300);
                 }, TEMPO_MINIMO_LOADING);
             });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const habilidadeCards = document.querySelectorAll('.habilidade-nivel');
+            
+            const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const nivel = entry.target.dataset.nivel;
+                        entry.target.style.setProperty('--progresso', nivel);
+                    }
+                });
+            };
+            
+            const observer = new IntersectionObserver(observerCallback, {
+                threshold: 0.5
+            });
+            
+            habilidadeCards.forEach(card => observer.observe(card));
         });
     </script>
 </body>
