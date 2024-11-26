@@ -20,6 +20,9 @@
             --fonte-principal: 'Space Grotesk', sans-serif;
             --fonte-codigo: 'Space Mono', monospace;
             --transicao: all 0.3s ease;
+            --transicao-rapida: all 0.3s ease;
+            --transicao-media: all 0.5s ease;
+            --transicao-lenta: all 0.8s ease;
         }
 
         * {
@@ -321,10 +324,15 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            perspective: 1000px;
+            margin-top: 3rem;
+            align-items: stretch;
         }
 
         .tech-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             background: rgba(138, 43, 226, 0.1);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(138, 43, 226, 0.2);
@@ -938,9 +946,9 @@
         /* Adicionar nova seção de estatísticas */
         .github-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            margin-top: 3rem;
+            margin: 3rem 0;
         }
 
         .stat-card {
@@ -1150,16 +1158,6 @@
                         e música clássica. Atualmente estudante de Desenvolvimento 
                         de Sistemas no Senac e com experiência em ensino na E-pro.
                     </p>
-                    <div class="sobre-stats">
-                        <div class="stat-item">
-                            <span class="stat-numero">7+</span>
-                            <span class="stat-texto">Seguidores GitHub</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-numero">45+</span>
-                            <span class="stat-texto">Repositórios</span>
-                        </div>
-                    </div>
                     <div class="github-stats">
                         <div class="stat-card">
                             <span class="stat-numero-grande">45+</span>

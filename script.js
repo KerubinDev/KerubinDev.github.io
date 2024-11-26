@@ -34,15 +34,26 @@ document.addEventListener('DOMContentLoaded', () => {
         digitarTexto();
     }
 
-    // Efeito de parallax suave
+    // Otimizar efeito de parallax
+    let ultimoScroll = window.pageYOffset;
+    const elementosParallax = document.querySelectorAll('.parallax');
+
     window.addEventListener('scroll', () => {
-        const elementosParallax = document.querySelectorAll('.parallax');
-        elementosParallax.forEach(elemento => {
-            const velocidade = elemento.dataset.velocidade || 0.5;
-            const posicao = window.pageYOffset * velocidade;
-            elemento.style.transform = `translateY(${posicao}px)`;
+        requestAnimationFrame(() => {
+            const scrollAtual = window.pageYOffset;
+            const delta = scrollAtual - ultimoScroll;
+            
+            elementosParallax.forEach(elemento => {
+                const velocidade = elemento.dataset.velocidade || 0.5;
+                const posicao = parseFloat(elemento.style.transform.replace(/[^\d.-]/g, '')) || 0;
+                const novaPos = posicao + (delta * velocidade);
+                
+                elemento.style.transform = `translateY(${novaPos}px)`;
+            });
+            
+            ultimoScroll = scrollAtual;
         });
-    });
+    }, { passive: true });
 
     // Cursor personalizado
     const cursor = document.createElement('div');
@@ -177,22 +188,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const letrasGlitch = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@#$%&*()_+-=[]{}|;:,.<>?';
     document.querySelectorAll('.glitch-text').forEach(adicionarEfeitoGlitch);
 
-    // Animação suave para números
+    // Modificar a função de animação de números para evitar duplicação
     function animarNumero(elemento) {
+        // Verificar se já foi animado
+        if (elemento.dataset.animado === 'true') return;
+        
         const numero = parseInt(elemento.textContent);
         let atual = 0;
         
         const intervalo = setInterval(() => {
             if (atual >= numero) {
                 clearInterval(intervalo);
+                elemento.dataset.animado = 'true';
             } else {
                 atual += 1;
-                elemento.textContent = atual;
+                elemento.textContent = atual + (elemento.textContent.includes('+') ? '+' : '');
             }
         }, 50);
     }
 
-    document.querySelectorAll('.stat-numero-grande').forEach(animarNumero);
+    // Usar Intersection Observer para animar números apenas quando visíveis
+    const observadorNumeros = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animarNumero(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-numero-grande, .stat-numero').forEach(numero => {
+        observadorNumeros.observe(numero);
+    });
 
     // Efeito de partículas interativas
     document.querySelectorAll('.tech-card').forEach(card => {
