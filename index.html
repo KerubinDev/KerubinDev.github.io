@@ -3,59 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelvin Moraes | Desenvolvedor Full Stack & Professor</title>
-    <meta name="description" content="Desenvolvedor Full Stack especializado em React, 
-    Node.js e Unity. Professor de programação com experiência em ensino bilíngue.">
-    <meta name="keywords" content="desenvolvedor full stack, react, node.js, unity, 
-    professor de programação, desenvolvimento de jogos, Brasil">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kerubindev.github.io/">
-    <meta property="og:title" content="Kelvin Moraes | Dev Full Stack & Professor">
-    <meta property="og:description" content="Desenvolvedor Full Stack e Professor 
-    de Programação com foco em React, Node.js e Unity">
-    <meta property="og:image" content="https://kerubindev.github.io/assets/preview.jpg">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://kerubindev.github.io/">
-    <meta name="twitter:title" content="Kelvin Moraes | Dev Full Stack & Professor">
-    <meta name="twitter:description" content="Desenvolvedor Full Stack e Professor 
-    de Programação com foco em React, Node.js e Unity">
-    <meta name="twitter:image" content="https://kerubindev.github.io/assets/preview.jpg">
+    <title>Kelvin Moraes | Dev Full Stack & Professor</title>
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --cor-primaria: #0a192f;
-            --cor-secundaria: #64ffda;
-            --cor-texto: #ccd6f6;
-            --cor-texto-secundario: #8892b0;
-            --cor-background: #0a192f;
-            --cor-card: rgba(255, 255, 255, 0.05);
-            --fonte-principal: 'Calibre', sans-serif;
-            --fonte-codigo: 'SF Mono', monospace;
+            --cor-primaria: #0a0a0a;
+            --cor-secundaria: #8A2BE2; /* Roxo vibrante */
+            --cor-accent: #64ffda;
+            --cor-texto: #ffffff;
+            --cor-texto-secundario: #a0a0a0;
+            --cor-background: #0a0a0a;
+            --cor-card: rgba(138, 43, 226, 0.1);
+            --fonte-principal: 'Space Grotesk', sans-serif;
         }
 
+        /* Reset e Estilos Base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--cor-primaria);
+            background: var(--cor-primaria);
             color: var(--cor-texto);
             font-family: var(--fonte-principal);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Animação de entrada */
+        /* Hero Section Moderna */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 0 5%;
+            background: linear-gradient(
+                45deg,
+                rgba(138, 43, 226, 0.1),
+                rgba(0, 0, 0, 0.9)
+            );
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(
+                    circle at 50% 50%,
+                    rgba(138, 43, 226, 0.1) 0%,
+                    transparent 50%
+                );
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            color: var(--cor-secundaria);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .hero-titulo {
+            font-size: 5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards 0.2s;
+        }
+
+        .hero-descricao {
+            font-size: 1.8rem;
+            color: var(--cor-texto-secundario);
+            max-width: 600px;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards 0.4s;
+        }
+
+        /* Botões Modernos */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards 0.6s;
+        }
+
+        .btn-primario {
+            background: var(--cor-secundaria);
+            color: var(--cor-texto);
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
+        }
+
+        .btn-primario:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
+        }
+
+        .btn-secundario {
+            background: transparent;
+            color: var(--cor-secundaria);
+            border: 2px solid var(--cor-secundaria);
+        }
+
+        .btn-secundario:hover {
+            background: var(--cor-secundaria);
+            color: var(--cor-texto);
+        }
+
+        /* Animações */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -63,1064 +147,42 @@
             }
         }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            text-align: left;
-            max-width: 1000px;
-            padding: 0 2rem;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero-subtitle {
-            color: var(--cor-secundaria);
-            font-family: var(--fonte-codigo);
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero h1 {
-            font-size: 5rem;
-            margin-bottom: 1rem;
-            line-height: 1.1;
-        }
-
-        .hero h2 {
-            font-size: 3rem;
-            color: var(--cor-texto-secundario);
-            margin-bottom: 2rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--cor-texto-secundario);
-            max-width: 540px;
-            margin-bottom: 2rem;
-        }
-
-        /* Projetos */
-        .projetos {
-            padding: 100px 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .projetos-titulo {
-            font-size: 2.5rem;
-            color: var(--cor-texto);
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .projetos-titulo::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--cor-secundaria);
-            border-radius: 2px;
-        }
-
-        .projetos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            perspective: 1000px;
-        }
-
-        .projeto-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            border-radius: 15px;
-            padding: 2rem;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            backdrop-filter: blur(5px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .projeto-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(100, 255, 218, 0.1),
-                transparent
-            );
-            transition: 0.5s;
-        }
-
-        .projeto-card:hover {
-            transform: translateY(-10px) rotateX(5deg);
-            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
-            border-color: var(--cor-secundaria);
-        }
-
-        .projeto-card:hover::before {
-            left: 100%;
-        }
-
-        .projeto-imagem {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(100, 255, 218, 0.2);
-        }
-
-        .projeto-titulo {
-            font-size: 1.5rem;
-            color: var(--cor-texto);
-            margin-bottom: 1rem;
-        }
-
-        .projeto-descricao {
-            color: var(--cor-texto-secundario);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .projeto-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-tag {
-            font-family: var(--fonte-codigo);
-            font-size: 0.8rem;
-            color: var(--cor-secundaria);
-            padding: 0.3rem 0.8rem;
-            background: rgba(100, 255, 218, 0.1);
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .projeto-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .projeto-link {
-            color: var(--cor-secundaria);
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .projeto-link:hover {
-            transform: translateY(-3px);
-            color: var(--cor-texto);
-        }
-
-        /* Botões */
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            border: 1px solid var(--cor-secundaria);
-            color: var(--cor-secundaria);
-            text-decoration: none;
-            border-radius: 4px;
-            font-family: var(--fonte-codigo);
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            margin-right: 1rem;
-        }
-
-        .btn:hover {
-            background: rgba(100, 255, 218, 0.1);
-        }
-
-        /* Partículas de fundo */
+        /* Efeito de Partículas */
         #particles-js {
             position: absolute;
             width: 100%;
             height: 100%;
+            top: 0;
+            left: 0;
             z-index: 1;
-        }
-
-        .content {
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Estilos para a seção de contato */
-        .contato {
-            padding: 100px 2rem;
-            background: linear-gradient(
-                to bottom,
-                var(--cor-primaria),
-                rgba(10, 25, 47, 0.95)
-            );
-        }
-
-        .contato-titulo {
-            font-size: 2.5rem;
-            color: var(--cor-texto);
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .contato-titulo::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--cor-secundaria);
-            border-radius: 2px;
-        }
-
-        .contato-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contato-descricao {
-            font-size: 1.2rem;
-            color: var(--cor-texto-secundario);
-            margin-bottom: 3rem;
-            line-height: 1.8;
-        }
-
-        .contato-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            border: 1px solid var(--cor-secundaria);
-            border-radius: 8px;
-            color: var(--cor-secundaria);
-            text-decoration: none;
-            font-family: var(--fonte-codigo);
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: rgba(100, 255, 218, 0.1);
-            transform: translateY(-3px);
-        }
-
-        .social-link i {
-            font-size: 1.2rem;
-        }
-
-        /* Tech Stack */
-        .tech-stack {
-            padding: 100px 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            background: var(--cor-primaria);
-        }
-
-        .tech-stack-titulo {
-            font-size: 2.5rem;
-            color: var(--cor-texto);
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .tech-stack-titulo::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--cor-secundaria);
-            border-radius: 2px;
-        }
-
-        .tech-stack-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-
-        .stack-categoria {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            border-radius: 15px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .stack-categoria:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
-        }
-
-        .categoria-titulo {
-            color: var(--cor-secundaria);
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            font-family: var(--fonte-codigo);
-        }
-
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .tech-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 1rem;
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .tech-item:hover {
-            background: rgba(100, 255, 218, 0.1);
-            transform: translateY(-3px);
-        }
-
-        .tech-item i {
-            font-size: 2rem;
-            color: var(--cor-secundaria);
-        }
-
-        .tech-item span {
-            font-family: var(--fonte-codigo);
-            font-size: 0.9rem;
-            color: var(--cor-texto);
-        }
-
-        /* Estilos responsivos */
-        @media (max-width: 768px) {
-            .tech-stack-container {
-                grid-template-columns: 1fr;
-            }
-
-            .tech-grid {
-                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-            }
-        }
-
-        /* Estilos para a seção de experiência */
-        .experiencia {
-            padding: 100px 2rem;
-            background: linear-gradient(
-                to bottom,
-                var(--cor-primaria),
-                rgba(10, 25, 47, 0.95)
-            );
-        }
-
-        .experiencia-titulo {
-            font-size: 2.5rem;
-            color: var(--cor-texto);
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .experiencia-titulo::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--cor-secundaria);
-            border-radius: 2px;
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .timeline-item {
-            display: grid;
-            grid-template-columns: 150px 1fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .timeline-data {
-            color: var(--cor-secundaria);
-            font-family: var(--fonte-codigo);
-        }
-
-        .timeline-conteudo {
-            background: var(--cor-card);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid rgba(100, 255, 218, 0.1);
-        }
-
-        .periodo {
-            color: var(--cor-secundaria);
-            font-family: var(--fonte-codigo);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .descricao {
-            color: var(--cor-texto-secundario);
-            line-height: 1.6;
-        }
-
-        /* Estilos para a seção de formação */
-        .formacao {
-            padding: 100px 2rem;
-            background: linear-gradient(
-                to bottom,
-                var(--cor-primaria),
-                rgba(10, 25, 47, 0.95)
-            );
-        }
-
-        .formacao-titulo {
-            font-size: 2.5rem;
-            color: var(--cor-texto);
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .formacao-titulo::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--cor-secundaria);
-            border-radius: 2px;
-        }
-
-        .formacao-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            border-radius: 15px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .formacao-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
-        }
-
-        .instituicao {
-            color: var(--cor-secundaria);
-            font-family: var(--fonte-codigo);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .status {
-            color: var(--cor-texto-secundario);
-            font-family: var(--fonte-codigo);
-            font-size: 0.9rem;
-        }
-
-        /* Estilos para a seção de interesses */
-        .interesses {
-            padding: 100px 2rem;
-            background: linear-gradient(
-                to bottom,
-                var(--cor-primaria),
-                rgba(10, 25, 47, 0.95)
-            );
-        }
-
-        .interesses-titulo {
-            font-size: 2.5rem;
-            color: var(--cor-texto);
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .interesses-titulo::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--cor-secundaria);
-            border-radius: 2px;
-        }
-
-        .interesses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .interesse-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            border-radius: 15px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .interesse-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
-        }
-
-        .interesse-item i {
-            font-size: 2rem;
-            color: var(--cor-secundaria);
-            margin-bottom: 0.5rem;
-        }
-
-        .interesse-item h3 {
-            color: var(--cor-texto);
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .interesse-item p {
-            color: var(--cor-texto-secundario);
-            line-height: 1.6;
-        }
-
-        /* Estilos para a seção de GitHub Analytics */
-        .github-stats {
-            padding: 100px 2rem;
-            background: linear-gradient(
-                to bottom,
-                var(--cor-primaria),
-                rgba(10, 25, 47, 0.95)
-            );
-        }
-
-        .stats-titulo {
-            font-size: 2.5rem;
-            color: var(--cor-texto);
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .stats-titulo::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--cor-secundaria);
-            border-radius: 2px;
-        }
-
-        .stats-container {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .stats-container img {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .stats-container img:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
-        }
-
-        /* Estilos para a seção de idiomas */
-        .idiomas {
-            padding: 100px 2rem;
-            background: linear-gradient(
-                to bottom,
-                var(--cor-primaria),
-                rgba(10, 25, 47, 0.95)
-            );
-        }
-
-        .idiomas-titulo {
-            font-size: 2.5rem;
-            color: var(--cor-texto);
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .idiomas-titulo::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--cor-secundaria);
-            border-radius: 2px;
-        }
-
-        .idiomas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .idioma-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            border-radius: 15px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .idioma-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
-        }
-
-        .idioma-item img {
-            width: 100%;
-            max-width: 200px;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .idioma-item img:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
-        }
-
-        .idioma-item h3 {
-            color: var(--cor-texto);
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .idioma-item p {
-            color: var(--cor-texto-secundario);
-            line-height: 1.6;
-        }
-
-        /* Tech Stack Grid */
-        .tech-stack {
-            padding: 100px 2rem;
-        }
-
-        .stack-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .tech-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem;
-            background: var(--cor-card);
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .tech-item:hover {
-            transform: translateY(-5px);
         }
     </style>
 </head>
 <body>
-    <div id="particles-js"></div>
-    
-    <main class="content">
-        <header class="hero" id="inicio">
-            <div class="hero-content">
-                <span class="hero-subtitle">Olá, eu sou</span>
-                <h1 class="hero-titulo">Kelvin Moraes</h1>
-                <h2 class="hero-subtitulo">Desenvolvedor Full Stack & Professor</h2>
-                <p class="hero-descricao">
-                    Especializado em desenvolvimento web moderno e educação em tecnologia. 
-                    Transformando ideias em código e conhecimento em aprendizado.
-                </p>
-                <div class="hero-cta">
-                    <a href="#projetos" class="btn btn-primario">
-                        <i class="fas fa-code"></i> Ver Projetos
-                    </a>
-                    <a href="#contato" class="btn btn-secundario">
-                        <i class="fas fa-envelope"></i> Contato
-                    </a>
-                </div>
-            </div>
-            <div class="hero-social">
-                <a href="https://github.com/KerubinDev" target="_blank">
-                    <i class="fab fa-github"></i>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div id="particles-js"></div>
+        <div class="hero-content">
+            <span class="hero-subtitle">Olá, eu sou</span>
+            <h1 class="hero-titulo">Kelvin Moraes</h1>
+            <p class="hero-descricao">
+                Desenvolvedor Full Stack & Professor apaixonado por criar 
+                experiências digitais extraordinárias
+            </p>
+            <div class="hero-cta">
+                <a href="#projetos" class="btn btn-primario">
+                    <i class="fas fa-code"></i>&nbsp; Ver Projetos
                 </a>
-                <a href="https://www.linkedin.com/in/kelvin-moraes-a8a8452ba" target="_blank">
-                    <i class="fab fa-linkedin"></i>
+                <a href="#contato" class="btn btn-secundario">
+                    <i class="fas fa-paper-plane"></i>&nbsp; Contato
                 </a>
             </div>
-        </header>
-
-        <section class="sobre" id="sobre">
-            <div class="container">
-                <h2 class="secao-titulo">Sobre Mim</h2>
-                <div class="sobre-grid">
-                    <div class="sobre-texto">
-                        <p>Desenvolvedor Full Stack com experiência em ensino de programação. 
-                        Especializado em React, Node.js e Unity, combinando habilidades 
-                        técnicas com capacidade didática.</p>
-                        
-                        <div class="sobre-destaque">
-                            <div class="destaque-item">
-                                <span class="numero">1+</span>
-                                <span class="texto">Anos de Experiência</span>
-                            </div>
-                            <div class="destaque-item">
-                                <span class="numero">10+</span>
-                                <span class="texto">Projetos Realizados</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sobre-skills">
-                        <h3>Principais Habilidades</h3>
-                        <div class="skills-grid">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span>React</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
-                                </div>
-                            </div>
-                            <!-- Adicionar mais skills -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="projetos" id="projetos">
-            <div class="container">
-                <h2 class="secao-titulo">Projetos em Destaque</h2>
-                <div class="projetos-grid">
-                    <article class="projeto-card">
-                        <div class="projeto-imagem">
-                            <img src="https://via.placeholder.com/500x300" alt="Kerubin AI">
-                        </div>
-                        <div class="projeto-conteudo">
-                            <h3>Kerubin AI</h3>
-                            <p>Sistema de gestão escolar inteligente com integração de IA</p>
-                            <div class="projeto-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">AI</span>
-                                <span class="tech-tag">Database</span>
-                            </div>
-                            <div class="projeto-links">
-                                <a href="https://github.com/KerubinDev/Kerubin_AI" 
-                                   target="_blank" class="btn">
-                                    <i class="fab fa-github"></i> Código
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="projeto-card">
-                        <div class="projeto-imagem">
-                            <img src="https://via.placeholder.com/500x300" alt="School Management">
-                        </div>
-                        <div class="projeto-conteudo">
-                            <h3>School Management</h3>
-                            <p>Sistema de gerenciamento escolar com recursos avançados</p>
-                            <div class="projeto-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">SQL</span>
-                                <span class="tech-tag">Node.js</span>
-                            </div>
-                            <div class="projeto-links">
-                                <a href="https://github.com/KerubinDev" 
-                                   target="_blank" class="btn">
-                                    <i class="fab fa-github"></i> Código
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="projeto-card">
-                        <div class="projeto-imagem">
-                            <img src="https://via.placeholder.com/500x300" alt="Kanban">
-                        </div>
-                        <div class="projeto-conteudo">
-                            <h3>Kanban</h3>
-                            <p>Sistema de gerenciamento de projetos com metodologia Kanban</p>
-                            <div class="projeto-tech">
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Node.js</span>
-                            </div>
-                            <div class="projeto-links">
-                                <a href="https://github.com/KerubinDev" 
-                                   target="_blank" class="btn">
-                                    <i class="fab fa-github"></i> Código
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Nova Seção de Contato -->
-        <section class="contato" id="contato">
-            <div class="container">
-                <h2 class="secao-titulo">Vamos Conversar?</h2>
-                <div class="contato-grid">
-                    <div class="contato-info">
-                        <h3>Entre em Contato</h3>
-                        <p>Estou sempre interessado em novos projetos e oportunidades 
-                        de colaboração.</p>
-                        <div class="contato-links">
-                            <a href="mailto:kelvin.moraes117@gmail.com" class="contato-item">
-                                <i class="fas fa-envelope"></i>
-                                <div>
-                                    <h4>Email</h4>
-                                    <span>kelvin.moraes117@gmail.com</span>
-                                </div>
-                            </a>
-                            <a href="https://www.linkedin.com/in/kelvin-moraes-a8a8452ba" 
-                               class="contato-item" target="_blank">
-                                <i class="fab fa-linkedin"></i>
-                                <div>
-                                    <h4>LinkedIn</h4>
-                                    <span>Kelvin Moraes</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experiência Profissional -->
-        <section class="experiencia" id="experiencia">
-            <div class="container">
-                <h2 class="secao-titulo">Experiência</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-info">
-                                <span class="periodo">2023 - Maio 2024</span>
-                                <span class="empresa">E-pro</span>
-                            </div>
-                            <h3>Professor de Programação</h3>
-                            <ul class="timeline-lista">
-                                <li>Desenvolvimento Web (HTML, CSS, JavaScript)</li>
-                                <li>React e Node.js</li>
-                                <li>Desenvolvimento de Jogos com Unity</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Stack Tecnológica Completa -->
-        <section class="tech-stack" id="tecnologias">
-            <div class="container">
-                <h2 class="secao-titulo">Tecnologias</h2>
-                <div class="stack-container">
-                    <!-- Front-end -->
-                    <div class="stack-categoria">
-                        <h3 class="categoria-titulo">Front-end</h3>
-                        <div class="tech-grid">
-                            <div class="tech-item">
-                                <i class="fab fa-html5"></i>
-                                <span>HTML5</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-css3-alt"></i>
-                                <span>CSS3</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-js"></i>
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-react"></i>
-                                <span>React</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Back-end -->
-                    <div class="stack-categoria">
-                        <h3 class="categoria-titulo">Back-end</h3>
-                        <div class="tech-grid">
-                            <div class="tech-item">
-                                <i class="fab fa-python"></i>
-                                <span>Python</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-database"></i>
-                                <span>SQL</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fab fa-node-js"></i>
-                                <span>Node.js</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Game Dev -->
-                    <div class="stack-categoria">
-                        <h3 class="categoria-titulo">Game Dev</h3>
-                        <div class="tech-grid">
-                            <div class="tech-item">
-                                <i class="fas fa-gamepad"></i>
-                                <span>C++</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-code"></i>
-                                <span>GML</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-gamepad"></i>
-                                <span>GameMaker</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Design -->
-                    <div class="stack-categoria">
-                        <h3 class="categoria-titulo">Design</h3>
-                        <div class="tech-grid">
-                            <div class="tech-item">
-                                <i class="fas fa-paint-brush"></i>
-                                <span>Photoshop</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-pen-nib"></i>
-                                <span>Illustrator</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-book"></i>
-                                <span>InDesign</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="formacao" id="formacao">
-            <div class="container">
-                <h2 class="formacao-titulo">Formação Acadêmica</h2>
-                <div class="formacao-card">
-                    <h3>Desenvolvimento de Sistemas</h3>
-                    <p class="instituicao">Senac</p>
-                    <p class="status">Em andamento</p>
-                    <p class="descricao">
-                        Formação bilíngue em desenvolvimento de sistemas com foco em 
-                        full stack
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section class="interesses" id="interesses">
-            <div class="container">
-                <h2 class="interesses-titulo">Interesses</h2>
-                <div class="interesses-grid">
-                    <div class="interesse-item">
-                        <i class="fas fa-brain"></i>
-                        <h3>Psicologia</h3>
-                        <p>Apaixonado por psicologia e psicanálise</p>
-                    </div>
-                    <div class="interesse-item">
-                        <i class="fas fa-music"></i>
-                        <h3>Música Clássica</h3>
-                        <p>Programação ao som de música clássica</p>
-                    </div>
-                    <!-- Adicionar mais interesses -->
-                </div>
-            </div>
-        </section>
-
-        <section class="github-stats" id="stats">
-            <div class="container">
-                <h2 class="stats-titulo">GitHub Analytics</h2>
-                <div class="stats-container">
-                    <img src="https://github-readme-stats.vercel.app/api?username=KerubinDev&show_icons=true&theme=radical&hide_border=true" 
-                         alt="GitHub Stats">
-                    <img src="https://github-readme-streak-stats.herokuapp.com/?user=KerubinDev&theme=radical&hide_border=true" 
-                         alt="GitHub Streak">
-                </div>
-            </div>
-        </section>
-
-        <section class="idiomas" id="idiomas">
-            <div class="container">
-                <h2 class="idiomas-titulo">Idiomas</h2>
-                <div class="idiomas-grid">
-                    <div class="idioma-item">
-                        <img src="assets/br-flag.png" alt="Português">
-                        <h3>Português</h3>
-                        <p>Nativo</p>
-                    </div>
-                    <div class="idioma-item">
-                        <img src="assets/en-flag.png" alt="Inglês">
-                        <h3>Inglês</h3>
-                        <p>Intermediario</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js">
+    </script>
     <script>
         particlesJS('particles-js',
         {
@@ -1133,14 +195,14 @@
                     }
                 },
                 "color": {
-                    "value": "#64ffda"
+                    "value": "#8A2BE2"
                 },
                 "shape": {
                     "type": "circle"
                 },
                 "opacity": {
                     "value": 0.5,
-                    "random": false
+                    "random": true
                 },
                 "size": {
                     "value": 3,
@@ -1149,13 +211,13 @@
                 "line_linked": {
                     "enable": true,
                     "distance": 150,
-                    "color": "#64ffda",
-                    "opacity": 0.4,
+                    "color": "#8A2BE2",
+                    "opacity": 0.2,
                     "width": 1
                 },
                 "move": {
                     "enable": true,
-                    "speed": 6,
+                    "speed": 3,
                     "direction": "none",
                     "random": false,
                     "straight": false,
