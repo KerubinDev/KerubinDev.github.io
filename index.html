@@ -995,6 +995,7 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
+            transition: opacity 0.3s ease;
         }
 
         .loader {
@@ -1675,5 +1676,23 @@
             <div class="loader-text">Carregando...</div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loadingScreen = document.querySelector('.loading-screen');
+            
+            // Define o tempo mínimo de exibição do loading (em milissegundos)
+            const TEMPO_MINIMO_LOADING = 1500;
+            
+            // Aguarda todos os recursos carregarem
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    loadingScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                    }, 300);
+                }, TEMPO_MINIMO_LOADING);
+            });
+        });
+    </script>
 </body>
 </html>
