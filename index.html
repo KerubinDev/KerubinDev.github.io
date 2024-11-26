@@ -187,15 +187,15 @@
         }
 
         .glitch-text {
-            font-size: 3rem;
-            color: var(--cor-texto);
             position: relative;
-            margin-bottom: 2rem;
+            font-size: 5rem;
+            font-weight: 700;
+            color: var(--cor-texto);
         }
 
         .glitch-text::before,
         .glitch-text::after {
-            content: 'Sobre Mim';
+            content: attr(data-text);
             position: absolute;
             top: 0;
             left: 0;
@@ -204,17 +204,38 @@
         }
 
         .glitch-text::before {
+            animation: glitch-effect 3s infinite linear alternate-reverse;
             color: var(--cor-secundaria);
-            animation: glitch 3s infinite;
             clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
-            transform: translate(-2px, -2px);
+            transform: translate(-2px);
         }
 
         .glitch-text::after {
+            animation: glitch-effect 2s infinite linear alternate-reverse;
             color: var(--cor-accent);
-            animation: glitch 2s infinite;
             clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
-            transform: translate(2px, 2px);
+            transform: translate(2px);
+        }
+
+        @keyframes glitch-effect {
+            0% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(-1px, 1px);
+            }
+            40% {
+                transform: translate(-1px, -1px);
+            }
+            60% {
+                transform: translate(1px, 1px);
+            }
+            80% {
+                transform: translate(1px, -1px);
+            }
+            100% {
+                transform: translate(0);
+            }
         }
 
         .tech-cards {
@@ -258,27 +279,6 @@
             color: var(--cor-texto-secundario);
             margin-bottom: 0.5rem;
             font-size: 0.9rem;
-        }
-
-        @keyframes glitch {
-            0% {
-                transform: translate(0);
-            }
-            20% {
-                transform: translate(-2px, 2px);
-            }
-            40% {
-                transform: translate(-2px, -2px);
-            }
-            60% {
-                transform: translate(2px, 2px);
-            }
-            80% {
-                transform: translate(2px, -2px);
-            }
-            100% {
-                transform: translate(0);
-            }
         }
     </style>
 </head>
@@ -356,6 +356,95 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Projetos com Cards 3D -->
+    <section class="projetos" id="projetos">
+        <div class="container">
+            <h2 class="secao-titulo">Projetos em Destaque</h2>
+            <div class="projetos-grid">
+                <!-- Kerubin AI -->
+                <article class="projeto-card">
+                    <div class="projeto-content">
+                        <div class="projeto-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Kerubin AI</h3>
+                        <p>Sistema de gestão escolar com IA</p>
+                        <div class="projeto-tech-stack">
+                            <span>Python</span>
+                            <span>AI</span>
+                            <span>SQL</span>
+                        </div>
+                        <a href="https://github.com/KerubinDev/Kerubin_AI" 
+                           class="btn-projeto" target="_blank">
+                            Ver Projeto
+                        </a>
+                    </div>
+                </article>
+                <!-- Adicionar mais projetos -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Timeline de Experiência -->
+    <section class="experiencia" id="experiencia">
+        <div class="container">
+            <h2 class="secao-titulo">Jornada Profissional</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-data">2023 - 2024</div>
+                        <h3>Professor de Programação</h3>
+                        <p>E-pro</p>
+                        <ul class="timeline-detalhes">
+                            <li>Ensino de desenvolvimento web</li>
+                            <li>Mentoria em projetos práticos</li>
+                            <li>Desenvolvimento de material didático</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Habilidades Interativa -->
+    <section class="habilidades" id="habilidades">
+        <div class="container">
+            <h2 class="secao-titulo">Habilidades</h2>
+            <div class="habilidades-grid">
+                <div class="habilidade-card">
+                    <div class="habilidade-nivel" data-nivel="90">
+                        <svg class="progresso-circular">
+                            <!-- Círculo de progresso SVG -->
+                        </svg>
+                        <span class="porcentagem">90%</span>
+                    </div>
+                    <h3>Front-end</h3>
+                </div>
+                <!-- Adicionar mais cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Blog/Artigos -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <h2 class="secao-titulo">Últimos Artigos</h2>
+            <div class="artigos-grid">
+                <article class="artigo-card">
+                    <div class="artigo-imagem">
+                        <img src="path/to/image" alt="Artigo sobre IA">
+                    </div>
+                    <div class="artigo-content">
+                        <h3>Inteligência Artificial na Educação</h3>
+                        <p>Como a IA está transformando o ensino...</p>
+                        <a href="#" class="ler-mais">Ler mais</a>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
