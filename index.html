@@ -308,6 +308,9 @@
             position: relative;
             z-index: 2;
             opacity: 1;
+            transition: var(--transicao);
+            filter: none;
+            visibility: visible;
         }
 
         .foto-overlay {
@@ -324,6 +327,7 @@
             border-radius: 20px;
             opacity: 0;
             transition: var(--transicao-media);
+            z-index: 3;
         }
 
         .foto-border {
@@ -1487,7 +1491,7 @@
             <div class="sobre-grid">
                 <div class="foto-container fade-in">
                     <div class="foto-wrapper">
-                        <img src="/kerubindev.github.io/img/foto.png" alt="Foto de perfil" class="foto-perfil">
+                        <img src="img/foto.png" alt="Foto de perfil" class="foto-perfil">
                         <div class="foto-overlay"></div>
                         <div class="foto-border"></div>
                     </div>
@@ -1764,6 +1768,23 @@
                     img.style.display = 'none';
                 };
             });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fotoPerfil = document.querySelector('.foto-perfil');
+            
+            // Log para verificar se a imagem está sendo carregada
+            console.log('Carregando imagem:', fotoPerfil.src);
+            
+            fotoPerfil.onload = function() {
+                console.log('Imagem carregada com sucesso');
+            };
+            
+            fotoPerfil.onerror = function() {
+                console.error('Erro ao carregar a imagem');
+                // Tentar carregar uma imagem de fallback ou mostrar mensagem de erro
+            };
         });
     </script>
 </body>
