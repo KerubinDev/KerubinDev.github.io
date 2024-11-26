@@ -274,6 +274,69 @@
             align-items: center;
         }
 
+        .foto-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+        }
+
+        .foto-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .foto-perfil {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            filter: grayscale(20%);
+            transition: var(--transicao-media);
+        }
+
+        .foto-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                rgba(138, 43, 226, 0.2),
+                transparent
+            );
+            border-radius: 20px;
+            opacity: 0;
+            transition: var(--transicao-media);
+        }
+
+        .foto-border {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--cor-secundaria);
+            border-radius: 20px;
+            z-index: -1;
+            transition: var(--transicao-media);
+        }
+
+        .foto-container:hover .foto-perfil {
+            filter: grayscale(0%);
+            transform: translateY(-5px);
+        }
+
+        .foto-container:hover .foto-overlay {
+            opacity: 1;
+        }
+
+        .foto-container:hover .foto-border {
+            transform: translate(5px, 5px);
+        }
+
         .sobre-texto {
             position: relative;
         }
@@ -381,11 +444,11 @@
         @media (max-width: 968px) {
             .sobre-grid {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                text-align: center;
             }
 
-            .tech-cards {
-                grid-template-columns: repeat(2, 1fr);
+            .foto-container {
+                margin-bottom: 2rem;
             }
         }
 
@@ -1266,6 +1329,13 @@
     <section class="sobre" id="sobre">
         <div class="container">
             <div class="sobre-grid">
+                <div class="foto-container fade-in">
+                    <div class="foto-wrapper">
+                        <img src="@foto.png" alt="Kelvin Moraes" class="foto-perfil">
+                        <div class="foto-overlay"></div>
+                        <div class="foto-border"></div>
+                    </div>
+                </div>
                 <div class="sobre-texto">
                     <h2 class="glitch-text">Sobre Mim</h2>
                     <p class="sobre-descricao">
@@ -1288,38 +1358,38 @@
                         </div>
                     </div>
                 </div>
-                <div class="tech-cards">
-                    <div class="tech-card front">
-                        <i class="fas fa-code"></i>
-                        <h3>Front-end</h3>
-                        <ul>
-                            <li>HTML5</li>
-                            <li>CSS3</li>
-                            <li>JavaScript</li>
-                            <li>React</li>
-                            <li>UI/UX Design</li>
-                        </ul>
-                    </div>
-                    <div class="tech-card back">
-                        <i class="fas fa-server"></i>
-                        <h3>Back-end</h3>
-                        <ul>
-                            <li>Python</li>
-                            <li>SQL</li>
-                            <li>Node.js</li>
-                            <li>Database Management</li>
-                        </ul>
-                    </div>
-                    <div class="tech-card design">
-                        <i class="fas fa-palette"></i>
-                        <h3>Design</h3>
-                        <ul>
-                            <li>Photoshop</li>
-                            <li>Illustrator</li>
-                            <li>InDesign</li>
-                            <li>Digital Marketing</li>
-                        </ul>
-                    </div>
+            </div>
+            <div class="tech-cards">
+                <div class="tech-card front">
+                    <i class="fas fa-code"></i>
+                    <h3>Front-end</h3>
+                    <ul>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>JavaScript</li>
+                        <li>React</li>
+                        <li>UI/UX Design</li>
+                    </ul>
+                </div>
+                <div class="tech-card back">
+                    <i class="fas fa-server"></i>
+                    <h3>Back-end</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>SQL</li>
+                        <li>Node.js</li>
+                        <li>Database Management</li>
+                    </ul>
+                </div>
+                <div class="tech-card design">
+                    <i class="fas fa-palette"></i>
+                    <h3>Design</h3>
+                    <ul>
+                        <li>Photoshop</li>
+                        <li>Illustrator</li>
+                        <li>InDesign</li>
+                        <li>Digital Marketing</li>
+                    </ul>
                 </div>
             </div>
         </div>
