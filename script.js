@@ -100,4 +100,133 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
         });
     });
+
+    // Adicionar efeito de hover nos links do menu
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('mouseenter', (e) => {
+            cursor.style.transform = 'scale(1.5)';
+            cursorDot.style.transform = 'scale(0.5)';
+        });
+
+        link.addEventListener('mouseleave', () => {
+            cursor.style.transform = 'scale(1)';
+            cursorDot.style.transform = 'scale(1)';
+        });
+    });
+
+    // Animação para os cards de habilidades
+    document.querySelectorAll('.habilidade-card').forEach(card => {
+        const circulo = card.querySelector('.progresso-circular circle');
+        const porcentagem = card.querySelector('.porcentagem');
+        const nivel = card.querySelector('.habilidade-nivel').dataset.nivel;
+
+        if (circulo && porcentagem) {
+            const raio = circulo.r.baseVal.value;
+            const circunferencia = 2 * Math.PI * raio;
+            
+            circulo.style.strokeDasharray = circunferencia;
+            circulo.style.strokeDashoffset = circunferencia;
+
+            setTimeout(() => {
+                const offset = circunferencia - (nivel / 100) * circunferencia;
+                circulo.style.strokeDashoffset = offset;
+                
+                let contador = 0;
+                const intervalo = setInterval(() => {
+                    if (contador === parseInt(nivel)) {
+                        clearInterval(intervalo);
+                    } else {
+                        contador++;
+                        porcentagem.textContent = contador + '%';
+                    }
+                }, 20);
+            }, 500);
+        }
+    });
+
+    // Efeito de glitch no texto
+    function adicionarEfeitoGlitch(elemento) {
+        if (!elemento) return;
+
+        const texto = elemento.textContent;
+        elemento.setAttribute('data-text', texto);
+        
+        elemento.addEventListener('mouseenter', () => {
+            let iteracoes = 0;
+            
+            const intervalo = setInterval(() => {
+                elemento.textContent = texto
+                    .split('')
+                    .map((letra, index) => {
+                        if (index < iteracoes) {
+                            return texto[index];
+                        }
+                        return letrasGlitch[Math.floor(Math.random() * letrasGlitch.length)];
+                    })
+                    .join('');
+                
+                if (iteracoes >= texto.length) {
+                    clearInterval(intervalo);
+                    elemento.textContent = texto;
+                }
+                iteracoes += 1/3;
+            }, 30);
+        });
+    }
+
+    const letrasGlitch = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@#$%&*()_+-=[]{}|;:,.<>?';
+    document.querySelectorAll('.glitch-text').forEach(adicionarEfeitoGlitch);
+
+    // Animação suave para números
+    function animarNumero(elemento) {
+        const numero = parseInt(elemento.textContent);
+        let atual = 0;
+        
+        const intervalo = setInterval(() => {
+            if (atual >= numero) {
+                clearInterval(intervalo);
+            } else {
+                atual += 1;
+                elemento.textContent = atual;
+            }
+        }, 50);
+    }
+
+    document.querySelectorAll('.stat-numero-grande').forEach(animarNumero);
+
+    // Efeito de partículas interativas
+    document.querySelectorAll('.tech-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+            
+            const particula = document.createElement('div');
+            particula.className = 'particula';
+            particula.style.left = x + 'px';
+            particula.style.top = y + 'px';
+            card.appendChild(particula);
+            
+            setTimeout(() => particula.remove(), 1000);
+        });
+    });
+
+    // Efeito de scroll suave para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 }); 
