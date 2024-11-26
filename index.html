@@ -317,6 +317,7 @@
             padding: 100px 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            background: var(--cor-primaria);
         }
 
         .tech-stack-titulo {
@@ -340,38 +341,383 @@
         }
 
         .tech-stack-container {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
         }
 
         .stack-categoria {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .stack-categoria:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+        }
+
+        .categoria-titulo {
+            color: var(--cor-secundaria);
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
             text-align: center;
+            font-family: var(--fonte-codigo);
         }
 
         .tech-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .tech-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.8rem;
             padding: 1rem;
-            border: 1px solid var(--cor-secundaria);
+            border: 1px solid rgba(100, 255, 218, 0.1);
             border-radius: 8px;
             transition: all 0.3s ease;
         }
 
         .tech-item:hover {
             background: rgba(100, 255, 218, 0.1);
+            transform: translateY(-3px);
         }
 
         .tech-item i {
             font-size: 2rem;
+            color: var(--cor-secundaria);
+        }
+
+        .tech-item span {
+            font-family: var(--fonte-codigo);
+            font-size: 0.9rem;
+            color: var(--cor-texto);
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .tech-stack-container {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            }
+        }
+
+        /* Estilos para a seção de experiência */
+        .experiencia {
+            padding: 100px 2rem;
+            background: linear-gradient(
+                to bottom,
+                var(--cor-primaria),
+                rgba(10, 25, 47, 0.95)
+            );
+        }
+
+        .experiencia-titulo {
+            font-size: 2.5rem;
+            color: var(--cor-texto);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .experiencia-titulo::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--cor-secundaria);
+            border-radius: 2px;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+        }
+
+        .periodo {
+            color: var(--cor-secundaria);
+            font-family: var(--fonte-codigo);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .descricao {
+            color: var(--cor-texto-secundario);
+            line-height: 1.6;
+        }
+
+        /* Estilos para a seção de formação */
+        .formacao {
+            padding: 100px 2rem;
+            background: linear-gradient(
+                to bottom,
+                var(--cor-primaria),
+                rgba(10, 25, 47, 0.95)
+            );
+        }
+
+        .formacao-titulo {
+            font-size: 2.5rem;
+            color: var(--cor-texto);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .formacao-titulo::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--cor-secundaria);
+            border-radius: 2px;
+        }
+
+        .formacao-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .formacao-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+        }
+
+        .instituicao {
+            color: var(--cor-secundaria);
+            font-family: var(--fonte-codigo);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .status {
+            color: var(--cor-texto-secundario);
+            font-family: var(--fonte-codigo);
+            font-size: 0.9rem;
+        }
+
+        /* Estilos para a seção de interesses */
+        .interesses {
+            padding: 100px 2rem;
+            background: linear-gradient(
+                to bottom,
+                var(--cor-primaria),
+                rgba(10, 25, 47, 0.95)
+            );
+        }
+
+        .interesses-titulo {
+            font-size: 2.5rem;
+            color: var(--cor-texto);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .interesses-titulo::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--cor-secundaria);
+            border-radius: 2px;
+        }
+
+        .interesses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .interesse-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .interesse-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+        }
+
+        .interesse-item i {
+            font-size: 2rem;
+            color: var(--cor-secundaria);
+            margin-bottom: 0.5rem;
+        }
+
+        .interesse-item h3 {
+            color: var(--cor-texto);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .interesse-item p {
+            color: var(--cor-texto-secundario);
+            line-height: 1.6;
+        }
+
+        /* Estilos para a seção de GitHub Analytics */
+        .github-stats {
+            padding: 100px 2rem;
+            background: linear-gradient(
+                to bottom,
+                var(--cor-primaria),
+                rgba(10, 25, 47, 0.95)
+            );
+        }
+
+        .stats-titulo {
+            font-size: 2.5rem;
+            color: var(--cor-texto);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .stats-titulo::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--cor-secundaria);
+            border-radius: 2px;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .stats-container img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .stats-container img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+        }
+
+        /* Estilos para a seção de idiomas */
+        .idiomas {
+            padding: 100px 2rem;
+            background: linear-gradient(
+                to bottom,
+                var(--cor-primaria),
+                rgba(10, 25, 47, 0.95)
+            );
+        }
+
+        .idiomas-titulo {
+            font-size: 2.5rem;
+            color: var(--cor-texto);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .idiomas-titulo::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--cor-secundaria);
+            border-radius: 2px;
+        }
+
+        .idiomas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .idioma-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .idioma-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+        }
+
+        .idioma-item img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .idioma-item img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+        }
+
+        .idioma-item h3 {
+            color: var(--cor-texto);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .idioma-item p {
+            color: var(--cor-texto-secundario);
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -501,8 +847,9 @@
         <section class="tech-stack" id="tech-stack">
             <h2 class="tech-stack-titulo">Tecnologias</h2>
             <div class="tech-stack-container">
+                <!-- Front-end -->
                 <div class="stack-categoria">
-                    <h3>Front-end</h3>
+                    <h3 class="categoria-titulo">Front-end</h3>
                     <div class="tech-grid">
                         <div class="tech-item">
                             <i class="fab fa-html5"></i>
@@ -516,9 +863,54 @@
                             <i class="fab fa-js"></i>
                             <span>JavaScript</span>
                         </div>
+                        <div class="tech-item">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
                     </div>
                 </div>
-                <!-- Repetir para Back-end, Game Dev e Design -->
+
+                <!-- Back-end -->
+                <div class="stack-categoria">
+                    <h3 class="categoria-titulo">Back-end</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-database"></i>
+                            <span>SQL</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-node-js"></i>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-server"></i>
+                            <span>Express</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Dev -->
+                <div class="stack-categoria">
+                    <h3 class="categoria-titulo">Game Dev</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <i class="fab fa-unity"></i>
+                            <span>Unity</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-gamepad"></i>
+                            <span>C#</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-cube"></i>
+                            <span>Blender</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
