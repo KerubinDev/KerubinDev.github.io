@@ -1123,6 +1123,121 @@
         .projeto-card:hover::before {
             opacity: 1;
         }
+
+        /* Estilização da seção de interesses */
+        .interesses {
+            padding: 5rem 0;
+            background: linear-gradient(
+                to bottom,
+                var(--cor-fundo),
+                rgba(138, 43, 226, 0.05)
+            );
+        }
+
+        .interesses-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .interesse-card {
+            background: rgba(138, 43, 226, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(138, 43, 226, 0.1);
+            transition: var(--transicao-media);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interesse-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
+            border-color: rgba(138, 43, 226, 0.3);
+        }
+
+        .interesse-card i {
+            font-size: 2.5rem;
+            color: var(--cor-secundaria);
+            margin-bottom: 1.5rem;
+            transition: var(--transicao-media);
+        }
+
+        .interesse-card:hover i {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .interesse-card h3 {
+            color: var(--cor-secundaria);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .interesse-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: var(--cor-secundaria);
+            transition: var(--transicao-media);
+        }
+
+        .interesse-card:hover h3::after {
+            width: 100px;
+        }
+
+        .interesse-card p {
+            color: var(--cor-texto);
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        /* Efeito de brilho no hover */
+        .interesse-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle,
+                rgba(138, 43, 226, 0.1) 0%,
+                transparent 70%
+            );
+            transform: rotate(45deg);
+            transition: var(--transicao-lenta);
+            opacity: 0;
+        }
+
+        .interesse-card:hover::before {
+            opacity: 1;
+            transform: rotate(45deg) translateY(-50%);
+        }
+
+        /* Responsividade */
+        @media (max-width: 968px) {
+            .interesses-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .interesses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .interesse-card {
+                padding: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1300,24 +1415,29 @@
     </section>
 
     <!-- Nova seção de interesses -->
-    <section class="interesses">
+    <section class="interesses fade-in">
         <div class="container">
-            <h2 class="secao-titulo">Interesses</h2>
+            <h2 class="secao-titulo glitch-text">Interesses</h2>
             <div class="interesses-grid">
                 <div class="interesse-card">
                     <i class="fas fa-brain"></i>
                     <h3>Psicologia</h3>
-                    <p>Apaixonado por psicologia e psicanálise</p>
+                    <p>Apaixonado por psicologia e psicanálise, explorando a mente 
+                       humana e suas complexidades.</p>
                 </div>
+                
                 <div class="interesse-card">
                     <i class="fas fa-music"></i>
                     <h3>Música Clássica</h3>
-                    <p>Programação ao som de música clássica</p>
+                    <p>Programação ao som de música clássica, combinando arte e 
+                       tecnologia em harmonia.</p>
                 </div>
+                
                 <div class="interesse-card">
                     <i class="fas fa-puzzle-piece"></i>
                     <h3>Resolução de Problemas</h3>
-                    <p>Desafios complexos em código e vida</p>
+                    <p>Desafios complexos em código e vida, buscando soluções 
+                       criativas e eficientes.</p>
                 </div>
             </div>
         </div>

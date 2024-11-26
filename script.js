@@ -255,4 +255,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Adicionar animações para cards de interesse
+    document.querySelectorAll('.interesse-card').forEach(card => {
+        card.addEventListener('mouseenter', (e) => {
+            // Efeito de brilho
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+            
+            // Efeito no cursor
+            if (cursor && cursorDot) {
+                cursor.style.transform = 'scale(1.5)';
+                cursorDot.style.transform = 'scale(0.5)';
+            }
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            if (cursor && cursorDot) {
+                cursor.style.transform = 'scale(1)';
+                cursorDot.style.transform = 'scale(1)';
+            }
+        });
+    });
 }); 
