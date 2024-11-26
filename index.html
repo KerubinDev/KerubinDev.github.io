@@ -1461,6 +1461,24 @@
         .foto-perfil {
             opacity: 1; /* Garante que a imagem esteja visível */
         }
+
+        /* Ajustar animação fade-in para ser mais suave e garantir opacidade final */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1; /* Garantir que termina totalmente visível */
+                transform: translateY(0);
+            }
+        }
+
+        /* Adicionar classe específica para animação da foto */
+        .foto-animate {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0; /* Começa invisível */
+        }
     </style>
 </head>
 <body>
@@ -1489,9 +1507,12 @@
     <section class="sobre" id="sobre">
         <div class="container">
             <div class="sobre-grid">
-                <div class="foto-container fade-in">
-                    <div class="foto-wrapper">
-                        <img src="img/foto.png" alt="Foto de perfil" class="foto-perfil">
+                <div class="foto-container">
+                    <div class="foto-wrapper foto-animate">
+                        <img src="https://kerubindev.github.io/img/foto.png" 
+                             alt="Foto de perfil" 
+                             class="foto-perfil"
+                             onerror="this.onerror=null; handleImageError(this);">
                         <div class="foto-overlay"></div>
                         <div class="foto-border"></div>
                     </div>
@@ -1786,6 +1807,19 @@
                 // Tentar carregar uma imagem de fallback ou mostrar mensagem de erro
             };
         });
+    </script>
+    <script>
+        function handleImageError(img) {
+            console.error('Erro ao carregar a imagem:', img.src);
+            
+            // Tentar carregar uma imagem de fallback
+            img.src = 'https://kerubindev.github.io/assets/foto.png';
+            
+            // Se ainda falhar, mostrar um placeholder
+            img.onerror = function() {
+                img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzhhMmJlMiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5LTTwvdGV4dD48L3N2Zz4=';
+            };
+        }
     </script>
 </body>
 </html>
