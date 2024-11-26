@@ -774,118 +774,169 @@
     <div id="particles-js"></div>
     
     <main class="content">
-        <section class="hero" id="inicio">
+        <header class="hero" id="inicio">
             <div class="hero-content">
-                <h1>Kelvin Moraes</h1>
-                <h2>Desenvolvedor Full Stack & Professor</h2>
-                <p>Transformando ideias em código e conhecimento em aprendizado</p>
+                <span class="hero-subtitle">Olá, eu sou</span>
+                <h1 class="hero-titulo">Kelvin Moraes</h1>
+                <h2 class="hero-subtitulo">Desenvolvedor Full Stack & Professor</h2>
+                <p class="hero-descricao">
+                    Especializado em desenvolvimento web moderno e educação em tecnologia. 
+                    Transformando ideias em código e conhecimento em aprendizado.
+                </p>
                 <div class="hero-cta">
-                    <a href="#projetos" class="btn-primario">Ver Projetos</a>
-                    <a href="#contato" class="btn-secundario">Contato</a>
+                    <a href="#projetos" class="btn btn-primario">
+                        <i class="fas fa-code"></i> Ver Projetos
+                    </a>
+                    <a href="#contato" class="btn btn-secundario">
+                        <i class="fas fa-envelope"></i> Contato
+                    </a>
+                </div>
+            </div>
+            <div class="hero-social">
+                <a href="https://github.com/KerubinDev" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/kelvin-moraes-a8a8452ba" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </header>
+
+        <section class="sobre" id="sobre">
+            <div class="container">
+                <h2 class="secao-titulo">Sobre Mim</h2>
+                <div class="sobre-grid">
+                    <div class="sobre-texto">
+                        <p>Desenvolvedor Full Stack com experiência em ensino de programação. 
+                        Especializado em React, Node.js e Unity, combinando habilidades 
+                        técnicas com capacidade didática.</p>
+                        
+                        <div class="sobre-destaque">
+                            <div class="destaque-item">
+                                <span class="numero">1+</span>
+                                <span class="texto">Anos de Experiência</span>
+                            </div>
+                            <div class="destaque-item">
+                                <span class="numero">10+</span>
+                                <span class="texto">Projetos Realizados</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sobre-skills">
+                        <h3>Principais Habilidades</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span>React</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <!-- Adicionar mais skills -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="projetos" id="projetos">
-            <h2 class="projetos-titulo">Projetos em Destaque</h2>
-            <div class="projetos-grid">
-                <!-- Kerubin AI -->
-                <article class="projeto-card">
-                    <img src="assets/kerubin-ai.jpg" alt="Kerubin AI" class="projeto-imagem">
-                    <h3 class="projeto-titulo">Kerubin AI</h3>
-                    <p class="projeto-descricao">
-                        Assistente virtual inteligente com integração de IA para 
-                        automação de tarefas e análise de dados educacionais.
-                    </p>
-                    <div class="projeto-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">TensorFlow</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                    </div>
-                    <div class="projeto-links">
-                        <a href="https://github.com/KerubinDev/Kerubin_AI" 
-                           class="projeto-link" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="projeto-link" target="_blank">
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
+            <div class="container">
+                <h2 class="secao-titulo">Projetos em Destaque</h2>
+                <div class="projetos-grid">
+                    <article class="projeto-card">
+                        <div class="projeto-imagem">
+                            <img src="https://via.placeholder.com/500x300" alt="Kerubin AI">
+                        </div>
+                        <div class="projeto-conteudo">
+                            <h3>Kerubin AI</h3>
+                            <p>Sistema de gestão escolar inteligente com integração de IA</p>
+                            <div class="projeto-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">AI</span>
+                                <span class="tech-tag">Database</span>
+                            </div>
+                            <div class="projeto-links">
+                                <a href="https://github.com/KerubinDev/Kerubin_AI" 
+                                   target="_blank" class="btn">
+                                    <i class="fab fa-github"></i> Código
+                                </a>
+                            </div>
+                        </div>
+                    </article>
 
-                <!-- Sistema de Gerenciamento Escolar -->
-                <article class="projeto-card">
-                    <img src="assets/school-management.jpg" alt="Gerenciamento Escolar" 
-                         class="projeto-imagem">
-                    <h3 class="projeto-titulo">Sistema de Gestão Escolar</h3>
-                    <p class="projeto-descricao">
-                        Plataforma completa para gestão escolar com recursos de 
-                        administração, notas e comunicação.
-                    </p>
-                    <div class="projeto-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">SQL</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">HTML/CSS</span>
-                    </div>
-                    <div class="projeto-links">
-                        <a href="https://github.com/gdbarros94/gerenciamento-Escolar" 
-                           class="projeto-link" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="projeto-link" target="_blank">
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
+                    <article class="projeto-card">
+                        <div class="projeto-imagem">
+                            <img src="https://via.placeholder.com/500x300" alt="School Management">
+                        </div>
+                        <div class="projeto-conteudo">
+                            <h3>School Management</h3>
+                            <p>Sistema de gerenciamento escolar com recursos avançados</p>
+                            <div class="projeto-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">SQL</span>
+                                <span class="tech-tag">Node.js</span>
+                            </div>
+                            <div class="projeto-links">
+                                <a href="https://github.com/KerubinDev" 
+                                   target="_blank" class="btn">
+                                    <i class="fab fa-github"></i> Código
+                                </a>
+                            </div>
+                        </div>
+                    </article>
 
-                <!-- Python Kanban -->
-                <article class="projeto-card">
-                    <img src="assets/kanban.jpg" alt="Python Kanban" class="projeto-imagem">
-                    <h3 class="projeto-titulo">Python Kanban</h3>
-                    <p class="projeto-descricao">
-                        Sistema Kanban desenvolvido em Python para gestão ágil de projetos 
-                        e tarefas.
-                    </p>
-                    <div class="projeto-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">SQLite</span>
-                        <span class="tech-tag">PyQt</span>
-                    </div>
-                    <div class="projeto-links">
-                        <a href="https://github.com/FloatingOctothorpe/python-kanban" 
-                           class="projeto-link" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="projeto-link" target="_blank">
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </article>
+                    <article class="projeto-card">
+                        <div class="projeto-imagem">
+                            <img src="https://via.placeholder.com/500x300" alt="Kanban">
+                        </div>
+                        <div class="projeto-conteudo">
+                            <h3>Kanban</h3>
+                            <p>Sistema de gerenciamento de projetos com metodologia Kanban</p>
+                            <div class="projeto-tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                            </div>
+                            <div class="projeto-links">
+                                <a href="https://github.com/KerubinDev" 
+                                   target="_blank" class="btn">
+                                    <i class="fab fa-github"></i> Código
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 
         <!-- Nova Seção de Contato -->
         <section class="contato" id="contato">
-            <h2 class="contato-titulo">Vamos Conversar?</h2>
-            <div class="contato-container">
-                <div class="contato-info">
-                    <p class="contato-descricao">
-                        Estou sempre interessado em novos projetos e oportunidades de 
-                        colaboração. Sinta-se à vontade para entrar em contato!
-                    </p>
-                    <div class="contato-links">
-                        <a href="https://www.linkedin.com/in/kelvin-moraes-a8a8452ba" 
-                           class="social-link linkedin" target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                            <span>LinkedIn</span>
-                        </a>
-                        <a href="mailto:kelvin.moraes117@gmail.com" 
-                           class="social-link email">
-                            <i class="fas fa-envelope"></i>
-                            <span>Email</span>
-                        </a>
+            <div class="container">
+                <h2 class="secao-titulo">Vamos Conversar?</h2>
+                <div class="contato-grid">
+                    <div class="contato-info">
+                        <h3>Entre em Contato</h3>
+                        <p>Estou sempre interessado em novos projetos e oportunidades 
+                        de colaboração.</p>
+                        <div class="contato-links">
+                            <a href="mailto:kelvin.moraes117@gmail.com" class="contato-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <span>kelvin.moraes117@gmail.com</span>
+                                </div>
+                            </a>
+                            <a href="https://www.linkedin.com/in/kelvin-moraes-a8a8452ba" 
+                               class="contato-item" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                                <div>
+                                    <h4>LinkedIn</h4>
+                                    <span>Kelvin Moraes</span>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -893,101 +944,176 @@
 
         <!-- Experiência Profissional -->
         <section class="experiencia" id="experiencia">
-            <h2 class="secao-titulo">Experiência Profissional</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-data">2023 - 2024</div>
-                    <div class="timeline-conteudo">
-                        <h3>Professor de Programação</h3>
-                        <h4>E-pro</h4>
-                        <p>Professor de desenvolvimento full stack com foco em:</p>
-                        <ul>
-                            <li>Desenvolvimento Web (HTML, CSS, JavaScript)</li>
-                            <li>React e Node.js</li>
-                            <li>Desenvolvimento de Jogos com Unity</li>
-                        </ul>
+            <div class="container">
+                <h2 class="secao-titulo">Experiência</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-info">
+                                <span class="periodo">2023 - Maio 2024</span>
+                                <span class="empresa">E-pro</span>
+                            </div>
+                            <h3>Professor de Programação</h3>
+                            <ul class="timeline-lista">
+                                <li>Desenvolvimento Web (HTML, CSS, JavaScript)</li>
+                                <li>React e Node.js</li>
+                                <li>Desenvolvimento de Jogos com Unity</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Stack Tecnológica -->
+        <!-- Stack Tecnológica Completa -->
         <section class="tech-stack" id="tecnologias">
-            <h2 class="secao-titulo">Tecnologias</h2>
-            <div class="stack-container">
-                <div class="stack-categoria">
-                    <h3>Front-end</h3>
-                    <div class="tech-grid">
-                        <span class="tech-item">
-                            <i class="fab fa-html5"></i>HTML5
-                        </span>
-                        <span class="tech-item">
-                            <i class="fab fa-css3-alt"></i>CSS3
-                        </span>
-                        <span class="tech-item">
-                            <i class="fab fa-js"></i>JavaScript
-                        </span>
-                        <span class="tech-item">
-                            <i class="fab fa-react"></i>React
-                        </span>
+            <div class="container">
+                <h2 class="secao-titulo">Tecnologias</h2>
+                <div class="stack-container">
+                    <!-- Front-end -->
+                    <div class="stack-categoria">
+                        <h3 class="categoria-titulo">Front-end</h3>
+                        <div class="tech-grid">
+                            <div class="tech-item">
+                                <i class="fab fa-html5"></i>
+                                <span>HTML5</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-css3-alt"></i>
+                                <span>CSS3</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-js"></i>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-react"></i>
+                                <span>React</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Back-end -->
+                    <div class="stack-categoria">
+                        <h3 class="categoria-titulo">Back-end</h3>
+                        <div class="tech-grid">
+                            <div class="tech-item">
+                                <i class="fab fa-python"></i>
+                                <span>Python</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-database"></i>
+                                <span>SQL</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fab fa-node-js"></i>
+                                <span>Node.js</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Game Dev -->
+                    <div class="stack-categoria">
+                        <h3 class="categoria-titulo">Game Dev</h3>
+                        <div class="tech-grid">
+                            <div class="tech-item">
+                                <i class="fas fa-gamepad"></i>
+                                <span>C++</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-code"></i>
+                                <span>GML</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-gamepad"></i>
+                                <span>GameMaker</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Design -->
+                    <div class="stack-categoria">
+                        <h3 class="categoria-titulo">Design</h3>
+                        <div class="tech-grid">
+                            <div class="tech-item">
+                                <i class="fas fa-paint-brush"></i>
+                                <span>Photoshop</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-pen-nib"></i>
+                                <span>Illustrator</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-book"></i>
+                                <span>InDesign</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- Repetir para Back-end e Game Dev -->
             </div>
         </section>
 
         <section class="formacao" id="formacao">
-            <h2 class="formacao-titulo">Formação Acadêmica</h2>
-            <div class="formacao-card">
-                <h3>Desenvolvimento de Sistemas</h3>
-                <p class="instituicao">Senac</p>
-                <p class="status">Em andamento</p>
-                <p class="descricao">
-                    Formação bilíngue em desenvolvimento de sistemas com foco em 
-                    full stack
-                </p>
+            <div class="container">
+                <h2 class="formacao-titulo">Formação Acadêmica</h2>
+                <div class="formacao-card">
+                    <h3>Desenvolvimento de Sistemas</h3>
+                    <p class="instituicao">Senac</p>
+                    <p class="status">Em andamento</p>
+                    <p class="descricao">
+                        Formação bilíngue em desenvolvimento de sistemas com foco em 
+                        full stack
+                    </p>
+                </div>
             </div>
         </section>
 
         <section class="interesses" id="interesses">
-            <h2 class="interesses-titulo">Interesses</h2>
-            <div class="interesses-grid">
-                <div class="interesse-item">
-                    <i class="fas fa-brain"></i>
-                    <h3>Psicologia</h3>
-                    <p>Apaixonado por psicologia e psicanálise</p>
+            <div class="container">
+                <h2 class="interesses-titulo">Interesses</h2>
+                <div class="interesses-grid">
+                    <div class="interesse-item">
+                        <i class="fas fa-brain"></i>
+                        <h3>Psicologia</h3>
+                        <p>Apaixonado por psicologia e psicanálise</p>
+                    </div>
+                    <div class="interesse-item">
+                        <i class="fas fa-music"></i>
+                        <h3>Música Clássica</h3>
+                        <p>Programação ao som de música clássica</p>
+                    </div>
+                    <!-- Adicionar mais interesses -->
                 </div>
-                <div class="interesse-item">
-                    <i class="fas fa-music"></i>
-                    <h3>Música Clássica</h3>
-                    <p>Programação ao som de música clássica</p>
-                </div>
-                <!-- Adicionar mais interesses -->
             </div>
         </section>
 
         <section class="github-stats" id="stats">
-            <h2 class="stats-titulo">GitHub Analytics</h2>
-            <div class="stats-container">
-                <img src="https://github-readme-stats.vercel.app/api?username=KerubinDev&show_icons=true&theme=radical&hide_border=true" 
-                     alt="GitHub Stats">
-                <img src="https://github-readme-streak-stats.herokuapp.com/?user=KerubinDev&theme=radical&hide_border=true" 
-                     alt="GitHub Streak">
+            <div class="container">
+                <h2 class="stats-titulo">GitHub Analytics</h2>
+                <div class="stats-container">
+                    <img src="https://github-readme-stats.vercel.app/api?username=KerubinDev&show_icons=true&theme=radical&hide_border=true" 
+                         alt="GitHub Stats">
+                    <img src="https://github-readme-streak-stats.herokuapp.com/?user=KerubinDev&theme=radical&hide_border=true" 
+                         alt="GitHub Streak">
+                </div>
             </div>
         </section>
 
         <section class="idiomas" id="idiomas">
-            <h2 class="idiomas-titulo">Idiomas</h2>
-            <div class="idiomas-grid">
-                <div class="idioma-item">
-                    <img src="assets/br-flag.png" alt="Português">
-                    <h3>Português</h3>
-                    <p>Nativo</p>
-                </div>
-                <div class="idioma-item">
-                    <img src="assets/en-flag.png" alt="Inglês">
-                    <h3>Inglês</h3>
-                    <p>Intermediario</p>
+            <div class="container">
+                <h2 class="idiomas-titulo">Idiomas</h2>
+                <div class="idiomas-grid">
+                    <div class="idioma-item">
+                        <img src="assets/br-flag.png" alt="Português">
+                        <h3>Português</h3>
+                        <p>Nativo</p>
+                    </div>
+                    <div class="idioma-item">
+                        <img src="assets/en-flag.png" alt="Inglês">
+                        <h3>Inglês</h3>
+                        <p>Intermediario</p>
+                    </div>
                 </div>
             </div>
         </section>
