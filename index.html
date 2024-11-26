@@ -291,7 +291,7 @@
         .foto-container {
             position: relative;
             width: 300px;
-            height: 300px;
+            height: 400px;
             margin: 0 auto;
         }
 
@@ -306,8 +306,8 @@
             height: 100%;
             object-fit: cover;
             border-radius: 20px;
-            filter: grayscale(20%);
-            transition: var(--transicao-media);
+            position: relative;
+            z-index: 2;
         }
 
         .foto-overlay {
@@ -1483,7 +1483,7 @@
             <div class="sobre-grid">
                 <div class="foto-container fade-in">
                     <div class="foto-wrapper">
-                        <img src="/img/foto.png" alt="Foto de perfil" class="foto-perfil">
+                        <img src="../img/foto.png" alt="Foto de perfil" class="foto-perfil">
                         <div class="foto-overlay"></div>
                         <div class="foto-border"></div>
                     </div>
