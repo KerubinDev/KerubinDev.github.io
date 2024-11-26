@@ -7,6 +7,8 @@
     <!-- Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preload" as="font" href="fonts/SpaceGrotesk-Bold.woff2" type="font/woff2" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <style>
         /* Variáveis e Reset */
         :root {
@@ -63,6 +65,7 @@
                 rgba(138, 43, 226, 0.1),
                 rgba(0, 0, 0, 0.9)
             );
+            perspective: 1000px;
         }
 
         .hero::before {
@@ -85,6 +88,8 @@
             margin: 0 auto;
             position: relative;
             z-index: 2;
+            transform-style: preserve-3d;
+            transform: translateZ(0);
         }
 
         .hero-subtitle {
@@ -102,6 +107,12 @@
             margin-bottom: 2rem;
             opacity: 0;
             animation: fadeInUp 0.5s ease forwards 0.2s;
+            overflow: hidden;
+            border-right: 3px solid var(--cor-secundaria);
+            white-space: nowrap;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
         }
 
         .hero-descricao {
@@ -205,16 +216,16 @@
         /* Responsividade */
         @media (max-width: 768px) {
             .hero-titulo {
-                font-size: 3rem;
+                font-size: clamp(2rem, 8vw, 5rem);
             }
-
-            .hero-descricao {
-                font-size: 1.2rem;
+            
+            .tech-cards {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
             }
-
-            .btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
+            
+            .projeto-card {
+                transform: none !important;
             }
         }
 
@@ -403,6 +414,8 @@
             border-radius: 20px;
             transition: all 0.5s ease;
             transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
         }
 
         .tech-card:hover {
@@ -438,6 +451,29 @@
             content: '▹';
             color: var(--cor-secundaria);
             margin-right: 0.5rem;
+        }
+
+        .tech-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 0%,
+                rgba(138, 43, 226, 0.1) 50%,
+                transparent 100%
+            );
+            transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            to {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
         }
 
         /* Responsividade da Seção Sobre */
@@ -542,13 +578,17 @@
         }
 
         .projetos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 2rem 0;
             gap: 2rem;
-            margin-top: 3rem;
         }
 
         .projeto-card {
+            flex: 0 0 auto;
+            width: 300px;
+            scroll-snap-align: start;
             background: rgba(138, 43, 226, 0.1);
             border-radius: 20px;
             overflow: hidden;
@@ -1301,6 +1341,57 @@
                 padding: 1.5rem;
             }
         }
+
+        .parallax-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .layer-1 { transform: translateZ(-100px) scale(1.5); }
+        .layer-2 { transform: translateZ(-50px) scale(1.25); }
+        .layer-3 { transform: translateZ(0) scale(1); }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--cor-secundaria) }
+        }
+
+        .projeto-card {
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .projeto-card:hover {
+            transform: rotateY(10deg) rotateX(5deg);
+        }
+
+        .projeto-content {
+            backface-visibility: hidden;
+        }
+
+        .loader-svg circle {
+            fill: none;
+            stroke: var(--cor-secundaria);
+            stroke-width: 4;
+            stroke-dasharray: 283;
+            stroke-dashoffset: 283;
+            animation: dash 1.5s ease-in-out infinite;
+        }
+
+        @keyframes dash {
+            0% { stroke-dashoffset: 283; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -283; }
+        }
     </style>
 </head>
 <body>
@@ -1576,5 +1667,13 @@
         });
     </script>
     <script src="script.js"></script>
+    <div class="loading-screen">
+        <div class="loader-content">
+            <svg class="loader-svg" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" />
+            </svg>
+            <div class="loader-text">Carregando...</div>
+        </div>
+    </div>
 </body>
 </html>
