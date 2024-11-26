@@ -574,47 +574,30 @@
             position: relative;
         }
 
-        .projetos::before {
-            content: '<projetos>';
-            font-family: var(--fonte-codigo);
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            color: rgba(138, 43, 226, 0.2);
-            font-size: 1rem;
-        }
-
         .projetos-grid {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            padding: 2rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            margin-top: 3rem;
         }
 
         .projeto-card {
-            flex: 0 0 auto;
-            width: 300px;
-            scroll-snap-align: start;
             background: rgba(138, 43, 226, 0.1);
             border-radius: 20px;
-            overflow: hidden;
-            transition: var(--transicao);
+            padding: 2rem;
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
             position: relative;
         }
 
         .projeto-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) rotateY(10deg);
             box-shadow: 0 20px 40px rgba(138, 43, 226, 0.2);
         }
 
-        .projeto-content {
-            padding: 2rem;
-        }
-
         .projeto-icon {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background: var(--cor-secundaria);
             border-radius: 50%;
             display: flex;
@@ -628,22 +611,11 @@
             color: var(--cor-texto);
         }
 
-        .projeto-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--cor-texto);
-        }
-
-        .projeto-card p {
-            color: var(--cor-texto-secundario);
-            margin-bottom: 1.5rem;
-        }
-
         .projeto-tech-stack {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-bottom: 1.5rem;
+            margin: 1rem 0;
         }
 
         .projeto-tech-stack span {
@@ -654,17 +626,22 @@
             color: var(--cor-secundaria);
         }
 
+        .projeto-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
         .btn-projeto {
-            display: inline-flex;
-            align-items: center;
             padding: 0.8rem 1.5rem;
-            background: transparent;
             border: 1px solid var(--cor-secundaria);
-            color: var(--cor-secundaria);
             border-radius: 25px;
+            color: var(--cor-secundaria);
             text-decoration: none;
-            font-size: 0.9rem;
             transition: var(--transicao);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .btn-projeto:hover {
@@ -672,191 +649,8 @@
             color: var(--cor-texto);
         }
 
-        /* Responsividade dos Projetos */
-        @media (max-width: 768px) {
-            .projetos {
-                padding: 60px 0;
-            }
-
-            .projeto-card {
-                max-width: 400px;
-                margin: 0 auto;
-            }
-        }
-
-        /* Seção de Experiência */
-        .experiencia {
-            padding: 100px 0;
-            background: linear-gradient(
-                45deg,
-                rgba(138, 43, 226, 0.05) 0%,
-                rgba(0, 0, 0, 0.95) 100%
-            );
-            position: relative;
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(
-                to bottom,
-                transparent,
-                var(--cor-secundaria),
-                transparent
-            );
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 4rem;
-            width: 50%;
-            padding-right: 40px;
-        }
-
-        .timeline-item:nth-child(even) {
-            margin-left: auto;
-            padding-right: 0;
-            padding-left: 40px;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            right: -6px;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            background: var(--cor-secundaria);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--cor-secundaria);
-        }
-
-        .timeline-item:nth-child(even) .timeline-dot {
-            right: auto;
-            left: -6px;
-        }
-
-        .timeline-content {
-            background: rgba(138, 43, 226, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(138, 43, 226, 0.2);
-            backdrop-filter: blur(10px);
-            transition: var(--transicao);
-        }
-
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
-        }
-
-        .timeline-data {
-            color: var(--cor-secundaria);
-            font-family: var(--fonte-codigo);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .timeline-content h3 {
-            color: var(--cor-texto);
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content p {
-            color: var(--cor-texto-secundario);
-            margin-bottom: 1rem;
-        }
-
-        .timeline-detalhes {
-            list-style: none;
-            margin-left: 1rem;
-        }
-
-        .timeline-detalhes li {
-            color: var(--cor-texto-secundario);
-            margin-bottom: 0.5rem;
-            position: relative;
-        }
-
-        .timeline-detalhes li::before {
-            content: '';
-            color: var(--cor-secundaria);
-            position: absolute;
-            left: -1rem;
-        }
-
-        /* Seção de Habilidades */
-        .habilidades {
-            padding: 100px 0;
-            background: var(--cor-primaria);
-            position: relative;
-        }
-
-        .habilidades-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .habilidade-card {
-            background: rgba(138, 43, 226, 0.1);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            transition: var(--transicao);
-            border: 1px solid rgba(138, 43, 226, 0.2);
-        }
-
-        .habilidade-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(138, 43, 226, 0.2);
-        }
-
-        .habilidade-nivel {
-            position: relative;
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 2rem;
-        }
-
-        .progresso-circular {
-            width: 100%;
-            height: 100%;
-            transform: rotate(-90deg);
-        }
-
-        .progresso-circular circle {
-            fill: none;
-            stroke-width: 8;
-            stroke-linecap: round;
-            stroke: var(--cor-secundaria);
-            transform-origin: 50% 50%;
-            transition: stroke-dashoffset 0.5s ease;
-        }
-
-        .porcentagem {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 1.5rem;
-            color: var(--cor-texto);
-        }
-
-        /* Blog Section */
-        .blog {
+        /* GitHub Stats */
+        .github-stats {
             padding: 100px 0;
             background: linear-gradient(
                 135deg,
@@ -865,210 +659,20 @@
             );
         }
 
-        .artigos-grid {
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .artigo-card {
-            background: rgba(138, 43, 226, 0.1);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: var(--transicao);
-        }
-
-        .artigo-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(138, 43, 226, 0.2);
-        }
-
-        .artigo-imagem {
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .artigo-imagem img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transicao);
-        }
-
-        .artigo-card:hover .artigo-imagem img {
-            transform: scale(1.1);
-        }
-
-        .artigo-content {
-            padding: 2rem;
-        }
-
-        .artigo-content h3 {
-            color: var(--cor-texto);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .artigo-content p {
-            color: var(--cor-texto-secundario);
-            margin-bottom: 1.5rem;
-        }
-
-        .ler-mais {
-            color: var(--cor-secundaria);
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .ler-mais:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .timeline::before {
-                left: 0;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 40px;
-                padding-right: 0;
-            }
-
-            .timeline-item:nth-child(even) {
-                padding-left: 40px;
-            }
-
-            .timeline-dot {
-                left: -6px;
-                right: auto;
-            }
-
-            .timeline-item:nth-child(even) .timeline-dot {
-                left: -6px;
-            }
-        }
-
-        /* Efeitos de Scroll */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Efeito de Hover nos Links */
-        .hover-effect {
-            position: relative;
-            display: inline-block;
-        }
-
-        .hover-effect::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: var(--cor-secundaria);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.3s ease;
-        }
-
-        .hover-effect:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
-        /* Loading Screen */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--cor-primaria);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.3s ease;
-        }
-
-        .loader {
-            width: 50px;
-            height: 50px;
-            border: 3px solid var(--cor-secundaria);
-            border-radius: 50%;
-            border-top-color: transparent;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Botão Voltar ao Topo */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--cor-secundaria);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--cor-texto);
-            text-decoration: none;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transicao);
-            z-index: 999;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
-        }
-
-        .cursor, .cursor-dot {
-            pointer-events: none !important;
-        }
-
-        /* Adicionar nova seção de estatísticas */
-        .github-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
         .stat-card {
             background: rgba(138, 43, 226, 0.1);
-            border-radius: 15px;
+            border-radius: 20px;
             padding: 2rem;
-            text-align: center;
-            border: 1px solid rgba(138, 43, 226, 0.2);
             transition: var(--transicao);
+            position: relative;
+            overflow: hidden;
         }
 
         .stat-card:hover {
@@ -1076,277 +680,76 @@
             box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
         }
 
-        .stat-numero-grande {
-            font-size: 3rem;
-            font-weight: 700;
+        .stat-icon {
+            font-size: 2rem;
             color: var(--cor-secundaria);
             margin-bottom: 1rem;
         }
 
-        /* Efeito de partículas nos cards */
-        .tech-card {
-            position: relative;
-            overflow: hidden;
+        .stat-info {
+            margin-bottom: 1rem;
         }
 
-        .particula {
-            position: absolute;
-            pointer-events: none;
-            background: radial-gradient(circle, 
-                var(--cor-secundaria) 0%, 
-                transparent 60%);
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0.5;
-            animation: particula-fade 1s ease-out forwards;
-        }
-
-        @keyframes particula-fade {
-            0% {
-                opacity: 0.5;
-                transform: translate(-50%, -50%) scale(0);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(1);
-            }
-        }
-
-        /* Efeito de brilho nos cards */
-        .tech-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(
-                circle at var(--mouse-x) var(--mouse-y),
-                rgba(138, 43, 226, 0.2) 0%,
-                transparent 50%
-            );
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
-        }
-
-        .tech-card:hover::before {
-            opacity: 1;
-        }
-
-        /* Animação para os círculos de progresso */
-        .progresso-circular {
-            transition: stroke-dashoffset 1s ease;
-        }
-
-        /* Efeito de hover nos botões */
-        .btn {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        /* Efeito de glassmorphism nos cards */
-        .stat-card {
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        /* Animação para links */
-        .nav-link {
-            position: relative;
-            transition: color 0.3s;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--cor-secundaria);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.3s;
-        }
-
-        .nav-link:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
-        /* Efeito de sombra nos textos importantes */
-        .hero-titulo, .secao-titulo {
-            text-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
-        }
-
-        /* Animação para ícones */
-        .tech-card i, .interesse-card i {
-            transition: transform 0.3s ease;
-        }
-
-        .tech-card:hover i, .interesse-card:hover i {
-            transform: scale(1.2) rotate(360deg);
-        }
-
-        /* Efeito de borda gradiente */
-        .projeto-card {
-            position: relative;
-        }
-
-        .projeto-card::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, 
-                var(--cor-secundaria), 
-                transparent, 
-                var(--cor-secundaria));
-            border-radius: 22px;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .projeto-card:hover::before {
-            opacity: 1;
-        }
-
-        /* Estilização da seção de interesses */
-        .interesses {
-            padding: 5rem 0;
-            background: linear-gradient(
-                to bottom,
-                var(--cor-fundo),
-                rgba(138, 43, 226, 0.05)
-            );
-        }
-
-        .interesses-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .interesse-card {
-            background: rgba(138, 43, 226, 0.05);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            border: 1px solid rgba(138, 43, 226, 0.1);
-            transition: var(--transicao-media);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .interesse-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
-            border-color: rgba(138, 43, 226, 0.3);
-        }
-
-        .interesse-card i {
+        .stat-numero {
             font-size: 2.5rem;
-            color: var(--cor-secundaria);
-            margin-bottom: 1.5rem;
-            transition: var(--transicao-media);
-        }
-
-        .interesse-card:hover i {
-            transform: scale(1.2) rotate(10deg);
-        }
-
-        .interesse-card h3 {
-            color: var(--cor-secundaria);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            position: relative;
-        }
-
-        .interesse-card h3::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 2px;
-            background: var(--cor-secundaria);
-            transition: var(--transicao-media);
-        }
-
-        .interesse-card:hover h3::after {
-            width: 100px;
-        }
-
-        .interesse-card p {
+            font-weight: 700;
             color: var(--cor-texto);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--cor-texto-secundario);
             font-size: 1rem;
-            line-height: 1.6;
-            opacity: 0.8;
         }
 
-        /* Efeito de brilho no hover */
-        .interesse-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(
-                circle,
-                rgba(138, 43, 226, 0.1) 0%,
-                transparent 70%
-            );
-            transform: rotate(45deg);
-            transition: var(--transicao-lenta);
-            opacity: 0;
+        .stat-progress {
+            width: 100%;
+            height: 4px;
+            background: rgba(138, 43, 226, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
         }
 
-        .interesse-card:hover::before {
-            opacity: 1;
-            transform: rotate(45deg) translateY(-50%);
+        .progress-bar {
+            height: 100%;
+            background: var(--cor-secundaria);
+            border-radius: 2px;
+            transition: width 1s ease;
+        }
+
+        .github-calendar {
+            margin-top: 4rem;
+            padding: 2rem;
+            background: rgba(138, 43, 226, 0.1);
+            border-radius: 20px;
+        }
+
+        .github-calendar h3 {
+            color: var(--cor-texto);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .contribution-graph {
+            width: 100%;
+            height: 200px;
+            background: rgba(138, 43, 226, 0.05);
+            border-radius: 10px;
+            position: relative;
         }
 
         /* Responsividade */
-        @media (max-width: 968px) {
-            .interesses-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 576px) {
-            .interesses-grid {
+        @media (max-width: 768px) {
+            .projetos-grid {
                 grid-template-columns: 1fr;
             }
             
-            .interesse-card {
-                padding: 1.5rem;
+            .projeto-card {
+                transform: none !important;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1479,29 +882,624 @@
             animation: fadeInUp 0.8s ease forwards;
             opacity: 0; /* Começa invisível */
         }
+
+        .modal-contato {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-contato.ativo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--cor-primaria);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            transform: translateY(-50px);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .modal-contato.ativo .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            color: var(--cor-texto);
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .btn-fechar {
+            background: none;
+            border: none;
+            color: var(--cor-texto-secundario);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: var(--transicao);
+        }
+
+        .btn-fechar:hover {
+            color: var(--cor-secundaria);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .contato-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(138, 43, 226, 0.1);
+            border-radius: 15px;
+            transition: var(--transicao);
+        }
+
+        .contato-item:hover {
+            transform: translateX(10px);
+            background: rgba(138, 43, 226, 0.2);
+        }
+
+        .contato-item i {
+            font-size: 2rem;
+            color: var(--cor-secundaria);
+            margin-right: 1rem;
+        }
+
+        .contato-info {
+            flex: 1;
+        }
+
+        .contato-info h3 {
+            color: var(--cor-texto);
+            margin: 0 0 0.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        .contato-link {
+            color: var(--cor-texto-secundario);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: var(--transicao);
+        }
+
+        .contato-link:hover {
+            color: var(--cor-secundaria);
+        }
+
+        /* Estilização da seção de interesses */
+        .interesses {
+            padding: 5rem 0;
+            background: linear-gradient(
+                to bottom,
+                var(--cor-fundo),
+                rgba(138, 43, 226, 0.05)
+            );
+        }
+
+        .interesses-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .interesse-card {
+            background: rgba(138, 43, 226, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(138, 43, 226, 0.1);
+            transition: var(--transicao-media);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interesse-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
+            border-color: rgba(138, 43, 226, 0.3);
+        }
+
+        .interesse-card i {
+            font-size: 2.5rem;
+            color: var(--cor-secundaria);
+            margin-bottom: 1.5rem;
+            transition: var(--transicao-media);
+        }
+
+        .interesse-card:hover i {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .interesse-card h3 {
+            color: var(--cor-secundaria);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .interesse-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: var(--cor-secundaria);
+            transition: var(--transicao-media);
+        }
+
+        .interesse-card:hover h3::after {
+            width: 100px;
+        }
+
+        .interesse-card p {
+            color: var(--cor-texto);
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        /* Efeito de brilho no hover */
+        .interesse-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle,
+                rgba(138, 43, 226, 0.1) 0%,
+                transparent 70%
+            );
+            transform: rotate(45deg);
+            transition: var(--transicao-lenta);
+            opacity: 0;
+        }
+
+        .interesse-card:hover::before {
+            opacity: 1;
+            transform: rotate(45deg) translateY(-50%);
+        }
+
+        /* Blog Section */
+        .blog {
+            padding: 100px 0;
+            background: linear-gradient(
+                135deg,
+                rgba(138, 43, 226, 0.1) 0%,
+                rgba(0, 0, 0, 0.95) 100%
+            );
+        }
+
+        .artigos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .artigo-card {
+            background: rgba(138, 43, 226, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transicao);
+        }
+
+        .artigo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(138, 43, 226, 0.2);
+        }
+
+        .artigo-imagem {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .artigo-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transicao);
+        }
+
+        .artigo-card:hover .artigo-imagem img {
+            transform: scale(1.1);
+        }
+
+        .artigo-content {
+            padding: 2rem;
+        }
+
+        .artigo-content h3 {
+            color: var(--cor-texto);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .artigo-content p {
+            color: var(--cor-texto-secundario);
+            margin-bottom: 1.5rem;
+        }
+
+        .ler-mais {
+            color: var(--cor-secundaria);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .ler-mais:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsividade */
+        @media (max-width: 968px) {
+            .interesses-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .interesses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .interesse-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Seção de Certificações */
+        .certificacoes {
+            padding: 100px 0;
+            background: linear-gradient(
+                45deg,
+                rgba(138, 43, 226, 0.05) 0%,
+                rgba(0, 0, 0, 0.95) 100%
+            );
+        }
+
+        .certificacoes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .certificacao-card {
+            background: rgba(138, 43, 226, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            gap: 1.5rem;
+            transition: var(--transicao);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+        }
+
+        .certificacao-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
+        }
+
+        .certificacao-icon {
+            font-size: 2rem;
+            color: var(--cor-secundaria);
+        }
+
+        .certificacao-content h3 {
+            color: var(--cor-texto);
+            margin-bottom: 0.5rem;
+        }
+
+        .certificacao-instituicao {
+            color: var(--cor-secundaria);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .certificacao-data {
+            color: var(--cor-texto-secundario);
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .certificacao-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .certificacao-skills span {
+            background: rgba(138, 43, 226, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: var(--cor-secundaria);
+        }
+
+        /* Área de Downloads */
+        .downloads {
+            padding: 100px 0;
+            background: var(--cor-primaria);
+        }
+
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .download-card {
+            background: rgba(138, 43, 226, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            text-decoration: none;
+            transition: var(--transicao);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
+        }
+
+        .download-icon {
+            font-size: 2.5rem;
+            color: var(--cor-secundaria);
+            margin-bottom: 1rem;
+        }
+
+        .download-card h3 {
+            color: var(--cor-texto);
+            margin-bottom: 0.5rem;
+        }
+
+        .download-card p {
+            color: var(--cor-texto-secundario);
+            margin-bottom: 1.5rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--cor-secundaria);
+            color: var(--cor-texto);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            transition: var(--transicao);
+        }
+
+        .download-card:hover .download-btn {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--cor-primaria);
+            padding: 80px 0 20px;
+            border-top: 1px solid rgba(138, 43, 226, 0.2);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand h2 {
+            color: var(--cor-texto);
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: var(--cor-texto-secundario);
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--cor-secundaria);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--cor-texto-secundario);
+            text-decoration: none;
+            transition: var(--transicao);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--cor-secundaria);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(138, 43, 226, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: var(--cor-texto-secundario);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(138, 43, 226, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cor-secundaria);
+            text-decoration: none;
+            transition: var(--transicao);
+        }
+
+        .social-icon:hover {
+            background: var(--cor-secundaria);
+            color: var(--cor-texto);
+            transform: translateY(-3px);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-links {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
+    <!-- Hero Section Atualizada -->
     <section class="hero">
         <div id="particles-js"></div>
         <div class="hero-content">
             <span class="hero-subtitle">Olá, eu sou</span>
             <h1 class="hero-titulo">Kelvin Moraes</h1>
             <p class="hero-descricao">
-                Desenvolvedor Full Stack & Professor apaixonado por criar 
-                experiências digitais extraordinárias
+                Desenvolvedor Full Stack & Designer de 15 anos, apaixonado por criar 
+                experiências digitais extraordinárias. Comunicativo, esforçado, 
+                criativo e inovador.
             </p>
             <div class="hero-cta">
                 <a href="#projetos" class="btn btn-primario">
                     <i class="fas fa-code"></i>&nbsp; Ver Projetos
                 </a>
-                <a href="#contato" class="btn btn-secundario">
+                <a href="#" class="btn btn-secundario" id="btnContato">
                     <i class="fas fa-paper-plane"></i>&nbsp; Contato
                 </a>
             </div>
         </div>
     </section>
+
+    <!-- Modal de Contato Atualizado -->
+    <div class="modal-contato" id="modalContato">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Entre em Contato</h2>
+                <button class="btn-fechar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="contato-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contato-info">
+                        <h3>Email</h3>
+                        <a href="mailto:kelvin.moraes117@gmail.com" class="contato-link">
+                            kelvin.moraes117@gmail.com
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contato-item">
+                    <i class="fab fa-linkedin"></i>
+                    <div class="contato-info">
+                        <h3>LinkedIn</h3>
+                        <a href="https://linkedin.com/in/kelvin-moraes" 
+                           target="_blank" 
+                           class="contato-link">
+                            Kelvin Moraes
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contato-item">
+                    <i class="fab fa-github"></i>
+                    <div class="contato-info">
+                        <h3>GitHub</h3>
+                        <a href="https://github.com/KerubinDev" 
+                           target="_blank" 
+                           class="contato-link">
+                            @KerubinDev
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contato-item">
+                    <i class="fab fa-behance"></i>
+                    <div class="contato-info">
+                        <h3>Behance</h3>
+                        <a href="https://www.behance.net/kelvinmoraes_kerubin" 
+                           target="_blank" 
+                           class="contato-link">
+                            @kelvinmoraes_kerubin
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Seção Sobre com Cards Flutuantes -->
     <section class="sobre" id="sobre">
@@ -1576,7 +1574,7 @@
         </div>
     </section>
 
-    <!-- Seção de Projetos com Cards 3D -->
+    <!-- Seção de Projetos -->
     <section class="projetos" id="projetos">
         <div class="container">
             <h2 class="secao-titulo">Projetos em Destaque</h2>
@@ -1588,88 +1586,112 @@
                             <i class="fas fa-robot"></i>
                         </div>
                         <h3>Kerubin AI</h3>
-                        <p>Sistema de gestão escolar com IA</p>
+                        <p>Sistema de gestão escolar com inteligência artificial integrada 
+                           para otimizar processos educacionais.</p>
                         <div class="projeto-tech-stack">
                             <span>Python</span>
                             <span>AI</span>
                             <span>SQL</span>
+                            <span>Machine Learning</span>
                         </div>
-                        <a href="https://github.com/KerubinDev/Kerubin_AI" 
-                           class="btn-projeto" target="_blank">
-                            Ver Projeto
-                        </a>
+                        <div class="projeto-links">
+                            <a href="https://github.com/KerubinDev/Kerubin_AI" 
+                               class="btn-projeto" target="_blank">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                            <a href="#" class="btn-projeto" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                        </div>
                     </div>
                 </article>
-                <!-- Adicionar mais projetos -->
+
+                <!-- Portfolio -->
+                <article class="projeto-card">
+                    <div class="projeto-content">
+                        <div class="projeto-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Portfolio Pessoal</h3>
+                        <p>Website profissional com design moderno e animações 
+                           fluidas para showcase de projetos.</p>
+                        <div class="projeto-tech-stack">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                            <span>UI/UX</span>
+                        </div>
+                        <div class="projeto-links">
+                            <a href="https://github.com/KerubinDev" 
+                               class="btn-projeto" target="_blank">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                            <a href="https://kerubindev.github.io" 
+                               class="btn-projeto" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Seção de Timeline de Experiência -->
-    <section class="experiencia" id="experiencia">
+    <!-- Seção GitHub Stats -->
+    <section class="github-stats" id="github">
         <div class="container">
-            <h2 class="secao-titulo">Jornada Profissional</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-data">2023 - 2024</div>
-                        <h3>Professor de Programação</h3>
-                        <p>E-pro</p>
-                        <ul class="timeline-detalhes">
-                            <li>Ensino de desenvolvimento web</li>
-                            <li>Mentoria em projetos práticos</li>
-                            <li>Desenvolvimento de material didático</li>
-                        </ul>
+            <h2 class="secao-titulo">GitHub Métricas</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-code-branch"></i>
                     </div>
+                    <div class="stat-info">
+                        <span class="stat-numero">45+</span>
+                        <span class="stat-label">Repositórios</span>
+                    </div>
+                    <div class="stat-progress">
+                        <div class="progress-bar" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-numero">7</span>
+                        <span class="stat-label">Seguidores</span>
+                    </div>
+                    <div class="stat-progress">
+                        <div class="progress-bar" style="width: 70%"></div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-numero">5</span>
+                        <span class="stat-label">Projetos Seguidos</span>
+                    </div>
+                    <div class="stat-progress">
+                        <div class="progress-bar" style="width: 85%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="github-calendar">
+                <h3>Contribuições</h3>
+                <!-- Placeholder para o gráfico de contribuições -->
+                <div class="contribution-graph">
+                    <!-- Será preenchido via JavaScript -->
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção de Habilidades Interativa -->
-    <section class="habilidades" id="habilidades">
-        <div class="container">
-            <h2 class="secao-titulo">Habilidades</h2>
-            <div class="habilidades-grid">
-                <div class="habilidade-card">
-                    <div class="habilidade-nivel" data-nivel="90">
-                        <svg class="progresso-circular" viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="45" />
-                            <circle class="progresso" cx="50" cy="50" r="45" />
-                        </svg>
-                        <span class="porcentagem">90%</span>
-                    </div>
-                    <h3>Front-end</h3>
-                    <p>HTML, CSS, JavaScript, React</p>
-                </div>
-                
-                <div class="habilidade-card">
-                    <div class="habilidade-nivel" data-nivel="85">
-                        <svg class="progresso-circular" viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="45" />
-                            <circle class="progresso" cx="50" cy="50" r="45" />
-                        </svg>
-                        <span class="porcentagem">85%</span>
-                    </div>
-                    <h3>Back-end</h3>
-                    <p>Python, Node.js, SQL</p>
-                </div>
-                
-                <div class="habilidade-card">
-                    <div class="habilidade-nivel" data-nivel="80">
-                        <svg class="progresso-circular" viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="45" />
-                            <circle class="progresso" cx="50" cy="50" r="45" />
-                        </svg>
-                        <span class="porcentagem">80%</span>
-                    </div>
-                    <h3>Design</h3>
-                    <p>UI/UX, Figma, Adobe Suite</p>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js">
     </script>
@@ -1821,5 +1843,280 @@
             };
         }
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btnContato = document.getElementById('btnContato');
+            const modal = document.getElementById('modalContato');
+            const btnFechar = modal.querySelector('.btn-fechar');
+
+            btnContato.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('ativo');
+                document.body.style.overflow = 'hidden';
+            });
+
+            btnFechar.addEventListener('click', () => {
+                modal.classList.remove('ativo');
+                document.body.style.overflow = '';
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('ativo');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('ativo')) {
+                    modal.classList.remove('ativo');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
+    <!-- Seção de Interesses -->
+    <section class="interesses">
+        <div class="container">
+            <h2 class="secao-titulo">Interesses</h2>
+            <div class="interesses-grid">
+                <div class="interesse-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Desenvolvimento</h3>
+                    <p>Apaixonado por criar soluções inovadoras e ensinar programação, 
+                       com foco em desenvolvimento web e inteligência artificial.</p>
+                </div>
+
+                <div class="interesse-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Psicologia</h3>
+                    <p>Interessado em compreender o comportamento humano e aplicar 
+                       esses conhecimentos no desenvolvimento de interfaces.</p>
+                </div>
+
+                <div class="interesse-card">
+                    <i class="fas fa-music"></i>
+                    <h3>Música Clássica</h3>
+                    <p>Admirador de música clássica, encontrando inspiração e 
+                       criatividade através da harmonia musical.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Blog -->
+    <section class="blog">
+        <div class="container">
+            <h2 class="secao-titulo">Artigos Recentes</h2>
+            <div class="artigos-grid">
+                <article class="artigo-card">
+                    <div class="artigo-imagem">
+                        <img src="img/kerubin-ai.jpg" alt="Kerubin AI">
+                    </div>
+                    <div class="artigo-content">
+                        <h3>Desenvolvendo o Kerubin AI</h3>
+                        <p>Como a inteligência artificial está revolucionando mundo de uma forma inovadora</p>
+                        <a href="https://github.com/KerubinDev/Kerubin_AI" 
+                           class="ler-mais" target="_blank">
+                            Ler mais <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="artigo-card">
+                    <div class="artigo-imagem">
+                        <img src="img/design-portfolio.jpg" alt="Design Portfolio">
+                    </div>
+                    <div class="artigo-content">
+                        <h3>Design e Desenvolvimento</h3>
+                        <p>A importância da união entre design e programação no 
+                           desenvolvimento de interfaces modernas.</p>
+                        <a href="https://www.behance.net/kelvinmoraes_kerubin" 
+                           class="ler-mais" target="_blank">
+                            Ver no Behance <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    // Animação dos cards de projeto
+    document.querySelectorAll('.projeto-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
+            
+            card.style.transform = `
+                perspective(1000px)
+                rotateX(${rotateX}deg)
+                rotateY(${rotateY}deg)
+                translateZ(10px)
+            `;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'none';
+        });
+    });
+
+    // Animação das barras de progresso
+    const observerCallback = (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.width = entry.target.dataset.progress;
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+        threshold: 0.5
+    });
+
+    document.querySelectorAll('.progress-bar').forEach(bar => {
+        observer.observe(bar);
+    });
+    </script>
+
+    <!-- Seção de Certificações -->
+    <section class="certificacoes" id="certificacoes">
+        <div class="container">
+            <h2 class="secao-titulo">Certificações</h2>
+            <div class="certificacoes-grid">
+                <div class="certificacao-card">
+                    <div class="certificacao-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="certificacao-content">
+                        <h3>Desenvolvimento Web Full Stack</h3>
+                        <p class="certificacao-instituicao">E-pro</p>
+                        <p class="certificacao-data">2023</p>
+                        <div class="certificacao-skills">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>React</span>
+                            <span>Node.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certificacao-card">
+                    <div class="certificacao-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="certificacao-content">
+                        <h3>UI/UX Design</h3>
+                        <p class="certificacao-instituicao">Behance</p>
+                        <p class="certificacao-data">2023</p>
+                        <div class="certificacao-skills">
+                            <span>Figma</span>
+                            <span>Adobe XD</span>
+                            <span>Prototyping</span>
+                            <span>Design System</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Área de Downloads -->
+    <section class="downloads" id="downloads">
+        <div class="container">
+            <h2 class="secao-titulo">Downloads</h2>
+            <div class="downloads-grid">
+                <a href="/assets/curriculo.pdf" class="download-card" target="_blank">
+                    <div class="download-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3>Currículo</h3>
+                    <p>Download do CV em PDF</p>
+                    <span class="download-btn">
+                        <i class="fas fa-download"></i> Baixar
+                    </span>
+                </a>
+
+                <a href="/assets/portfolio.pdf" class="download-card" target="_blank">
+                    <div class="download-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Portfólio</h3>
+                    <p>Projetos detalhados em PDF</p>
+                    <span class="download-btn">
+                        <i class="fas fa-download"></i> Baixar
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h2>Kelvin Moraes</h2>
+                    <p>Desenvolvedor Full Stack & UI Designer</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Navegação</h3>
+                        <ul>
+                            <li><a href="#inicio">Início</a></li>
+                            <li><a href="#sobre">Sobre</a></li>
+                            <li><a href="#projetos">Projetos</a></li>
+                            <li><a href="#contato">Contato</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Social</h3>
+                        <ul>
+                            <li>
+                                <a href="https://github.com/KerubinDev" target="_blank">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.behance.net/kelvinmoraes_kerubin" target="_blank">
+                                    <i class="fab fa-behance"></i> Behance
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:kelvin.moraes117@gmail.com">
+                                    <i class="fas fa-envelope"></i> Email
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kelvin Moraes. Todos os direitos reservados.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-behance"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
