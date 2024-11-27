@@ -54,11 +54,11 @@
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            padding-top: 120px; /* Adiciona espaço para o header */
+            min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
-            padding: 0 5%;
             background: linear-gradient(
                 45deg,
                 rgba(138, 43, 226, 0.1),
@@ -198,7 +198,7 @@
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
-            z-index: 9999;
+            z-index: 999;
             transition: all 0.1s ease;
             transform: translate(-50%, -50%);
         }
@@ -1419,6 +1419,143 @@
                 gap: 1rem;
             }
         }
+
+        /* Header com Glassmorphism */
+        .cabecalho {
+            position: absolute; /* Mudado de fixed para absolute */
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            z-index: 9999;
+            padding: 1rem 2rem;
+            border-radius: 20px;
+            background: rgba(10, 10, 10, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            transition: var(--transicao);
+        }
+
+        .cabecalho:hover {
+            background: rgba(10, 10, 10, 0.7);
+            border-color: rgba(138, 43, 226, 0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--cor-texto);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transicao);
+        }
+
+        .logo:hover {
+            color: var(--cor-secundaria);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--cor-texto);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transicao);
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--cor-secundaria);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--cor-secundaria);
+            transition: var(--transicao);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Menu Mobile */
+        .menu-mobile-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--cor-texto);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transicao);
+        }
+
+        /* Responsividade do Header */
+        @media (max-width: 968px) {
+            .cabecalho {
+                top: 1rem;
+                padding: 0.8rem 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-mobile-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 5rem;
+                right: -100%;
+                flex-direction: column;
+                background: rgba(10, 10, 10, 0.95);
+                backdrop-filter: blur(10px);
+                padding: 2rem;
+                border-radius: 20px;
+                gap: 1.5rem;
+                transition: var(--transicao);
+                border: 1px solid rgba(138, 43, 226, 0.2);
+            }
+
+            .nav-links.ativo {
+                right: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cabecalho {
+                padding: 0.8rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -2118,5 +2255,59 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scroll para links de navegação
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Adicionar classe ativo ao link atual baseado no scroll
+            const sections = document.querySelectorAll('section[id]');
+            window.addEventListener('scroll', () => {
+                const scrollY = window.pageYOffset;
+                
+                sections.forEach(section => {
+                    const sectionHeight = section.offsetHeight;
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                        document.querySelector(`.nav-links a[href="#${sectionId}"]`)
+                            ?.classList.add('ativo');
+                    } else {
+                        document.querySelector(`.nav-links a[href="#${sectionId}"]`)
+                            ?.classList.remove('ativo');
+                    }
+                });
+            });
+
+            // Conectar botão de contato do nav com o modal
+            const btnContatoNav = document.getElementById('btnContatoNav');
+            if (btnContatoNav) {
+                btnContatoNav.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const modal = document.getElementById('modalContato');
+                    if (modal) {
+                        modal.classList.add('ativo');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
