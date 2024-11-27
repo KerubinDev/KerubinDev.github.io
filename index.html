@@ -1420,71 +1420,70 @@
             }
         }
 
-        /* Header com Glassmorphism */
+        /* Header com Glassmorphism Moderno */
         .cabecalho {
-            position: absolute; /* Mudado de fixed para absolute */
-            top: 2rem;
+            position: fixed;
+            top: 2rem; /* Espaçamento do topo para efeito flutuante */
             left: 50%;
             transform: translateX(-50%);
-            width: 90%;
+            width: 90%; /* Não ocupa toda a largura */
             max-width: 1200px;
             z-index: 9999;
-            padding: 1rem 2rem;
-            border-radius: 20px;
-            background: rgba(10, 10, 10, 0.5);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            padding: 1.2rem 2rem;
+            
+            /* Efeito Glassmorphism */
+            background: rgba(10, 10, 10, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(138, 43, 226, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-            transition: var(--transicao);
+            border-radius: 20px; /* Cantos arredondados */
+            
+            /* Sombra suave para efeito flutuante */
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+            
+            transition: all 0.3s ease;
         }
 
-        .cabecalho:hover {
-            background: rgba(10, 10, 10, 0.7);
-            border-color: rgba(138, 43, 226, 0.3);
+        /* Efeito ao rolar a página */
+        .cabecalho.scrolled {
+            top: 1rem;
+            background: rgba(10, 10, 10, 0.35);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
         }
 
+        /* Container da navegação */
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 2rem;
         }
 
-        .logo {
-            color: var(--cor-texto);
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-decoration: none;
-            transition: var(--transicao);
-        }
-
-        .logo:hover {
-            color: var(--cor-secundaria);
-        }
-
+        /* Links de navegação */
         .nav-links {
             display: flex;
             gap: 2rem;
             list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
         .nav-links a {
             color: var(--cor-texto);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.95rem;
             transition: var(--transicao);
             position: relative;
-            font-size: 1rem;
+            padding: 0.5rem 0;
         }
 
-        .nav-links a:hover {
-            color: var(--cor-secundaria);
-        }
-
+        /* Efeito hover nos links */
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
@@ -1495,70 +1494,23 @@
         .nav-links a:hover::after {
             width: 100%;
         }
-
-        /* Menu Mobile */
-        .menu-mobile-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--cor-texto);
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: var(--transicao);
-        }
-
-        /* Responsividade do Header */
-        @media (max-width: 968px) {
-            .cabecalho {
-                top: 1rem;
-                padding: 0.8rem 1.5rem;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-            }
-
-            .nav-links a {
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .menu-mobile-btn {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 5rem;
-                right: -100%;
-                flex-direction: column;
-                background: rgba(10, 10, 10, 0.95);
-                backdrop-filter: blur(10px);
-                padding: 2rem;
-                border-radius: 20px;
-                gap: 1.5rem;
-                transition: var(--transicao);
-                border: 1px solid rgba(138, 43, 226, 0.2);
-            }
-
-            .nav-links.ativo {
-                right: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .cabecalho {
-                padding: 0.8rem 1rem;
-            }
-
-            .logo {
-                font-size: 1.2rem;
-            }
-        }
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header class="cabecalho">
+        <nav class="nav-container">
+            <a href="#" class="logo">KM</a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <!-- Hero Section Atualizada -->
     <section class="hero">
         <div id="particles-js"></div>
@@ -2306,6 +2258,17 @@
                         document.body.style.overflow = 'hidden';
                     }
                 });
+            }
+        });
+    </script>
+    <script>
+        // Controle do header no scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.cabecalho');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
         });
     </script>
