@@ -1,9 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelvin Moraes | Dev Full Stack & Professor</title>
+    <head>
+        <!-- Meta tags básicas -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kelvin Moraes | Dev Full Stack & Professor</title>
+        
+        <!-- Meta tags de SEO -->
+        <meta name="description" content="Desenvolvedor Full Stack e Professor, especializado em React, Node.js e UI/UX Design. Portfólio profissional com projetos inovadores e artigos sobre tecnologia.">
+        <meta name="keywords" content="desenvolvedor full stack, professor de programação, react, node.js, UI/UX design, portfolio desenvolvedor, Kelvin Moraes">
+        <meta name="author" content="Kelvin Moraes">
+        <meta name="robots" content="index, follow">
+        
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://kerubindev.github.io/">
+        <meta property="og:title" content="Kelvin Moraes | Dev Full Stack & Professor">
+        <meta property="og:description" content="Desenvolvedor Full Stack e Professor, especializado em React, Node.js e UI/UX Design.">
+        <meta property="og:image" content="https://kerubindev.github.io/img/og-image.jpg">
+        
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://kerubindev.github.io/">
+        <meta property="twitter:title" content="Kelvin Moraes | Dev Full Stack & Professor">
+        <meta property="twitter:description" content="Desenvolvedor Full Stack e Professor, especializado em React, Node.js e UI/UX Design.">
+        <meta property="twitter:image" content="https://kerubindev.github.io/img/og-image.jpg">
+        
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://kerubindev.github.io/">
+        
+        <!-- Favicons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        
+        <!-- Preconnect e Prefetch -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://cdn.jsdelivr.net">
+        
+        <!-- Schema.org markup para Rich Snippets -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Kelvin Moraes",
+            "url": "https://kerubindev.github.io/",
+            "image": "https://kerubindev.github.io/img/foto.png",
+            "sameAs": [
+                "https://github.com/KerubinDev",
+                "https://www.behance.net/kelvinmoraes_kerubin",
+                "https://linkedin.com/in/kelvin-moraes"
+            ],
+            "jobTitle": "Desenvolvedor Full Stack",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "E-pro"
+            },
+            "description": "Desenvolvedor Full Stack e Professor, especializado em React, Node.js e UI/UX Design."
+        }
+        </script>
     <!-- Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -190,29 +248,42 @@
             }
         }
 
-        /* Cursor Personalizado */
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--cor-secundaria);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 999;
-            transition: all 0.1s ease;
-            transform: translate(-50%, -50%);
+        /* Cursor Personalizado - apenas para desktop */
+        @media (min-width: 769px) {
+            .cursor {
+                width: 20px;
+                height: 20px;
+                border: 2px solid var(--cor-secundaria);
+                border-radius: 50%;
+                position: fixed;
+                pointer-events: none;
+                z-index: 999;
+                transition: all 0.1s ease;
+                transform: translate(-50%, -50%);
+            }
+
+            .cursor-dot {
+                width: 4px;
+                height: 4px;
+                background: var(--cor-secundaria);
+                border-radius: 50%;
+                position: fixed;
+                pointer-events: none;
+                z-index: 9999;
+                transition: all 0.15s ease-out;
+                transform: translate(-50%, -50%);
+            }
         }
 
-        .cursor-dot {
-            width: 4px;
-            height: 4px;
-            background: var(--cor-secundaria);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: all 0.15s ease-out;
-            transform: translate(-50%, -50%);
+        /* Remover cursor personalizado em dispositivos móveis */
+        @media (max-width: 768px) {
+            * {
+                cursor: auto !important;
+            }
+            
+            .cursor, .cursor-dot {
+                display: none !important;
+            }
         }
 
         /* Responsividade */
@@ -1251,65 +1322,6 @@
             color: var(--cor-secundaria);
         }
 
-        /* Área de Downloads */
-        .downloads {
-            padding: 100px 0;
-            background: var(--cor-primaria);
-        }
-
-        .downloads-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .download-card {
-            background: rgba(138, 43, 226, 0.1);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            text-decoration: none;
-            transition: var(--transicao);
-            border: 1px solid rgba(138, 43, 226, 0.2);
-        }
-
-        .download-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
-        }
-
-        .download-icon {
-            font-size: 2.5rem;
-            color: var(--cor-secundaria);
-            margin-bottom: 1rem;
-        }
-
-        .download-card h3 {
-            color: var(--cor-texto);
-            margin-bottom: 0.5rem;
-        }
-
-        .download-card p {
-            color: var(--cor-texto-secundario);
-            margin-bottom: 1.5rem;
-        }
-
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--cor-secundaria);
-            color: var(--cor-texto);
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            transition: var(--transicao);
-        }
-
-        .download-card:hover .download-btn {
-            transform: scale(1.05);
-        }
-
         /* Footer */
         .footer {
             background: var(--cor-primaria);
@@ -1494,6 +1506,50 @@
         .nav-links a:hover::after {
             width: 100%;
         }
+
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            z-index: 9999;
+            display: none;
+        }
+
+        .cookie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .cookie-buttons button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cookie-buttons button:first-child {
+            background: var(--cor-secundaria);
+            color: white;
+        }
+
+        .cookie-buttons button:last-child {
+            background: transparent;
+            border: 1px solid var(--cor-secundaria);
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -1512,7 +1568,7 @@
     </header>
 
     <!-- Hero Section Atualizada -->
-    <section class="hero">
+    <section class="hero" role="banner">
         <div id="particles-js"></div>
         <div class="hero-content">
             <span class="hero-subtitle">Olá, eu sou</span>
@@ -1591,15 +1647,17 @@
     </div>
 
     <!-- Seção Sobre com Cards Flutuantes -->
-    <section class="sobre" id="sobre">
+    <section class="sobre" id="sobre" role="article">
         <div class="container">
             <div class="sobre-grid">
                 <div class="foto-container">
                     <div class="foto-wrapper foto-animate">
-                        <img src="https://kerubindev.github.io/img/foto.png" 
-                             alt="Foto de perfil" 
-                             class="foto-perfil"
-                             onerror="this.onerror=null; handleImageError(this);">
+                        <img src="img/foto.png" 
+                             alt="Kelvin Moraes - Desenvolvedor Full Stack" 
+                             loading="lazy"
+                             width="300" 
+                             height="400"
+                             class="foto-perfil">
                         <div class="foto-overlay"></div>
                         <div class="foto-border"></div>
                     </div>
@@ -2118,38 +2176,8 @@
         </div>
     </section>
 
-    <!-- Área de Downloads -->
-    <section class="downloads" id="downloads">
-        <div class="container">
-            <h2 class="secao-titulo">Downloads</h2>
-            <div class="downloads-grid">
-                <a href="/assets/curriculo.pdf" class="download-card" target="_blank">
-                    <div class="download-icon">
-                        <i class="fas fa-file-pdf"></i>
-                    </div>
-                    <h3>Currículo</h3>
-                    <p>Download do CV em PDF</p>
-                    <span class="download-btn">
-                        <i class="fas fa-download"></i> Baixar
-                    </span>
-                </a>
-
-                <a href="/assets/portfolio.pdf" class="download-card" target="_blank">
-                    <div class="download-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <h3>Portfólio</h3>
-                    <p>Projetos detalhados em PDF</p>
-                    <span class="download-btn">
-                        <i class="fas fa-download"></i> Baixar
-                    </span>
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
@@ -2271,6 +2299,140 @@
                 header.classList.remove('scrolled');
             }
         });
+    </script>
+    <script>
+        // Função para detectar dispositivo móvel
+        function ehDispositivoMovel() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+                || window.matchMedia("(max-width: 768px)").matches;
+        }
+
+        // Função para gerenciar o cursor personalizado
+        function gerenciarCursor() {
+            const estilosCursor = document.createElement('style');
+            
+            if (ehDispositivoMovel()) {
+                // Remove o cursor personalizado em dispositivos móveis
+                estilosCursor.textContent = `
+                    * {
+                        cursor: auto !important;
+                    }
+                    .cursor, .cursor-dot {
+                        display: none !important;
+                    }
+                `;
+            } else {
+                // Mantém o cursor personalizado em desktops
+                estilosCursor.textContent = `
+                    * {
+                        cursor: none !important;
+                    }
+                    .cursor, .cursor-dot {
+                        display: block;
+                    }
+                `;
+            }
+            
+            document.head.appendChild(estilosCursor);
+        }
+
+        // Executa quando o DOM é carregado
+        document.addEventListener('DOMContentLoaded', () => {
+            gerenciarCursor();
+            
+            // Atualiza quando a janela é redimensionada
+            window.addEventListener('resize', gerenciarCursor);
+        });
+    </script>
+    <script>
+        // Adicione esta verificação no início do script do cursor
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!ehDispositivoMovel()) {
+                // Código existente do cursor
+                const cursor = document.querySelector('.cursor');
+                const cursorDot = document.querySelector('.cursor-dot');
+
+                document.addEventListener('mousemove', (e) => {
+                    cursor.style.left = e.clientX + 'px';
+                    cursor.style.top = e.clientY + 'px';
+                    cursorDot.style.left = e.clientX + 'px';
+                    cursorDot.style.top = e.clientY + 'px';
+                });
+            }
+        });
+    </script>
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E4LB77EB28"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        
+        gtag('config', 'G-E4LB77EB28'); // Substitua pelo seu ID do GA4
+    </script>
+
+    <!-- Banner de Cookies -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-content">
+            <p>Este site usa cookies para melhorar sua experiência. Ao continuar navegando, 
+               você concorda com nossa política de privacidade.</p>
+            <div class="cookie-buttons">
+                <button onclick="aceitarCookies()">Aceitar</button>
+                <button onclick="recusarCookies()">Recusar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    const gerenciarCookies = {
+        verificarConsentimento: function() {
+            return localStorage.getItem('cookieConsent');
+        },
+
+        mostrarBanner: function() {
+            if (!this.verificarConsentimento()) {
+                document.getElementById('cookieBanner').style.display = 'block';
+            }
+        },
+
+        aceitarCookies: function() {
+            localStorage.setItem('cookieConsent', 'aceito');
+            document.getElementById('cookieBanner').style.display = 'none';
+            
+            // Inicializar analytics após consentimento
+            this.iniciarAnalytics();
+        },
+
+        recusarCookies: function() {
+            localStorage.setItem('cookieConsent', 'recusado');
+            document.getElementById('cookieBanner').style.display = 'none';
+        },
+
+        iniciarAnalytics: function() {
+            // Iniciar GA4
+            gtag('consent', 'update', {
+                'analytics_storage': 'granted'
+            });
+            
+            // Iniciar Hotjar
+            if (typeof hj === 'function') {
+                hj('stateChange', 'consent-given');
+            }
+        }
+    };
+
+    // Iniciar gerenciamento de cookies
+    document.addEventListener('DOMContentLoaded', () => {
+        gerenciarCookies.mostrarBanner();
+    });
+
+    function aceitarCookies() {
+        gerenciarCookies.aceitarCookies();
+    }
+
+    function recusarCookies() {
+        gerenciarCookies.recusarCookies();
+    }
     </script>
 </body>
 </html>
