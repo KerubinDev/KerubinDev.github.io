@@ -4,7 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KerubinDev - Universo Criativo Digital</title>
+    
+    <!-- Metadados para SEO e compartilhamento em redes sociais -->
+    <meta name="description" content="Portfólio interativo 3D de Kelvin Moraes (Kerubin), desenvolvedor fullstack e game developer com experiência em design gráfico e marketing digital.">
+    <meta name="keywords" content="Kerubin, KerubinDev, desenvolvedor, fullstack, game developer, portfólio, three.js, 3D">
+    <meta name="author" content="Kelvin Moraes">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kerubindev.github.io/">
+    <meta property="og:title" content="KerubinDev - Universo Criativo Digital">
+    <meta property="og:description" content="Explore meu universo digital com uma experiência interativa 3D. Portfólio de desenvolvimento web, jogos e design.">
+    <meta property="og:image" content="https://kerubindev.github.io/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kerubindev.github.io/">
+    <meta property="twitter:title" content="KerubinDev - Universo Criativo Digital">
+    <meta property="twitter:description" content="Explore meu universo digital com uma experiência interativa 3D. Portfólio de desenvolvimento web, jogos e design.">
+    <meta property="twitter:image" content="https://kerubindev.github.io/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+    
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div id="loading-screen">
@@ -32,24 +59,246 @@
         <section id="hub-content" class="content-section is-active">
             <h1>Bem-vindo ao Universo Criativo de KerubinDev</h1>
             <p>Navegue pelos portais para explorar minhas dimensões.</p>
+            <div class="cosmic-quote">
+                <p><i>"Desenvolvedor apaixonado, constantemente evoluindo e ultrapassando fronteiras em código, design e criatividade."</i></p>
+            </div>
         </section>
         <section id="sobre-content" class="content-section">
             <h2>Dimensão Psique & Código</h2>
-            <p>Conteúdo sobre mim...</p>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="profile-placeholder">KM</div>
+                </div>
+                <div class="about-text">
+                    <p>Olá, sou <strong>Kelvin Moraes (Kerubin)</strong>, um desenvolvedor fullstack e game developer do Brasil.</p>
+                    <p>Atualmente sou estudante bilíngue de Desenvolvimento de Sistemas no Senac, onde estou aprimorando minhas habilidades para criar experiências digitais impactantes.</p>
+                    <p>Minha jornada abrange desenvolvimento web, criação de jogos, design gráfico e marketing digital, combinando criatividade técnica com visão artística.</p>
+                    <p>Sou fascinado por psicologia e psicanálise, adoro programar enquanto escuto música clássica, e tenho prazer em resolver quebra-cabeças complexos tanto no código quanto na vida.</p>
+                </div>
+            </div>
         </section>
         <section id="projetos-content" class="content-section">
             <h2>Galáxia Portfólio</h2>
-            <p>Meus projetos...</p>
+            <div class="projects-slider-controls">
+                <button class="slider-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>
+                <div class="slider-indicators">
+                    <span class="indicator active"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                </div>
+                <button class="slider-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="projects-slider">
+                <div class="projects-slide active">
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-icon"><i class="fas fa-robot"></i></div>
+                            <h3>Kerubin AI</h3>
+                            <p>Assistente de IA inteligente desenvolvido com tecnologias de ponta para automação e assistência.</p>
+                            <div class="project-tech">Python • IA • NLP</div>
+                            <button class="project-details-btn" data-project="kerubinai">Ver detalhes</button>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-icon"><i class="fas fa-school"></i></div>
+                            <h3>School Management</h3>
+                            <p>Sistema de gerenciamento escolar completo para administração de alunos, professores e recursos.</p>
+                            <div class="project-tech">Python • SQL • Backend</div>
+                            <button class="project-details-btn" data-project="schoolmanagement">Ver detalhes</button>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-icon"><i class="fas fa-tasks"></i></div>
+                            <h3>Kanban</h3>
+                            <p>Aplicativo de gerenciamento de tarefas com interface visual baseada na metodologia Kanban.</p>
+                            <div class="project-tech">JavaScript • HTML/CSS • Frontend</div>
+                            <button class="project-details-btn" data-project="kanban">Ver detalhes</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="projects-slide">
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-icon"><i class="fas fa-gamepad"></i></div>
+                            <h3>Game Project</h3>
+                            <p>Jogo 2D desenvolvido com GameMaker, explorando mecânicas inovadoras e narrativa envolvente.</p>
+                            <div class="project-tech">GameMaker • GML • Game Design</div>
+                            <button class="project-details-btn" data-project="gameproject">Ver detalhes</button>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-icon"><i class="fas fa-code"></i></div>
+                            <h3>Web App</h3>
+                            <p>Aplicação web responsiva e moderna com funcionalidades avançadas e experiência de usuário otimizada.</p>
+                            <div class="project-tech">JavaScript • Node.js • CSS3</div>
+                            <button class="project-details-btn" data-project="webapp">Ver detalhes</button>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-icon"><i class="fas fa-paint-brush"></i></div>
+                            <h3>Design Portfolio</h3>
+                            <p>Conjunto de trabalhos de design gráfico incluindo identidades visuais, UI/UX e materiais promocionais.</p>
+                            <div class="project-tech">Photoshop • Illustrator • UI/UX</div>
+                            <button class="project-details-btn" data-project="designportfolio">Ver detalhes</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="projects-slide">
+                    <div class="github-repos">
+                        <h3>Meus Repositórios GitHub</h3>
+                        <p>Confira meus projetos mais recentes diretamente do GitHub:</p>
+                        <div class="repos-container">
+                            <div class="repo-loading">
+                                <div class="spinner small-spinner"></div>
+                                <p>Carregando repositórios...</p>
+                            </div>
+                            <div class="repos-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="github-link">
+                <a href="https://github.com/KerubinDev" target="_blank">Ver mais no GitHub <i class="fab fa-github"></i></a>
+            </div>
         </section>
         <section id="habilidades-content" class="content-section">
             <h2>Nebulosa Habilidades</h2>
-            <p>Minhas habilidades...</p>
+            <div class="skills-container">
+                <div class="skills-category">
+                    <h3>Frontend</h3>
+                    <div class="skills-list">
+                        <div class="skill-item"><span>HTML5</span></div>
+                        <div class="skill-item"><span>CSS3</span></div>
+                        <div class="skill-item"><span>JavaScript</span></div>
+                    </div>
+                </div>
+                <div class="skills-category">
+                    <h3>Backend</h3>
+                    <div class="skills-list">
+                        <div class="skill-item"><span>Python</span></div>
+                        <div class="skill-item"><span>Node.js</span></div>
+                        <div class="skill-item"><span>SQL</span></div>
+                    </div>
+                </div>
+                <div class="skills-category">
+                    <h3>Game Dev</h3>
+                    <div class="skills-list">
+                        <div class="skill-item"><span>C++</span></div>
+                        <div class="skill-item"><span>GML</span></div>
+                        <div class="skill-item"><span>GameMaker</span></div>
+                    </div>
+                </div>
+                <div class="skills-category">
+                    <h3>Design</h3>
+                    <div class="skills-list">
+                        <div class="skill-item"><span>Photoshop</span></div>
+                        <div class="skill-item"><span>Illustrator</span></div>
+                        <div class="skill-item"><span>InDesign</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="other-skills">
+                <h3>Outras Habilidades</h3>
+                <div class="skill-tags">
+                    <span>Marketing Digital</span>
+                    <span>UI/UX Design</span>
+                    <span>Ensino</span>
+                    <span>Psicologia</span>
+                </div>
+            </div>
         </section>
         <section id="contato-content" class="content-section">
             <h2>Estação Contato</h2>
-            <p>Entre em contato...</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:kelvin.moraes117@gmail.com">kelvin.moraes117@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/KerubinDev" target="_blank">github.com/KerubinDev</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="#" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+            <div class="contact-form-container">
+                <h3>Envie uma Mensagem</h3>
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Assunto</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Enviar Mensagem <i class="fas fa-paper-plane"></i></button>
+                </form>
+                <div class="form-status">
+                    <div class="form-success" style="display: none;">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Mensagem enviada com sucesso! Obrigado pelo contato.</p>
+                    </div>
+                    <div class="form-error" style="display: none;">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <p>Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-message">
+                <p>Estou disponível para projetos de desenvolvimento web, criação de jogos, design gráfico e marketing digital. Fique à vontade para entrar em contato para discutirmos como posso ajudar!</p>
+            </div>
         </section>
     </main>
+
+    <!-- Modais dos Projetos -->
+    <div class="project-modal" id="project-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Título do Projeto</h3>
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="project-gallery">
+                    <div class="gallery-main">
+                        <img src="images/projects/placeholder.jpg" alt="Imagem Principal">
+                    </div>
+                    <div class="gallery-thumbs">
+                        <img src="images/projects/placeholder.jpg" alt="Miniatura 1" class="active">
+                        <img src="images/projects/placeholder.jpg" alt="Miniatura 2">
+                        <img src="images/projects/placeholder.jpg" alt="Miniatura 3">
+                    </div>
+                </div>
+                <div class="project-description">
+                    <h4>Descrição</h4>
+                    <p>Descrição detalhada do projeto.</p>
+                    
+                    <h4>Tecnologias Utilizadas</h4>
+                    <div class="tech-tags"></div>
+                    
+                    <h4>Recursos</h4>
+                    <ul class="features-list"></ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" target="_blank" class="btn primary-btn">Ver Projeto <i class="fas fa-external-link-alt"></i></a>
+                <a href="#" target="_blank" class="btn secondary-btn">Repositório <i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Seletor de idiomas -->
+    <div class="language-selector">
+        <button class="language-btn active" data-lang="pt-BR">PT</button>
+        <button class="language-btn" data-lang="en">EN</button>
+        <button class="language-btn" data-lang="ja">JP</button>
+    </div>
     
     <!-- Bibliotecas JS Tradicionais -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -60,6 +309,22 @@
     <script src="https://unpkg.com/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script> <!-- Adicionado ShaderPass -->
     <script src="https://unpkg.com/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
 
+    <!-- Bibliotecas adicionais -->
+    <script src="https://cdn.jsdelivr.net/npm/i18next@21.6.14/i18next.min.js"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
     <script src="main.js"></script>
+    <script src="projects.js"></script>
+    <script src="i18n.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
 </body>
 </html>
