@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KerubinDev - Desenvolvedor & Criador Digital</title>
-    <meta name="description" content="Portfólio de Kelvin Moraes (KerubinDev) - Desenvolvedor fullstack, game developer e criador digital. Transformando ideias em experiências digitais inovadoras.">
-    <meta name="keywords" content="desenvolvedor, fullstack, game developer, web design, programação, portfolio">
+    <title>Kelvin Moraes - KerubinDev | Desenvolvedor & Criador Digital</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" as="script">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Meta tags for SEO and social media -->
+    <meta name="description" content="Kelvin Moraes (KerubinDev) - Desenvolvedor Fullstack e Game Developer. Criando experiências digitais inovadoras com código, design e criatividade.">
+    <meta name="keywords" content="desenvolvedor, fullstack, game developer, web development, javascript, python, portfolio">
     <meta name="author" content="Kelvin Moraes - KerubinDev">
     
     <!-- Open Graph / Facebook -->
@@ -21,243 +34,237 @@
     <meta property="twitter:description" content="Transformando ideias em experiências digitais através de código, design e criatividade">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/themes.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    
-    <!-- Anime.js -->
-    <script src="libs/anime.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
 </head>
-<body data-theme="light">
-    <!-- Loading Screen -->
-    <div id="loading-screen" class="loading-screen">
-        <div class="loading-content">
-            <div class="loading-logo">
-                <span class="logo-text">KD</span>
-                <div class="loading-particles"></div>
+<body>
+    <!-- System Loader -->
+    <div id="systemLoader" class="system-loader">
+        <div class="loader-container">
+            <!-- Neural Interface Header -->
+            <div class="neural-header">
+                <div class="neural-logo">
+                    <div class="logo-grid">
+                        <div class="grid-dot"></div>
+                        <div class="grid-dot"></div>
+                        <div class="grid-dot"></div>
+                        <div class="grid-dot"></div>
+                    </div>
+                </div>
+                <h1 class="neural-title">KERUBINDEV NEURAL INTERFACE</h1>
+                <div class="version-info">v3.14.159 | Build 2025.07.06</div>
             </div>
-            <div class="loading-text">Carregando experiência...</div>
-            <div class="loading-bar">
-                <div class="loading-progress"></div>
+            
+            <!-- Boot Sequence -->
+            <div class="boot-sequence">
+                <div class="boot-line" data-delay="500">
+                    <span class="boot-prompt">$</span>
+                    <span class="boot-text">Initializing quantum processors...</span>
+                    <span class="boot-status">[OK]</span>
+                </div>
+                <div class="boot-line" data-delay="1200">
+                    <span class="boot-prompt">$</span>
+                    <span class="boot-text">Loading neural networks...</span>
+                    <span class="boot-status">[OK]</span>
+                </div>
+                <div class="boot-line" data-delay="1800">
+                    <span class="boot-prompt">$</span>
+                    <span class="boot-text">Establishing holographic interface...</span>
+                    <span class="boot-status">[OK]</span>
+                </div>
+                <div class="boot-line" data-delay="2400">
+                    <span class="boot-prompt">$</span>
+                    <span class="boot-text">Synchronizing creative algorithms...</span>
+                    <span class="boot-status">[OK]</span>
+                </div>
+                <div class="boot-line" data-delay="3000">
+                    <span class="boot-prompt">$</span>
+                    <span class="boot-text">Activating portfolio matrix...</span>
+                    <span class="boot-status">[OK]</span>
+                </div>
+                <div class="boot-line" data-delay="3600">
+                    <span class="boot-prompt">$</span>
+                    <span class="boot-text">Welcome to the future, human.</span>
+                    <span class="boot-status">[READY]</span>
+                </div>
             </div>
-        </div>
-        <div class="loading-background">
-            <div class="bg-pattern"></div>
-            <div class="bg-gradient"></div>
+            
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-label">System Initialization</div>
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <div id="progressText" class="progress-text">0%</div>
+            </div>
+            
+            <!-- System Stats -->
+            <div class="system-stats">
+                <div class="stat-item">
+                    <span class="stat-label">CPU:</span>
+                    <span id="cpuUsage" class="stat-value">0%</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">RAM:</span>
+                    <span id="ramUsage" class="stat-value">0 MB</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">GPU:</span>
+                    <span id="gpuUsage" class="stat-value">0%</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">NET:</span>
+                    <span id="netSpeed" class="stat-value">0 Mbps</span>
+                </div>
+            </div>
+            
+            <!-- Holographic Scan Lines -->
+            <div class="scan-lines"></div>
+            
+            <!-- Futuristic Circles -->
+            <div class="loader-circles">
+                <div class="circle circle-1"></div>
+                <div class="circle circle-2"></div>
+                <div class="circle circle-3"></div>
+            </div>
+            
+            <!-- Binary Code Background -->
+            <div class="binary-code" id="binaryCode"></div>
         </div>
     </div>
 
-    <!-- Navigation -->
-    <nav id="navbar" class="navbar">
-        <div class="nav-container">
-            <a href="#home" class="logo-link">
-                <div class="logo">
-                    <span class="logo-text">KerubinDev</span>
-                    <div class="logo-accent"></div>
+    <!-- Main Content -->
+    <div id="mainContent" class="main-content" style="display: none;">
+        <!-- Continuous Scroll Companion -->
+        <div id="scrollCompanion" class="scroll-companion">
+            <div class="companion-core">
+                <div class="core-ring"></div>
+                <div class="core-center">
+                    <div class="progress-indicator"></div>
                 </div>
-            </a>
-            
-            <div class="nav-menu" id="nav-menu">
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="#home" class="nav-link active">
-                            <span class="nav-text">Início</span>
-                            <div class="nav-indicator"></div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link">
-                            <span class="nav-text">Sobre</span>
-                            <div class="nav-indicator"></div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#skills" class="nav-link">
-                            <span class="nav-text">Habilidades</span>
-                            <div class="nav-indicator"></div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#projects" class="nav-link">
-                            <span class="nav-text">Projetos</span>
-                            <div class="nav-indicator"></div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#articles" class="nav-link">
-                            <span class="nav-text">Artigos</span>
-                            <div class="nav-indicator"></div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link">
-                            <span class="nav-text">Contato</span>
-                            <div class="nav-indicator"></div>
-                        </a>
-                    </li>
-                </ul>
             </div>
-            
-            <div class="nav-controls">
-                <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
-                    <div class="theme-icon">
-                        <div class="sun-icon">☀️</div>
-                        <div class="moon-icon">🌙</div>
-                    </div>
-                </button>
-                
-                <button id="nav-toggle" class="nav-toggle" aria-label="Menu">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
+            <div class="companion-trail"></div>
+            <div class="companion-info">
+                <div class="section-indicator">Home</div>
+                <div class="scroll-progress">0%</div>
             </div>
         </div>
-        <div class="nav-background"></div>
-    </nav>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Hero Section -->
-        <section id="home" class="hero-section">
-            <div class="hero-background">
-                <div class="hero-particles"></div>
-                <div class="hero-gradient"></div>
-                <div class="hero-pattern"></div>
+        <!-- Particles Background -->
+        <div id="particles-js" class="particles-background"></div>
+        
+        <!-- Three.js 3D Background -->
+        <canvas id="threejs-canvas" class="threejs-background"></canvas>
+        
+        <!-- Navigation -->
+        <nav id="navbar" class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <span class="brand-text">KerubinDev</span>
+                    <div class="brand-glow"></div>
+                </div>
+                
+                <div class="nav-menu" id="navMenu">
+                    <a href="#home" class="nav-link active">🏠 Início</a>
+                    <a href="#about" class="nav-link">👨‍💻 Sobre</a>
+                    <a href="#skills" class="nav-link">⚡ Habilidades</a>
+                    <a href="#projects" class="nav-link">🚀 Projetos</a>
+                    <a href="#articles" class="nav-link">📝 Artigos</a>
+                    <a href="#contact" class="nav-link">📡 Contato</a>
+                </div>
+                
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
-            
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero section" data-section-name="Início">
             <div class="hero-container">
                 <div class="hero-content">
                     <div class="hero-intro">
-                        <span class="hero-greeting">Olá, eu sou</span>
+                        <span class="intro-text">Olá, eu sou</span>
                     </div>
                     
-                    <h1 class="hero-title">
-                        <span class="title-line">Kelvin Moraes</span>
-                        <span class="title-subtitle">Desenvolvedor & Criador Digital</span>
-                    </h1>
-                    
-                    <p class="hero-description">
-                        Transformando ideias em experiências digitais através de código, design e criatividade
-                    </p>
-                    
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="5">0</span>
-                            <span class="stat-label">Anos Codando</span>
+                    <div class="hero-title">
+                        <div class="title-line">
+                            <h1>Kelvin Moraes</h1>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="50">0</span>
-                            <span class="stat-label">Projetos</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="∞">0</span>
-                            <span class="stat-label">Criatividade</span>
+                        <div class="title-line">
+                            <h2>Desenvolvedor & Criador Digital</h2>
                         </div>
                     </div>
                     
-                    <div class="hero-actions">
-                        <a href="#projects" class="btn btn-primary">
-                            <span class="btn-text">Ver Projetos</span>
-                            <div class="btn-effect"></div>
-                        </a>
-                        <a href="#contact" class="btn btn-secondary">
-                            <span class="btn-text">Entrar em Contato</span>
-                            <div class="btn-effect"></div>
-                        </a>
+                    <div class="hero-description">
+                        <p>Transformando ideias em experiências digitais através de código, design e criatividade</p>
                     </div>
-                </div>
-                
-                <div class="hero-visual">
-                    <div class="code-snippet">
+                    
+                    <div class="code-block">
                         <div class="code-header">
                             <div class="code-dots">
                                 <span class="dot red"></span>
                                 <span class="dot yellow"></span>
                                 <span class="dot green"></span>
                             </div>
+                            <span class="code-title">developer.js</span>
                         </div>
                         <div class="code-content">
-                            <div class="code-line">
-                                <span class="code-keyword">const</span>
-                                <span class="code-variable"> developer</span>
-                                <span class="code-operator"> = </span>
-                                <span class="code-string">"KerubinDev"</span>
-                            </div>
-                            <div class="code-line">
-                                <span class="code-keyword">function</span>
-                                <span class="code-function"> createAmazingThings</span>
-                                <span class="code-bracket">()</span>
-                                <span class="code-bracket"> {</span>
-                            </div>
-                            <div class="code-line code-indent">
-                                <span class="code-keyword">return</span>
-                                <span class="code-string"> "innovation"</span>
-                            </div>
-                            <div class="code-line">
-                                <span class="code-bracket">}</span>
-                            </div>
+                            <code>
+                                <span class="code-line">const developer = {</span>
+                                <span class="code-line">    name: 'KerubinDev',</span>
+                                <span class="code-line">    skills: ['Fullstack', 'GameDev'],</span>
+                                <span class="code-line">    passion: 'Creating Amazing Things',</span>
+                                <span class="code-line">    mission: 'Innovation'</span>
+                                <span class="code-line">};</span>
+                            </code>
                         </div>
                     </div>
                     
-                    <div class="floating-elements">
-                        <div class="floating-element element-1">💻</div>
-                        <div class="floating-element element-2">🎨</div>
-                        <div class="floating-element element-3">⚡</div>
-                        <div class="floating-element element-4">🚀</div>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">Ver Projetos 🚀</a>
+                        <a href="#contact" class="btn btn-secondary">Entrar em Contato 📡</a>
                     </div>
+                </div>
+                
+                <div class="hero-3d-container">
+                    <div class="floating-cubes">
+                        <div class="cube cube-1"></div>
+                        <div class="cube cube-2"></div>
+                        <div class="cube cube-3"></div>
+                        <div class="cube cube-4"></div>
+                        <div class="cube cube-5"></div>
+                    </div>
+                    <div class="hologram-lines"></div>
+                    <div class="logo-hologram"></div>
                 </div>
             </div>
             
             <div class="scroll-indicator">
-                <span class="scroll-text">Role para descobrir</span>
+                <span>Role para descobrir</span>
                 <div class="scroll-arrow">↓</div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="about-section">
-            <div class="section-background">
-                <div class="bg-pattern"></div>
-                <div class="bg-gradient"></div>
-            </div>
-            
+        <section id="about" class="about section parallax-section" data-speed="0.3" data-section-name="Sobre">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">
-                        <span class="title-accent">Sobre Mim</span>
-                        <span class="title-main">Conheça minha jornada e paixões</span>
-                    </h2>
+                    <span class="section-number">01.</span>
+                    <h2 class="section-title">Sobre Mim</h2>
+                    <p class="section-subtitle">Conheça minha jornada e paixões</p>
                 </div>
                 
                 <div class="about-content">
                     <div class="about-text">
-                        <div class="text-block">
-                            <p class="text-highlight">
-                                Olá! Sou <strong>Kelvin Moraes (KerubinDev)</strong>, um desenvolvedor fullstack e game developer apaixonado por criar experiências digitais inovadoras.
-                            </p>
-                            
-                            <p>
-                                Atualmente estudante bilíngue de Desenvolvimento de Sistemas no Senac, combino conhecimento técnico com criatividade para desenvolver soluções que fazem a diferença.
-                            </p>
-                            
-                            <p>
-                                Minha jornada abrange desenvolvimento web, criação de jogos, design gráfico e marketing digital. Sou fascinado por psicologia e psicanálise, e adoro programar enquanto escuto música clássica.
-                            </p>
-                        </div>
+                        <p>Olá! Sou <strong>Kelvin Moraes (KerubinDev)</strong>, um desenvolvedor fullstack e game developer apaixonado por criar experiências digitais inovadoras.</p>
                         
-                        <div class="about-specialties">
+                        <p>Atualmente estudante bilíngue de Desenvolvimento de Sistemas no Senac, combino conhecimento técnico com criatividade para desenvolver soluções que fazem a diferença.</p>
+                        
+                        <p>Minha jornada abrange desenvolvimento web, criação de jogos, design gráfico e marketing digital. Sou fascinado por psicologia e psicanálise, e adoro programar enquanto escuto música clássica.</p>
+                        
+                        <div class="specialties">
                             <div class="specialty-item">
                                 <div class="specialty-icon">🌐</div>
                                 <div class="specialty-content">
@@ -285,10 +292,10 @@
                     </div>
                     
                     <div class="about-visual">
-                        <div class="profile-card">
-                            <div class="profile-image">
-                                <div class="image-placeholder">👨‍💻</div>
-                                <div class="image-effects"></div>
+                        <div class="profile-card-3d">
+                            <div class="profile-avatar">
+                                <div class="avatar-glow"></div>
+                                <div class="avatar-content">👨‍💻</div>
                             </div>
                             <div class="profile-info">
                                 <h3>Kelvin Moraes</h3>
@@ -306,142 +313,122 @@
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="skills-section">
-            <div class="section-background">
-                <div class="bg-pattern"></div>
-                <div class="bg-gradient"></div>
-            </div>
-            
+        <section id="skills" class="skills section parallax-section" data-speed="0.5" data-section-name="Habilidades">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">
-                        <span class="title-accent">Habilidades</span>
-                        <span class="title-main">Tecnologias e ferramentas que domino</span>
-                    </h2>
+                    <span class="section-number">02.</span>
+                    <h2 class="section-title">Habilidades</h2>
+                    <p class="section-subtitle">Tecnologias e ferramentas que domino</p>
                 </div>
                 
                 <div class="skills-grid">
                     <div class="skill-category">
                         <h3 class="category-title">Frontend</h3>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">HTML5</span>
-                                    <span class="skill-level">95%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="95"></div>
-                                </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">HTML5</span>
+                                <span class="skill-percentage">95%</span>
                             </div>
-                            
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">CSS3</span>
-                                    <span class="skill-level">90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="90"></div>
-                                </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percentage="95"></div>
                             </div>
-                            
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">JavaScript</span>
-                                    <span class="skill-level">85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="85"></div>
-                                </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">CSS3</span>
+                                <span class="skill-percentage">90%</span>
                             </div>
-                            
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">React</span>
-                                    <span class="skill-level">80%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="80"></div>
-                                </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percentage="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percentage="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">React</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percentage="80"></div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="skill-category">
                         <h3 class="category-title">Backend</h3>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Python</span>
-                                    <span class="skill-level">88%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="88"></div>
-                                </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-percentage">88%</span>
                             </div>
-                            
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Node.js</span>
-                                    <span class="skill-level">75%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="75"></div>
-                                </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percentage="88"></div>
                             </div>
-                            
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">MongoDB</span>
-                                    <span class="skill-level">70%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="70"></div>
-                                </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Node.js</span>
+                                <span class="skill-percentage">75%</span>
                             </div>
-                            
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">FastAPI</span>
-                                    <span class="skill-level">82%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="82"></div>
-                                </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percentage="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">MongoDB</span>
+                                <span class="skill-percentage">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percentage="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">FastAPI</span>
+                                <span class="skill-percentage">82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percentage="82"></div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="skill-category">
                         <h3 class="category-title">Game Development</h3>
-                        <div class="skills-list">
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">C++</span>
-                                    <span class="skill-level">78%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="78"></div>
-                                </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">C++</span>
+                                <span class="skill-percentage">78%</span>
                             </div>
-                            
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">OpenGL</span>
-                                    <span class="skill-level">65%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="65"></div>
-                                </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percentage="78"></div>
                             </div>
-                            
-                            <div class="skill-item">
-                                <div class="skill-info">
-                                    <span class="skill-name">Game Engine</span>
-                                    <span class="skill-level">72%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-width="72"></div>
-                                </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">OpenGL</span>
+                                <span class="skill-percentage">65%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percentage="65"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Game Engine</span>
+                                <span class="skill-percentage">72%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percentage="72"></div>
                             </div>
                         </div>
                     </div>
@@ -450,43 +437,27 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="projects-section">
-            <div class="section-background">
-                <div class="bg-pattern"></div>
-                <div class="bg-gradient"></div>
-            </div>
-            
+        <section id="projects" class="projects section parallax-section" data-speed="0.4" data-section-name="Projetos">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">
-                        <span class="title-accent">Projetos</span>
-                        <span class="title-main">Alguns dos meus trabalhos mais recentes</span>
-                    </h2>
+                    <span class="section-number">03.</span>
+                    <h2 class="section-title">Projetos</h2>
+                    <p class="section-subtitle">Alguns dos meus trabalhos mais recentes</p>
                 </div>
                 
-                <div class="projects-filter">
+                <div class="project-filters">
                     <button class="filter-btn active" data-filter="all">Todos</button>
                     <button class="filter-btn" data-filter="web">Web</button>
                     <button class="filter-btn" data-filter="games">Games</button>
-                    <button class="filter-btn" data-filter="ia">IA</button>
+                    <button class="filter-btn" data-filter="ai">IA</button>
                 </div>
                 
                 <div class="projects-grid">
-                    <div class="project-card" data-category="ia">
-                        <div class="project-image">
-                            <div class="image-placeholder">🤖</div>
-                            <div class="project-overlay">
-                                <div class="project-actions">
-                                    <a href="#" class="project-btn" title="Ver Projeto">👁️</a>
-                                    <a href="#" class="project-btn" title="Ver Código">💻</a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="project-card" data-category="ai">
+                        <div class="project-icon">🤖</div>
                         <div class="project-content">
-                            <h3 class="project-title">Sistema de IA</h3>
-                            <p class="project-description">
-                                Sistema de inteligência artificial para automação e assistência, desenvolvido com tecnologias de ponta para processamento de linguagem natural.
-                            </p>
+                            <h3>Sistema de IA</h3>
+                            <p>Sistema de inteligência artificial para automação e assistência, desenvolvido com tecnologias de ponta para processamento de linguagem natural.</p>
                             <div class="project-tags">
                                 <span class="tag">Python</span>
                                 <span class="tag">IA</span>
@@ -494,23 +465,14 @@
                                 <span class="tag">Machine Learning</span>
                             </div>
                         </div>
+                        <div class="project-glow"></div>
                     </div>
                     
                     <div class="project-card" data-category="web">
-                        <div class="project-image">
-                            <div class="image-placeholder">🌐</div>
-                            <div class="project-overlay">
-                                <div class="project-actions">
-                                    <a href="#" class="project-btn" title="Ver Projeto">👁️</a>
-                                    <a href="#" class="project-btn" title="Ver Código">💻</a>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="project-icon">🌐</div>
                         <div class="project-content">
-                            <h3 class="project-title">Portfólio 3D</h3>
-                            <p class="project-description">
-                                Site de portfólio com experiência 3D imersiva usando Anime.js e tecnologias web modernas para criar animações fluidas e elegantes.
-                            </p>
+                            <h3>Portfólio 3D</h3>
+                            <p>Site de portfólio com experiência 3D imersiva usando Anime.js e tecnologias web modernas para criar animações fluidas e elegantes.</p>
                             <div class="project-tags">
                                 <span class="tag">JavaScript</span>
                                 <span class="tag">Anime.js</span>
@@ -518,23 +480,14 @@
                                 <span class="tag">HTML5</span>
                             </div>
                         </div>
+                        <div class="project-glow"></div>
                     </div>
                     
                     <div class="project-card" data-category="games">
-                        <div class="project-image">
-                            <div class="image-placeholder">🎮</div>
-                            <div class="project-overlay">
-                                <div class="project-actions">
-                                    <a href="#" class="project-btn" title="Ver Projeto">👁️</a>
-                                    <a href="#" class="project-btn" title="Ver Código">💻</a>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="project-icon">🎮</div>
                         <div class="project-content">
-                            <h3 class="project-title">Game Engine 2D</h3>
-                            <p class="project-description">
-                                Engine de jogos 2D desenvolvida em C++ com foco em performance e facilidade de uso para desenvolvimento de jogos indie.
-                            </p>
+                            <h3>Game Engine 2D</h3>
+                            <p>Engine de jogos 2D desenvolvida em C++ com foco em performance e facilidade de uso para desenvolvimento de jogos indie.</p>
                             <div class="project-tags">
                                 <span class="tag">C++</span>
                                 <span class="tag">GameDev</span>
@@ -542,23 +495,14 @@
                                 <span class="tag">Engine</span>
                             </div>
                         </div>
+                        <div class="project-glow"></div>
                     </div>
                     
                     <div class="project-card" data-category="web">
-                        <div class="project-image">
-                            <div class="image-placeholder">📝</div>
-                            <div class="project-overlay">
-                                <div class="project-actions">
-                                    <a href="#" class="project-btn" title="Ver Projeto">👁️</a>
-                                    <a href="#" class="project-btn" title="Ver Código">💻</a>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="project-icon">📝</div>
                         <div class="project-content">
-                            <h3 class="project-title">Blog Platform</h3>
-                            <p class="project-description">
-                                Plataforma de blog com sistema de artigos em Markdown, busca avançada e interface administrativa completa.
-                            </p>
+                            <h3>Blog Platform</h3>
+                            <p>Plataforma de blog com sistema de artigos em Markdown, busca avançada e interface administrativa completa.</p>
                             <div class="project-tags">
                                 <span class="tag">Node.js</span>
                                 <span class="tag">MongoDB</span>
@@ -566,23 +510,14 @@
                                 <span class="tag">Markdown</span>
                             </div>
                         </div>
+                        <div class="project-glow"></div>
                     </div>
                     
                     <div class="project-card" data-category="web">
-                        <div class="project-image">
-                            <div class="image-placeholder">📱</div>
-                            <div class="project-overlay">
-                                <div class="project-actions">
-                                    <a href="#" class="project-btn" title="Ver Projeto">👁️</a>
-                                    <a href="#" class="project-btn" title="Ver Código">💻</a>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="project-icon">📱</div>
                         <div class="project-content">
-                            <h3 class="project-title">Task Manager App</h3>
-                            <p class="project-description">
-                                Aplicativo mobile para gestão de tarefas e produtividade com sincronização em nuvem e interface intuitiva.
-                            </p>
+                            <h3>Task Manager App</h3>
+                            <p>Aplicativo mobile para gestão de tarefas e produtividade com sincronização em nuvem e interface intuitiva.</p>
                             <div class="project-tags">
                                 <span class="tag">React Native</span>
                                 <span class="tag">Firebase</span>
@@ -590,23 +525,14 @@
                                 <span class="tag">Mobile</span>
                             </div>
                         </div>
+                        <div class="project-glow"></div>
                     </div>
                     
                     <div class="project-card" data-category="web">
-                        <div class="project-image">
-                            <div class="image-placeholder">🔗</div>
-                            <div class="project-overlay">
-                                <div class="project-actions">
-                                    <a href="#" class="project-btn" title="Ver Projeto">👁️</a>
-                                    <a href="#" class="project-btn" title="Ver Código">💻</a>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="project-icon">🔗</div>
                         <div class="project-content">
-                            <h3 class="project-title">API REST</h3>
-                            <p class="project-description">
-                                API robusta para gerenciamento de dados com autenticação JWT, documentação automática e testes integrados.
-                            </p>
+                            <h3>API REST</h3>
+                            <p>API robusta para gerenciamento de dados com autenticação JWT, documentação automática e testes integrados.</p>
                             <div class="project-tags">
                                 <span class="tag">Python</span>
                                 <span class="tag">FastAPI</span>
@@ -614,24 +540,19 @@
                                 <span class="tag">Docker</span>
                             </div>
                         </div>
+                        <div class="project-glow"></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Articles Section -->
-        <section id="articles" class="articles-section">
-            <div class="section-background">
-                <div class="bg-pattern"></div>
-                <div class="bg-gradient"></div>
-            </div>
-            
+        <section id="articles" class="articles section parallax-section" data-speed="0.6" data-section-name="Artigos">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">
-                        <span class="title-accent">Artigos</span>
-                        <span class="title-main">Reflexões sobre tecnologia, psicologia e criatividade</span>
-                    </h2>
+                    <span class="section-number">04.</span>
+                    <h2 class="section-title">Artigos</h2>
+                    <p class="section-subtitle">Reflexões sobre tecnologia, psicologia e criatividade</p>
                 </div>
                 
                 <div class="articles-grid">
@@ -640,12 +561,8 @@
                             <span class="article-date">21 de Junho de 2025</span>
                             <span class="article-read-time">8 minutos</span>
                         </div>
-                        <h3 class="article-title">
-                            Affective-Sexual Interactions between Humans and Artificial Intelligences
-                        </h3>
-                        <p class="article-excerpt">
-                            Resumo Este estudo científico tem como objetivo investigar as emergentes interações afetivo-sexuais entre humanos e inteligências artificiais (IAs)...
-                        </p>
+                        <h3 class="article-title">Affective-Sexual Interactions between Humans and Artificial Intelligences</h3>
+                        <p class="article-excerpt">Este estudo científico tem como objetivo investigar as emergentes interações afetivo-sexuais entre humanos e inteligências artificiais (IAs)...</p>
                         <div class="article-tags">
                             <span class="tag">IA</span>
                             <span class="tag">Psicologia</span>
@@ -661,12 +578,8 @@
                             <span class="article-date">20 de Junho de 2025</span>
                             <span class="article-read-time">6 minutos</span>
                         </div>
-                        <h3 class="article-title">
-                            O Futuro do Desenvolvimento Web: Tendências e Tecnologias Emergentes
-                        </h3>
-                        <p class="article-excerpt">
-                            Introdução O desenvolvimento web está em constante evolução, com novas tecnologias, frameworks e paradigmas surgindo regularmente. Como desenvolvedor...
-                        </p>
+                        <h3 class="article-title">O Futuro do Desenvolvimento Web: Tendências e Tecnologias Emergentes</h3>
+                        <p class="article-excerpt">O desenvolvimento web está em constante evolução, com novas tecnologias, frameworks e paradigmas surgindo regularmente. Como desenvolvedor...</p>
                         <div class="article-tags">
                             <span class="tag">Web Development</span>
                             <span class="tag">JavaScript</span>
@@ -681,108 +594,95 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="section-background">
-                <div class="bg-pattern"></div>
-                <div class="bg-gradient"></div>
-            </div>
-            
+        <section id="contact" class="contact section parallax-section" data-speed="0.2" data-section-name="Contato">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">
-                        <span class="title-accent">Contato</span>
-                        <span class="title-main">Vamos criar algo incrível juntos</span>
-                    </h2>
+                    <span class="section-number">05.</span>
+                    <h2 class="section-title">Vamos Conversar</h2>
+                    <p class="section-subtitle">Pronto para transformar sua ideia em realidade?</p>
                 </div>
                 
                 <div class="contact-content">
                     <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="contact-icon">📧</div>
-                            <div class="contact-details">
-                                <h3>Email</h3>
-                                <p>contato@kerubindev.com</p>
-                            </div>
-                        </div>
+                        <p>Estou sempre aberto a novos desafios e oportunidades. Seja para um projeto freelance, colaboração ou apenas para trocar ideias sobre tecnologia.</p>
                         
-                        <div class="contact-item">
-                            <div class="contact-icon">💼</div>
-                            <div class="contact-details">
-                                <h3>LinkedIn</h3>
-                                <p>linkedin.com/in/kerubindev</p>
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="method-icon">📧</div>
+                                <div class="method-content">
+                                    <h3>Email</h3>
+                                    <a href="mailto:contato@kerubindev.com">contato@kerubindev.com</a>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">💻</div>
-                            <div class="contact-details">
-                                <h3>GitHub</h3>
-                                <p>github.com/kerubindev</p>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">💼</div>
+                                <div class="method-content">
+                                    <h3>LinkedIn</h3>
+                                    <a href="https://linkedin.com/in/kerubindev" target="_blank">linkedin.com/in/kerubindev</a>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">🐦</div>
-                            <div class="contact-details">
-                                <h3>Twitter</h3>
-                                <p>@kerubindev</p>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">💻</div>
+                                <div class="method-content">
+                                    <h3>GitHub</h3>
+                                    <a href="https://github.com/kerubindev" target="_blank">github.com/kerubindev</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">🐦</div>
+                                <div class="method-content">
+                                    <h3>Twitter</h3>
+                                    <a href="https://twitter.com/kerubindev" target="_blank">@kerubindev</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <form id="contact-form" class="contact-form">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Nome</label>
-                            <input type="text" id="name" name="name" class="form-input" required>
-                            <div class="form-error"></div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
-                            <div class="form-error"></div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject" class="form-label">Assunto</label>
-                            <input type="text" id="subject" name="subject" class="form-input" required>
-                            <div class="form-error"></div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message" class="form-label">Mensagem</label>
-                            <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
-                            <div class="form-error"></div>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-submit">
-                            <span class="btn-text">Enviar Mensagem</span>
-                            <div class="btn-effect"></div>
-                            <div class="btn-loading">
-                                <div class="loading-spinner"></div>
+                    <div class="contact-form-container">
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <div class="input-glow"></div>
+                                <input type="text" name="name" placeholder="Seu nome" required>
                             </div>
-                        </button>
-                    </form>
+                            <div class="form-group">
+                                <div class="input-glow"></div>
+                                <input type="email" name="email" placeholder="Seu email" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-glow"></div>
+                                <input type="text" name="subject" placeholder="Assunto" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-glow"></div>
+                                <textarea name="message" placeholder="Sua mensagem" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar Mensagem 🚀</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 KerubinDev. Todos os direitos reservados.</p>
-                <p>Feito com ❤️ e muito ☕</p>
-            </div>
-        </div>
-    </footer>
+    </div>
 
     <!-- Scripts -->
-    <script src="js/utils.js"></script>
-    <script src="js/theme.js"></script>
-    <script src="js/animations.js"></script>
-    <script src="js/main.js"></script>
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Particles.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Main Script -->
+    <script src="script.js"></script>
 </body>
 </html>
 
