@@ -89,7 +89,7 @@ function initSystemLoader() {
     let progress = 0;
     const loadingInterval = setInterval(() => {
         // Update progress bar
-        progress += Math.random() * 3;
+        progress += Math.random() * 10;
         if (progress > 100) progress = 100;
         
         progressFill.style.width = `${progress}%`;
