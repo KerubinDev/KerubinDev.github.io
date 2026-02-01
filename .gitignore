@@ -5,4 +5,4 @@ dist
 .env
 .vite
 .gemini
-package-lock.json
+.gemini
