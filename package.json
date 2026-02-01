@@ -1,0 +1,21 @@
+{
+  "name": "kerubin-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "three": "^0.160.0",
+    "gsap": "^3.12.5"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "typescript": "^5.3.3",
+    "@types/three": "^0.160.0",
+    "@types/node": "^20.11.0"
+  }
+}
